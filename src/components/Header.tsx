@@ -8,6 +8,7 @@ const tools = [
   { href: "/image-to-pdf/", label: "Image to PDF" },
   { href: "/merge-pdf/", label: "Merge PDF" },
   { href: "/split-pdf/", label: "Split PDF" },
+  { href: "/blog/", label: "Blog" },
 ];
 
 export function Header() {
