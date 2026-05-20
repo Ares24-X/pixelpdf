@@ -15,7 +15,6 @@ export default function PdfToJpgPage() {
   const [status, setStatus] = useState<"idle" | "processing" | "complete" | "error">("idle");
   const [message, setMessage] = useState("");
   const [estimatedTime, setEstimatedTime] = useState("");
-  const [pageCount, setPageCount] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [images, setImages] = useState<ConvertedImage[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -53,42 +52,36 @@ export default function PdfToJpgPage() {
     setIsDragging(false);
   }, []);
 
-  const renderPageToCanvas = async (page: any, scale: number): Promise<HTMLCanvasElement> => {
-    const viewport = page.getViewport({ scale });
-    const canvas = document.createElement("canvas");
-    canvas.width = viewport.width;
-    canvas.height = viewport.height;
-    const ctx = canvas.getContext("2d")!;
-    
-    await page.render({
-      canvasContext: ctx,
-      viewport: viewport,
-    }).promise;
-    
-    return canvas;
-  };
-
   const handleConvert = useCallback(async () => {
     if (!file) return;
 
     setStatus("processing");
     setProgress(0);
-    setMessage("正在加载 PDF...");
+    setMessage("正在加载 PDF 库...");
     setImages([]);
 
     try {
-      // Dynamic import pdfjs-dist
+      // Import pdfjs-dist
       const pdfjs = await import("pdfjs-dist");
       
-      // Set worker source - use CDN worker
-      pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+      // CRITICAL: Disable worker completely for static export
+      // @ts-expect-error - internal API to disable worker
+      pdfjs.GlobalWorkerOptions.workerSrc = null;
+      // @ts-expect-error - disable worker
+      pdfjs.disableWorker = true;
 
+      setMessage("正在读取 PDF 文件...");
       const arrayBuffer = await file.arrayBuffer();
-      const pdf = await pdfjs.getDocument({ data: arrayBuffer }).promise;
+      
+      setMessage("正在解析 PDF...");
+      const pdf = await pdfjs.getDocument({ 
+        data: arrayBuffer,
+        useSystemFonts: true,
+      }).promise;
+      
       const totalPages = pdf.numPages;
-      setPageCount(totalPages);
 
-      const estimatedSeconds = Math.ceil(totalPages * 1.5);
+      const estimatedSeconds = Math.ceil(totalPages * 2);
       setEstimatedTime(`预计需要 ${estimatedSeconds} 秒`);
 
       const convertedImages: ConvertedImage[] = [];
@@ -99,7 +92,22 @@ export default function PdfToJpgPage() {
         setProgress(Math.round(((i - 1) / totalPages) * 100));
 
         const page = await pdf.getPage(i);
-        const canvas = await renderPageToCanvas(page, 2);
+        const viewport = page.getViewport({ scale: 2 });
+        
+        const canvas = document.createElement("canvas");
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        const ctx = canvas.getContext("2d")!;
+        
+        // Fill white background
+        ctx.fillStyle = "white";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        await page.render({
+          canvasContext: ctx,
+          viewport: viewport,
+          canvas: canvas,
+        } as any).promise;
         
         const dataUrl = canvas.toDataURL("image/jpeg", 0.92);
         convertedImages.push({
@@ -108,7 +116,7 @@ export default function PdfToJpgPage() {
           pageNumber: i,
         });
 
-        const remainingSeconds = Math.ceil((totalPages - i) * 1.5);
+        const remainingSeconds = Math.ceil((totalPages - i) * 2);
         setEstimatedTime(`剩余约 ${remainingSeconds} 秒`);
       }
 
@@ -117,7 +125,7 @@ export default function PdfToJpgPage() {
       setStatus("complete");
       setImages(convertedImages);
     } catch (err) {
-      console.error(err);
+      console.error("PDF conversion error:", err);
       setStatus("error");
       setMessage(`转换失败: ${err instanceof Error ? err.message : "未知错误"}`);
     }
@@ -187,9 +195,7 @@ export default function PdfToJpgPage() {
               {file ? file.name : "点击或拖拽 PDF 文件到此处"}
             </p>
             <p className="text-gray-400 text-sm mt-1">
-              {file
-                ? `${formatFileSize(file.size)}`
-                : "支持 .pdf 格式"}
+              {file ? `${formatFileSize(file.size)}` : "支持 .pdf 格式"}
             </p>
           </div>
 
