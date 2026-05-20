@@ -1,13 +1,13 @@
 "use client";
 
 import { useState, useCallback, useRef } from "react";
-import { saveAs } from "file-saver";
 import ProgressBar from "@/components/ProgressBar";
 
 interface SplitResult {
   fileName: string;
   blob: Blob;
   pageCount: number;
+  url: string;
 }
 
 function parsePageRanges(input: string, maxPage: number): number[][] {
@@ -26,7 +26,7 @@ function parsePageRanges(input: string, maxPage: number): number[][] {
 
       const pages: number[] = [];
       for (let i = start; i <= end; i++) {
-        pages.push(i - 1); // Convert to 0-indexed
+        pages.push(i - 1);
       }
       ranges.push(pages);
     } else {
@@ -34,7 +34,7 @@ function parsePageRanges(input: string, maxPage: number): number[][] {
       if (isNaN(page) || page < 1 || page > maxPage) {
         throw new Error(`无效的页码: "${part}"。有效页码范围: 1-${maxPage}`);
       }
-      ranges.push([page - 1]); // Convert to 0-indexed
+      ranges.push([page - 1]);
     }
   }
 
@@ -134,6 +134,7 @@ export default function SplitPdfPage() {
 
         const pdfBytes = await newPdf.save();
         const blob = new Blob([pdfBytes.buffer as ArrayBuffer], { type: "application/pdf" });
+        const url = URL.createObjectURL(blob);
 
         const rangeStr = ranges[i]
           .map((p) => p + 1)
@@ -142,6 +143,7 @@ export default function SplitPdfPage() {
           fileName: `${baseName}_pages_${rangeStr}.pdf`,
           blob,
           pageCount: ranges[i].length,
+          url,
         });
 
         const remainingSeconds = Math.ceil((ranges.length - i - 1) * 0.5);
@@ -149,30 +151,9 @@ export default function SplitPdfPage() {
       }
 
       setProgress(100);
-      setMessage("正在下载拆分后的文件...");
+      setMessage("拆分完成！");
       setStatus("complete");
       setResults(splitResults);
-
-      // Download files with delay to avoid browser blocking
-      for (let i = 0; i < splitResults.length; i++) {
-        const result = splitResults[i];
-        setMessage(`正在下载第 ${i + 1}/${splitResults.length} 个文件: ${result.fileName}...`);
-        
-        // Create download link for better compatibility
-        const url = URL.createObjectURL(result.blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = result.fileName;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        URL.revokeObjectURL(url);
-        
-        // Longer delay between downloads to prevent browser blocking
-        await new Promise((resolve) => setTimeout(resolve, 800));
-      }
-
-      setMessage(`拆分完成！共生成 ${splitResults.length} 个文件`);
     } catch (err) {
       console.error(err);
       setStatus("error");
@@ -181,6 +162,28 @@ export default function SplitPdfPage() {
       );
     }
   }, [file, pageRanges]);
+
+  const handleDownload = useCallback((result: SplitResult) => {
+    const link = document.createElement("a");
+    link.href = result.url;
+    link.download = result.fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }, []);
+
+  const handleDownloadAll = useCallback(() => {
+    results.forEach((result, index) => {
+      setTimeout(() => {
+        const link = document.createElement("a");
+        link.href = result.url;
+        link.download = result.fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }, index * 500);
+    });
+  }, [results]);
 
   const formatFileSize = (bytes: number) => {
     if (bytes < 1024) return bytes + " B";
@@ -306,19 +309,44 @@ export default function SplitPdfPage() {
             {status === "processing" ? "正在拆分..." : "开始拆分"}
           </button>
 
-          {/* 结果信息 */}
+          {/* 结果列表 - 文件卡片展示 */}
           {status === "complete" && results.length > 0 && (
-            <div className="mt-4 p-4 bg-green-50 rounded-lg border border-green-200">
-              <p className="text-green-700 text-sm font-medium mb-2">
-                拆分完成！共生成 {results.length} 个文件：
-              </p>
-              <ul className="text-green-600 text-xs space-y-1">
-                {results.map((r, i) => (
-                  <li key={i}>
-                    {r.fileName} ({r.pageCount} 页, {formatFileSize(r.blob.size)})
-                  </li>
+            <div className="mt-6">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-semibold text-gray-900">
+                  拆分结果 ({results.length} 个文件)
+                </h3>
+                <button
+                  onClick={handleDownloadAll}
+                  className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  下载全部
+                </button>
+              </div>
+              
+              <div className="space-y-3">
+                {results.map((result, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200"
+                  >
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium text-gray-900 truncate">
+                        {result.fileName}
+                      </p>
+                      <p className="text-xs text-gray-500">
+                        {result.pageCount} 页 · {formatFileSize(result.blob.size)}
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => handleDownload(result)}
+                      className="ml-4 px-4 py-2 bg-orange-600 text-white text-sm font-medium rounded-lg hover:bg-orange-700 transition-colors flex-shrink-0"
+                    >
+                      下载
+                    </button>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           )}
         </div>

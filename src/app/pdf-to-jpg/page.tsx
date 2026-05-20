@@ -1,8 +1,13 @@
 "use client";
 
 import { useState, useCallback, useRef } from "react";
-import { saveAs } from "file-saver";
 import ProgressBar from "@/components/ProgressBar";
+
+interface ConvertedImage {
+  fileName: string;
+  url: string;
+  pageNumber: number;
+}
 
 export default function PdfToJpgPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -12,6 +17,7 @@ export default function PdfToJpgPage() {
   const [estimatedTime, setEstimatedTime] = useState("");
   const [pageCount, setPageCount] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const [images, setImages] = useState<ConvertedImage[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileSelect = useCallback((selectedFile: File) => {
@@ -21,6 +27,7 @@ export default function PdfToJpgPage() {
       setProgress(0);
       setMessage("");
       setEstimatedTime("");
+      setImages([]);
     } else {
       setStatus("error");
       setMessage("请选择有效的 PDF 文件");
@@ -46,83 +53,97 @@ export default function PdfToJpgPage() {
     setIsDragging(false);
   }, []);
 
+  const renderPageToCanvas = async (page: any, scale: number): Promise<HTMLCanvasElement> => {
+    const viewport = page.getViewport({ scale });
+    const canvas = document.createElement("canvas");
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+    const ctx = canvas.getContext("2d")!;
+    
+    await page.render({
+      canvasContext: ctx,
+      viewport: viewport,
+    }).promise;
+    
+    return canvas;
+  };
+
   const handleConvert = useCallback(async () => {
     if (!file) return;
 
     setStatus("processing");
     setProgress(0);
     setMessage("正在加载 PDF...");
+    setImages([]);
 
     try {
-      const pdfjsLib = await import("pdfjs-dist");
-      // Use inline worker for static export compatibility
-      const workerCode = `
-        self.onmessage = function(e) {
-          var data = e.data;
-          if (data && data[0] === 'GetDocRequest') {
-            self.postMessage(["GetDoc", { pdfInfo: { numPages: 1 } }]);
-          }
-        };
-      `;
-      const blob = new Blob([workerCode], { type: "application/javascript" });
-      pdfjsLib.GlobalWorkerOptions.workerSrc = URL.createObjectURL(blob);
+      // Dynamic import pdfjs-dist
+      const pdfjs = await import("pdfjs-dist");
+      
+      // Set worker source - use CDN worker
+      pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
       const arrayBuffer = await file.arrayBuffer();
-      const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+      const pdf = await pdfjs.getDocument({ data: arrayBuffer }).promise;
       const totalPages = pdf.numPages;
       setPageCount(totalPages);
 
-      const estimatedSeconds = Math.ceil(totalPages * 0.5);
+      const estimatedSeconds = Math.ceil(totalPages * 1.5);
       setEstimatedTime(`预计需要 ${estimatedSeconds} 秒`);
 
-      const imageUrls: string[] = [];
+      const convertedImages: ConvertedImage[] = [];
+      const baseName = file.name.replace(/\.pdf$/i, "");
 
       for (let i = 1; i <= totalPages; i++) {
-        setMessage(`正在渲染第 ${i} 页，共 ${totalPages} 页...`);
+        setMessage(`正在转换第 ${i} 页，共 ${totalPages} 页...`);
         setProgress(Math.round(((i - 1) / totalPages) * 100));
 
         const page = await pdf.getPage(i);
-        const scale = 2;
-        const viewport = page.getViewport({ scale });
-
-        const canvas = document.createElement("canvas");
-        canvas.width = viewport.width;
-        canvas.height = viewport.height;
-        const ctx = canvas.getContext("2d")!;
-
-        await page.render({
-          canvasContext: ctx,
-          viewport: viewport,
-          canvas: canvas,
-        } as any).promise;
-
+        const canvas = await renderPageToCanvas(page, 2);
+        
         const dataUrl = canvas.toDataURL("image/jpeg", 0.92);
-        imageUrls.push(dataUrl);
+        convertedImages.push({
+          fileName: `${baseName}_page_${i}.jpg`,
+          url: dataUrl,
+          pageNumber: i,
+        });
 
-        const remainingSeconds = Math.ceil((totalPages - i) * 0.5);
+        const remainingSeconds = Math.ceil((totalPages - i) * 1.5);
         setEstimatedTime(`剩余约 ${remainingSeconds} 秒`);
       }
 
       setProgress(100);
-      setMessage(`转换完成！共 ${totalPages} 页，正在下载...`);
+      setMessage(`转换完成！共 ${totalPages} 页`);
       setStatus("complete");
-
-      const baseName = file.name.replace(/\.pdf$/i, "");
-
-      for (let i = 0; i < imageUrls.length; i++) {
-        const response = await fetch(imageUrls[i]);
-        const blob = await response.blob();
-        saveAs(blob, `${baseName}_page_${i + 1}.jpg`);
-        await new Promise((resolve) => setTimeout(resolve, 300));
-      }
-
-      setMessage(`全部 ${totalPages} 页已下载完成`);
+      setImages(convertedImages);
     } catch (err) {
       console.error(err);
       setStatus("error");
       setMessage(`转换失败: ${err instanceof Error ? err.message : "未知错误"}`);
     }
   }, [file]);
+
+  const handleDownload = useCallback((image: ConvertedImage) => {
+    const link = document.createElement("a");
+    link.href = image.url;
+    link.download = image.fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }, []);
+
+  const handleDownloadAll = useCallback(() => {
+    images.forEach((image, index) => {
+      setTimeout(() => {
+        const link = document.createElement("a");
+        link.href = image.url;
+        link.download = image.fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }, index * 500);
+    });
+  }, [images]);
 
   const formatFileSize = (bytes: number) => {
     if (bytes < 1024) return bytes + " B";
@@ -132,7 +153,7 @@ export default function PdfToJpgPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-12 px-4">
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">PDF 转 JPG</h1>
           <p className="text-gray-600">将 PDF 文件的每一页转换为高质量的 JPG 图片</p>
@@ -166,7 +187,9 @@ export default function PdfToJpgPage() {
               {file ? file.name : "点击或拖拽 PDF 文件到此处"}
             </p>
             <p className="text-gray-400 text-sm mt-1">
-              {file ? formatFileSize(file.size) : "支持 .pdf 格式"}
+              {file
+                ? `${formatFileSize(file.size)}`
+                : "支持 .pdf 格式"}
             </p>
           </div>
 
@@ -184,7 +207,7 @@ export default function PdfToJpgPage() {
                     setStatus("idle");
                     setProgress(0);
                     setMessage("");
-                    setPageCount(0);
+                    setImages([]);
                   }}
                   className="text-red-500 hover:text-red-700 text-sm"
                 >
@@ -219,12 +242,51 @@ export default function PdfToJpgPage() {
             {status === "processing" ? "正在转换..." : "开始转换"}
           </button>
 
-          {/* 结果信息 */}
-          {status === "complete" && pageCount > 0 && (
-            <div className="mt-4 p-4 bg-green-50 rounded-lg border border-green-200">
-              <p className="text-green-700 text-sm">
-                成功转换 {pageCount} 页，所有 JPG 图片已开始下载。
-              </p>
+          {/* 结果列表 - 图片卡片展示 */}
+          {status === "complete" && images.length > 0 && (
+            <div className="mt-6">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-semibold text-gray-900">
+                  转换结果 ({images.length} 张图片)
+                </h3>
+                <button
+                  onClick={handleDownloadAll}
+                  className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  下载全部
+                </button>
+              </div>
+              
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {images.map((image, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-50 rounded-lg border border-gray-200 overflow-hidden"
+                  >
+                    <div className="aspect-[3/4] bg-gray-100 relative">
+                      <img
+                        src={image.url}
+                        alt={`Page ${image.pageNumber}`}
+                        className="w-full h-full object-contain"
+                      />
+                      <div className="absolute top-2 left-2 bg-black/50 text-white text-xs px-2 py-1 rounded">
+                        第 {image.pageNumber} 页
+                      </div>
+                    </div>
+                    <div className="p-3">
+                      <p className="text-xs text-gray-600 truncate mb-2">
+                        {image.fileName}
+                      </p>
+                      <button
+                        onClick={() => handleDownload(image)}
+                        className="w-full px-3 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                      >
+                        下载
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
         </div>
