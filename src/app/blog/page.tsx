@@ -8,6 +8,13 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    title: "Merge PDF: Complete Guide to Combine PDF Files Online (2026)",
+    description: "Learn how to merge PDF files online for free with PixelPDF. Step-by-step guide, tips, comparison table, and FAQs about combining PDF documents.",
+    slug: "merge-pdf-complete-guide",
+    date: "2026-05-20",
+    category: "Tutorial",
+  },
+  {
     title: "How to Convert PDF to JPG Online for Free - Complete Guide 2025",
     description: "Learn how to convert PDF to JPG online for free. Step-by-step guide using PixelPDF's free PDF to JPG converter.",
     slug: "pdf-to-jpg-guide",
