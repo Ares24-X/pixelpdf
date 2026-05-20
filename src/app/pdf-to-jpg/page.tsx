@@ -64,11 +64,8 @@ export default function PdfToJpgPage() {
       // Import pdfjs-dist
       const pdfjs = await import("pdfjs-dist");
       
-      // CRITICAL: Disable worker completely for static export
-      // @ts-expect-error - internal API to disable worker
-      pdfjs.GlobalWorkerOptions.workerSrc = null;
-      // @ts-expect-error - disable worker
-      pdfjs.disableWorker = true;
+      // Use worker from public directory
+      pdfjs.GlobalWorkerOptions.workerSrc = "/pdfjs/pdf.worker.min.mjs";
 
       setMessage("正在读取 PDF 文件...");
       const arrayBuffer = await file.arrayBuffer();
