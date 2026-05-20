@@ -12,7 +12,14 @@ interface SplitResult {
 
 function parsePageRanges(input: string, maxPage: number): number[][] {
   const ranges: number[][] = [];
-  const parts = input.split(",").map((s) => s.trim()).filter(Boolean);
+  
+  // Normalize input: replace Chinese comma, full-width comma, and multiple spaces
+  const normalizedInput = input
+    .replace(/，/g, ",") // Chinese comma
+    .replace(/、/g, ",") // Chinese enumeration comma
+    .replace(/\s+/g, " "); // Multiple spaces to single space
+  
+  const parts = normalizedInput.split(",").map((s) => s.trim()).filter(Boolean);
 
   for (const part of parts) {
     if (part.includes("-")) {
@@ -278,7 +285,21 @@ export default function SplitPdfPage() {
               <input
                 type="text"
                 value={pageRanges}
-                onChange={(e) => setPageRanges(e.target.value)}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setPageRanges(value);
+                  // Real-time preview
+                  if (value.trim()) {
+                    try {
+                      const ranges = parsePageRanges(value, totalPages);
+                      setParsedRanges(ranges);
+                    } catch {
+                      setParsedRanges([]);
+                    }
+                  } else {
+                    setParsedRanges([]);
+                  }
+                }}
                 placeholder="例如: 1-3, 5, 7-10"
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none"
               />
@@ -344,16 +365,19 @@ export default function SplitPdfPage() {
             {status === "processing" ? "正在拆分..." : "开始拆分"}
           </button>
 
-          {/* 解析预览 */}
-          {parsedRanges.length > 0 && status !== "processing" && (
-            <div className="mt-4 p-3 bg-blue-50 rounded-lg">
-              <p className="text-sm text-blue-700">
-                将生成 {parsedRanges.length} 个文件:
+          {/* 解析预览 - 实时显示 */}
+          {parsedRanges.length > 0 && status === "idle" && (
+            <div className="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
+              <p className="text-sm text-blue-700 font-medium">
+                ✓ 将生成 {parsedRanges.length} 个文件
               </p>
-              <ul className="text-xs text-blue-600 mt-1">
+              <ul className="text-xs text-blue-600 mt-2 space-y-1">
                 {parsedRanges.map((range, i) => (
-                  <li key={i}>
-                    文件 {i+1}: 第 {range.map(p => p+1).join(", ")} 页 ({range.length}页)
+                  <li key={i} className="flex items-center gap-2">
+                    <span className="bg-blue-200 text-blue-800 px-1.5 py-0.5 rounded text-xs">
+                      文件 {i+1}
+                    </span>
+                    <span>第 {range.map(p => p+1).join("-")} 页 ({range.length}页)</span>
                   </li>
                 ))}
               </ul>
