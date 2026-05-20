@@ -8,6 +8,8 @@ const tools = [
   { href: "/image-to-pdf/", label: "Image to PDF" },
   { href: "/merge-pdf/", label: "Merge PDF" },
   { href: "/split-pdf/", label: "Split PDF" },
+  { href: "/pdf-encrypt/", label: "PDF Encrypt" },
+  { href: "/pdf-decrypt/", label: "PDF Decrypt" },
   { href: "/blog/", label: "Blog" },
 ];
 

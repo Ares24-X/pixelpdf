@@ -7,6 +7,8 @@ const tools = [
   { href: "/split-pdf/", title: "Split PDF", description: "Extract specific pages or split PDF into multiple files.", icon: "✂️", popular: false },
   { href: "/compress-pdf/", title: "Compress PDF", description: "Reduce PDF file size while maintaining quality.", icon: "🗜️", popular: true },
   { href: "/rotate-pdf/", title: "Rotate PDF", description: "Rotate PDF pages clockwise or counterclockwise.", icon: "🔄", popular: false },
+  { href: "/pdf-encrypt/", title: "PDF Encrypt", description: "Protect PDF files with password encryption.", icon: "🔒", popular: true },
+  { href: "/pdf-decrypt/", title: "PDF Decrypt", description: "Remove password protection from PDF files.", icon: "🔓", popular: false },
 ];
 
 export default function Home() {
