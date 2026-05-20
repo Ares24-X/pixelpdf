@@ -51,6 +51,7 @@ export default function SplitPdfPage() {
   const [estimatedTime, setEstimatedTime] = useState("");
   const [isDragging, setIsDragging] = useState(false);
   const [results, setResults] = useState<SplitResult[]>([]);
+  const [parsedRanges, setParsedRanges] = useState<number[][]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileSelect = useCallback(
@@ -112,6 +113,11 @@ export default function SplitPdfPage() {
       const sourcePdf = await PDFDocument.load(arrayBuffer);
 
       const ranges = parsePageRanges(pageRanges, sourcePdf.getPageCount());
+      setParsedRanges(ranges);
+
+      if (ranges.length === 0) {
+        throw new Error("没有有效的页码范围");
+      }
 
       const estimatedSeconds = Math.ceil(ranges.length * 0.5);
       setEstimatedTime(`预计需要 ${estimatedSeconds} 秒`);
@@ -253,6 +259,7 @@ export default function SplitPdfPage() {
                     setProgress(0);
                     setMessage("");
                     setResults([]);
+                    setParsedRanges([]);
                   }}
                   className="text-red-500 hover:text-red-700 text-sm"
                 >
@@ -281,6 +288,34 @@ export default function SplitPdfPage() {
               <p className="text-xs text-gray-400 mt-1">
                 当前 PDF 共 {totalPages} 页，有效页码范围: 1-{totalPages}
               </p>
+              
+              {/* 快速预设按钮 */}
+              <div className="mt-2 flex flex-wrap gap-2">
+                <button
+                  onClick={() => setPageRanges(`1-${Math.ceil(totalPages/2)}`)}
+                  className="px-3 py-1 text-xs bg-gray-100 hover:bg-gray-200 rounded"
+                >
+                  前半部分 (1-{Math.ceil(totalPages/2)})
+                </button>
+                <button
+                  onClick={() => setPageRanges(`${Math.ceil(totalPages/2)+1}-${totalPages}`)}
+                  className="px-3 py-1 text-xs bg-gray-100 hover:bg-gray-200 rounded"
+                >
+                  后半部分 ({Math.ceil(totalPages/2)+1}-{totalPages})
+                </button>
+                <button
+                  onClick={() => {
+                    const ranges = [];
+                    for (let i = 1; i <= totalPages; i++) {
+                      ranges.push(i);
+                    }
+                    setPageRanges(ranges.join(","));
+                  }}
+                  className="px-3 py-1 text-xs bg-gray-100 hover:bg-gray-200 rounded"
+                >
+                  每页单独 (共{totalPages}个文件)
+                </button>
+              </div>
             </div>
           )}
 
@@ -308,6 +343,22 @@ export default function SplitPdfPage() {
           >
             {status === "processing" ? "正在拆分..." : "开始拆分"}
           </button>
+
+          {/* 解析预览 */}
+          {parsedRanges.length > 0 && status !== "processing" && (
+            <div className="mt-4 p-3 bg-blue-50 rounded-lg">
+              <p className="text-sm text-blue-700">
+                将生成 {parsedRanges.length} 个文件:
+              </p>
+              <ul className="text-xs text-blue-600 mt-1">
+                {parsedRanges.map((range, i) => (
+                  <li key={i}>
+                    文件 {i+1}: 第 {range.map(p => p+1).join(", ")} 页 ({range.length}页)
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* 结果列表 - 文件卡片展示 */}
           {status === "complete" && results.length > 0 && (
