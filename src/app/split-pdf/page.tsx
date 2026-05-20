@@ -153,9 +153,23 @@ export default function SplitPdfPage() {
       setStatus("complete");
       setResults(splitResults);
 
-      for (const result of splitResults) {
-        saveAs(result.blob, result.fileName);
-        await new Promise((resolve) => setTimeout(resolve, 300));
+      // Download files with delay to avoid browser blocking
+      for (let i = 0; i < splitResults.length; i++) {
+        const result = splitResults[i];
+        setMessage(`正在下载第 ${i + 1}/${splitResults.length} 个文件: ${result.fileName}...`);
+        
+        // Create download link for better compatibility
+        const url = URL.createObjectURL(result.blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = result.fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+        
+        // Longer delay between downloads to prevent browser blocking
+        await new Promise((resolve) => setTimeout(resolve, 800));
       }
 
       setMessage(`拆分完成！共生成 ${splitResults.length} 个文件`);

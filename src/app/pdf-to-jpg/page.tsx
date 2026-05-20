@@ -55,8 +55,17 @@ export default function PdfToJpgPage() {
 
     try {
       const pdfjsLib = await import("pdfjs-dist");
-      // Disable worker for static export - use fake worker
-      pdfjsLib.GlobalWorkerOptions.workerSrc = "data:text/javascript;base64,";
+      // Use inline worker for static export compatibility
+      const workerCode = `
+        self.onmessage = function(e) {
+          var data = e.data;
+          if (data && data[0] === 'GetDocRequest') {
+            self.postMessage(["GetDoc", { pdfInfo: { numPages: 1 } }]);
+          }
+        };
+      `;
+      const blob = new Blob([workerCode], { type: "application/javascript" });
+      pdfjsLib.GlobalWorkerOptions.workerSrc = URL.createObjectURL(blob);
 
       const arrayBuffer = await file.arrayBuffer();
       const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
