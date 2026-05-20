@@ -55,7 +55,8 @@ export default function PdfToJpgPage() {
 
     try {
       const pdfjsLib = await import("pdfjs-dist");
-      pdfjsLib.GlobalWorkerOptions.workerSrc = "";
+      // Disable worker for static export - use fake worker
+      pdfjsLib.GlobalWorkerOptions.workerSrc = "data:text/javascript;base64,";
 
       const arrayBuffer = await file.arrayBuffer();
       const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
