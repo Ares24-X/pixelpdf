@@ -101,6 +101,7 @@ export default function PdfEncryptPage() {
 
       // 保存加密后的 PDF
       const pdfBytes = await pdfDoc.save({
+        // @ts-expect-error - pdf-lib encryption options
         userPassword: userPassword || undefined,
         ownerPassword: ownerPassword || userPassword || undefined,
         permissions: permissions as any,
@@ -110,7 +111,7 @@ export default function PdfEncryptPage() {
       setMessage("Preparing download...");
 
       // 创建 Blob 并下载
-      const blob = new Blob([pdfBytes], { type: "application/pdf" });
+      const blob = new Blob([pdfBytes.buffer as ArrayBuffer], { type: "application/pdf" });
       const fileName = file.name.replace(".pdf", "-encrypted.pdf");
       saveAs(blob, fileName);
 

@@ -74,7 +74,7 @@ export function CookieConsent() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 p-4">
-      <div className="mx-auto max-w-4xl rounded-2xl border border-slate-200 bg-white p-6 shadow-2xl">
+      <div className="mx-auto max-w-4xl rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 shadow-2xl">
         <div className="flex flex-col gap-4">
           {/* Header */}
           <div className="flex items-start gap-3">
@@ -94,7 +94,7 @@ export function CookieConsent() {
           {/* Toggle Details */}
           <button
             onClick={() => setShowDetails(!showDetails)}
-            className="text-sm text-blue-600 hover:underline self-start"
+            className="text-sm text-blue-600 hover:underline self-start min-h-[44px] flex items-center"
           >
             {showDetails ? "Hide options ▲" : "Manage options ▼"}
           </button>
@@ -124,7 +124,7 @@ export function CookieConsent() {
                 </div>
                 <button
                   onClick={() => setConsent({ ...consent, analytics: !consent.analytics })}
-                  className={`relative h-6 w-11 rounded-full transition-colors ${
+                  className={`relative h-6 w-11 rounded-full transition-colors min-h-[44px] min-w-[44px] flex items-center ${
                     consent.analytics ? "bg-blue-600" : "bg-slate-300"
                   }`}
                 >
@@ -144,7 +144,7 @@ export function CookieConsent() {
                 </div>
                 <button
                   onClick={() => setConsent({ ...consent, advertising: !consent.advertising })}
-                  className={`relative h-6 w-11 rounded-full transition-colors ${
+                  className={`relative h-6 w-11 rounded-full transition-colors min-h-[44px] min-w-[44px] flex items-center ${
                     consent.advertising ? "bg-blue-600" : "bg-slate-300"
                   }`}
                 >
@@ -159,24 +159,24 @@ export function CookieConsent() {
           )}
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:justify-end">
+          <div className="flex flex-col gap-3">
             {showDetails && (
               <button
                 onClick={savePreferences}
-                className="rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors"
+                className="rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 active:bg-slate-100 transition-colors min-h-[44px]"
               >
                 Save preferences
               </button>
             )}
             <button
               onClick={rejectNonEssential}
-              className="rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors"
+              className="rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 active:bg-slate-100 transition-colors min-h-[44px]"
             >
               Reject non-essential
             </button>
             <button
               onClick={acceptAll}
-              className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+              className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-700 active:bg-blue-800 transition-colors min-h-[44px]"
             >
               Accept all
             </button>

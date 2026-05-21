@@ -10,4 +10,33 @@
 body {
   color: var(--foreground);
   background: var(--background);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent text overflow on mobile */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Make tables scrollable on mobile */
+@layer components {
+  .table-container {
+    @apply overflow-x-auto -mx-4 px-4;
+  }
+}
+
+/* Ensure images don't overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Better touch targets */
+@media (pointer: coarse) {
+  a, button {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }

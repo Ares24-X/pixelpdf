@@ -61,7 +61,7 @@ export default function PDFEncryptGuideJa() {
           PDF暗号化は、Portable Document Format（PDF）ファイルにセキュリティレイヤーを追加するプロセスです。パスワードを設定することで、許可されたユーザーのみがファイルを開いたり、表示、印刷、コピーしたりできるようになります。
         </p>
         <p className="text-gray-700 leading-relaxed mb-4">
-          現代のオンライン暗号化ツールであるPixelPDFは、すべての処理がブラウザ内で実行されるため{document}、機密文書が外部のサーバーに送信される心配がありません。クライアントサイド暗号化により、あなたのデータは常にあなたの管理下にあります。
+          現代のオンライン暗号化ツールであるPixelPDFは、すべての処理がブラウザ内で実行されるため、機密文書が外部のサーバーに送信される心配がありません。クライアントサイド暗号化により、あなたのデータは常にあなたの管理下にあります。
         </p>
       </section>
 
@@ -81,7 +81,7 @@ export default function PDFEncryptGuideJa() {
       <section id="encryption-types" className="mb-10">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">PDF暗号化の種類</h2>
         <p className="text-gray-700 leading-relaxed mb-4">
-          PDF暗号化には主に2つのレベルがあります。ユーザーレベルのパスワードはファイルを開くために必要で{document}、所有者のパスワードは印刷や編集の権限を制御します。高レベルのAES-256暗号化アルゴリズムにより、軍事レベルのセキュリティが実現されています。
+          PDF暗号化には主に2つのレベルがあります。ユーザーレベルのパスワードはファイルを開くために必要で、所有者のパスワードは印刷や編集の権限を制御します。高レベルのAES-256暗号化アルゴリズムにより、軍事レベルのセキュリティが実現されています。
         </p>
         <div className="bg-gray-100 p-4 rounded-lg mt-4">
           <p className="text-gray-700"><strong>暗号化レベル：</strong></p>
@@ -141,7 +141,7 @@ export default function PDFEncryptGuideJa() {
             <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">4</div>
             <div>
               <h3 className="font-semibold text-gray-900 text-lg mb-2">「Encrypt PDF」をクリックしてダウンロード</h3>
-              <p className="text-gray-700">「Encrypt PDF」ボタンをクリックするだけで{document}、数秒で処理が完了し、暗号化されたPDFが自動的にダウンロードされます。</p>
+              <p className="text-gray-700">「Encrypt PDF」ボタンをクリックするだけで、数秒で処理が完了し、暗号化されたPDFが自動的にダウンロードされます。</p>
             </div>
           </div>
         </div>
@@ -205,7 +205,7 @@ export default function PDFEncryptGuideJa() {
             </li>
             <li className="flex gap-3">
               <span className="text-xl">💡</span>
-              <div><strong>権限を最小限に：</strong>必要最小限の権限のみを付与し{document}、印刷やコピーは必要な場合にのみ許可してください。</div>
+              <div><strong>権限を最小限に：</strong>必要最小限の権限のみを付与し、印刷やコピーは必要な場合にのみ許可してください。</div>
             </li>
           </ul>
         </div>
@@ -224,8 +224,8 @@ export default function PDFEncryptGuideJa() {
             <p className="mt-3 text-gray-700">いいえ、暗号化はファイルサイズを実質的に変更しません。PixelPDFの暗号化プロセスは、ファイルの元の品質とサイズを維持しながらセキュリティを追加します。</p>
           </details>
           <details className="border border-gray-200 rounded-lg p-4">
-            <summary className="font-semibold text-gray-900 cursor-pointer">オンラインツールを使用した場合{document}、データは安全ですか？</summary>
-            <p className="mt-3 text-gray-700">PixelPDFはブラウザ内で完全に処理されるため{document}、ドキュメントがデバイスから離れることはありません。サーバーへのアップロードはありません。</p>
+            <summary className="font-semibold text-gray-900 cursor-pointer">オンラインツールを使用した場合、データは安全ですか？</summary>
+            <p className="mt-3 text-gray-700">PixelPDFはブラウザ内で完全に処理されるため、ドキュメントがデバイスから離れることはありません。サーバーへのアップロードはありません。</p>
           </details>
           <details className="border border-gray-200 rounded-lg p-4">
             <summary className="font-semibold text-gray-900 cursor-pointer">既に暗号化されたPDFにLayerを追加できますか？</summary>

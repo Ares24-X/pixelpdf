@@ -80,6 +80,7 @@ export default function PdfDecryptPage() {
 
       // 使用密码加载加密的 PDF
       const pdfDoc = await PDFDocument.load(arrayBuffer, {
+        // @ts-expect-error - pdf-lib may not have password in types
         password: password,
         ignoreEncryption: false,
       });
@@ -94,7 +95,7 @@ export default function PdfDecryptPage() {
       setMessage("Preparing download...");
 
       // 创建 Blob 并下载
-      const blob = new Blob([pdfBytes], { type: "application/pdf" });
+      const blob = new Blob([pdfBytes.buffer as ArrayBuffer], { type: "application/pdf" });
       const fileName = file.name.replace(".pdf", "-decrypted.pdf");
       saveAs(blob, fileName);
 

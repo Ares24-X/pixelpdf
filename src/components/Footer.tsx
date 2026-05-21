@@ -5,8 +5,8 @@ export function Footer() {
   return (
     <footer className="bg-white border-t border-slate-200 mt-auto">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="md:col-span-2">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+          <div className="col-span-2 sm:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <div className="h-8 w-8 rounded-lg bg-blue-600 flex items-center justify-center"><span className="text-white font-bold text-sm">P</span></div>
               <span className="text-xl font-bold text-slate-900">PixelPDF</span>
@@ -16,18 +16,18 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-slate-900 mb-3">Tools</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/pdf-to-jpg/" className="text-slate-600 hover:text-blue-600">PDF to JPG</Link></li>
-              <li><Link href="/merge-pdf/" className="text-slate-600 hover:text-blue-600">Merge PDF</Link></li>
-              <li><Link href="/split-pdf/" className="text-slate-600 hover:text-blue-600">Split PDF</Link></li>
+              <li><Link href="/pdf-to-jpg/" className="text-slate-600 hover:text-blue-600 py-1 inline-block">PDF to JPG</Link></li>
+              <li><Link href="/merge-pdf/" className="text-slate-600 hover:text-blue-600 py-1 inline-block">Merge PDF</Link></li>
+              <li><Link href="/split-pdf/" className="text-slate-600 hover:text-blue-600 py-1 inline-block">Split PDF</Link></li>
             </ul>
           </div>
           <div>
             <h3 className="text-sm font-semibold text-slate-900 mb-3">Legal</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/about/" className="text-slate-600 hover:text-blue-600">About</Link></li>
-              <li><Link href="/privacy/" className="text-slate-600 hover:text-blue-600">Privacy</Link></li>
-              <li><Link href="/cookie-policy/" className="text-slate-600 hover:text-blue-600">Cookie Policy</Link></li>
-              <li><Link href="/terms/" className="text-slate-600 hover:text-blue-600">Terms</Link></li>
+              <li><Link href="/about/" className="text-slate-600 hover:text-blue-600 py-1 inline-block">About</Link></li>
+              <li><Link href="/privacy/" className="text-slate-600 hover:text-blue-600 py-1 inline-block">Privacy</Link></li>
+              <li><Link href="/cookie-policy/" className="text-slate-600 hover:text-blue-600 py-1 inline-block">Cookie Policy</Link></li>
+              <li><Link href="/terms/" className="text-slate-600 hover:text-blue-600 py-1 inline-block">Terms</Link></li>
             </ul>
           </div>
         </div>
