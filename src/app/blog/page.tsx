@@ -8,6 +8,13 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    title: "PDF Encrypt: Complete Security Guide to Protect Your PDF Files Online (2026)",
+    description: "Learn how to encrypt and protect PDF files online for free with PixelPDF. Step-by-step guide, encryption types comparison, security tips, and FAQs about PDF encryption.",
+    slug: "pdf-encrypt-security-guide",
+    date: "2026-05-20",
+    category: "Security",
+  },
+  {
     title: "Merge PDF: Complete Guide to Combine PDF Files Online (2026)",
     description: "Learn how to merge PDF files online for free with PixelPDF. Step-by-step guide, tips, comparison table, and FAQs about combining PDF documents.",
     slug: "merge-pdf-complete-guide",
