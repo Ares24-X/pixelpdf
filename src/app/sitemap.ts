@@ -39,6 +39,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/remove-pdf-password',
     '/blog/split-pdf-online-guide',
     '/blog/combine-images-into-pdf',
+    '/blog/reduce-pdf-file-size',
+    '/blog/convert-pdf-to-image',
   ]
   
   const allPaths = [...mainPages, ...blogArticles]
