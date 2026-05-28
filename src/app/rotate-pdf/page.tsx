@@ -27,7 +27,7 @@ export default function RotatePdfPage() {
       setMessage("");
 
       try {
-        const { PDFDocument } = await import("pdf-lib");
+        const { PDFDocument } = await import("@cantoo/pdf-lib");
         const arrayBuffer = await selectedFile.arrayBuffer();
         const pdf = await PDFDocument.load(arrayBuffer);
         setTotalPages(pdf.getPageCount());
@@ -103,7 +103,7 @@ export default function RotatePdfPage() {
     setMessage("正在加载 PDF...");
 
     try {
-      const { PDFDocument, degrees } = await import("pdf-lib");
+      const { PDFDocument, degrees } = await import("@cantoo/pdf-lib");
       const arrayBuffer = await file.arrayBuffer();
       const pdfDoc = await PDFDocument.load(arrayBuffer);
 

@@ -71,7 +71,7 @@ export default function SplitPdfPage() {
         setMessage("");
 
         try {
-          const { PDFDocument } = await import("pdf-lib");
+          const { PDFDocument } = await import("@cantoo/pdf-lib");
           const arrayBuffer = await selectedFile.arrayBuffer();
           const pdf = await PDFDocument.load(arrayBuffer);
           setTotalPages(pdf.getPageCount());
@@ -115,7 +115,7 @@ export default function SplitPdfPage() {
     setResults([]);
 
     try {
-      const { PDFDocument } = await import("pdf-lib");
+      const { PDFDocument } = await import("@cantoo/pdf-lib");
       const arrayBuffer = await file.arrayBuffer();
       const sourcePdf = await PDFDocument.load(arrayBuffer);
 

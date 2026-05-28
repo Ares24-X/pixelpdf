@@ -71,7 +71,7 @@ export default function MergePdfPage() {
     setMessage("正在初始化合并...");
 
     try {
-      const { PDFDocument } = await import("pdf-lib");
+      const { PDFDocument } = await import("@cantoo/pdf-lib");
       const mergedPdf = await PDFDocument.create();
 
       const estimatedSeconds = Math.ceil(files.length * 0.5);

@@ -59,7 +59,7 @@ export default function CompressPdfPage() {
     setOriginalSize(file.size);
 
     try {
-      const { PDFDocument } = await import("pdf-lib");
+      const { PDFDocument } = await import("@cantoo/pdf-lib");
       const arrayBuffer = await file.arrayBuffer();
       const pdfDoc = await PDFDocument.load(arrayBuffer, {
         ignoreEncryption: true,

@@ -67,7 +67,7 @@ export default function PdfDecryptPage() {
 
     try {
       // 动态导入 pdf-lib
-      const { PDFDocument } = await import("pdf-lib");
+      const { PDFDocument } = await import("@cantoo/pdf-lib");
 
       setProgress(10);
       setMessage("Loading encrypted PDF...");
@@ -80,7 +80,6 @@ export default function PdfDecryptPage() {
 
       // 使用密码加载加密的 PDF
       const pdfDoc = await PDFDocument.load(arrayBuffer, {
-        // @ts-expect-error - pdf-lib may not have password in types
         password: password,
         ignoreEncryption: false,
       });

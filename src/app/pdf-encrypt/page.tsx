@@ -71,7 +71,7 @@ export default function PdfEncryptPage() {
 
     try {
       // 动态导入 pdf-lib
-      const { PDFDocument } = await import("pdf-lib");
+      const { PDFDocument } = await import("@cantoo/pdf-lib");
 
       setProgress(10);
       setMessage("Loading PDF file...");
@@ -100,12 +100,13 @@ export default function PdfEncryptPage() {
       setMessage("Saving encrypted PDF...");
 
       // 保存加密后的 PDF
-      const pdfBytes = await pdfDoc.save({
-        // @ts-expect-error - pdf-lib encryption options
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const saveOptions: any = {
         userPassword: userPassword || undefined,
         ownerPassword: ownerPassword || userPassword || undefined,
-        permissions: permissions as any,
-      });
+        permissions: permissions,
+      };
+      const pdfBytes = await pdfDoc.save(saveOptions);
 
       setProgress(80);
       setMessage("Preparing download...");
