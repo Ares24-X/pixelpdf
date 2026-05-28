@@ -41,6 +41,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/combine-images-into-pdf',
     '/blog/reduce-pdf-file-size',
     '/blog/convert-pdf-to-image',
+    '/blog/best-free-pdf-tools',
+    '/blog/online-vs-desktop-pdf-tools',
   ]
   
   const allPaths = [...mainPages, ...blogArticles]
