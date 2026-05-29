@@ -43,6 +43,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/convert-pdf-to-image',
     '/blog/best-free-pdf-tools',
     '/blog/online-vs-desktop-pdf-tools',
+    '/blog/pdf-security-tips',
+    '/blog/edit-scanned-pdf',
+    '/blog/pdf-encrypt-fix-announcement',
   ]
   
   const allPaths = [...mainPages, ...blogArticles]
