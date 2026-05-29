@@ -46,6 +46,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/pdf-security-tips',
     '/blog/edit-scanned-pdf',
     '/blog/pdf-encrypt-fix-announcement',
+    '/blog/compress-pdf-for-gmail',
+    '/blog/merge-scanned-documents',
   ]
   
   const allPaths = [...mainPages, ...blogArticles]
