@@ -48,6 +48,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/pdf-encrypt-fix-announcement',
     '/blog/compress-pdf-for-gmail',
     '/blog/merge-scanned-documents',
+    '/blog/convert-pdf-to-word-free',
+    '/blog/rotate-pdf-pages-online',
   ]
   
   const allPaths = [...mainPages, ...blogArticles]
