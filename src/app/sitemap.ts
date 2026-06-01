@@ -50,6 +50,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/merge-scanned-documents',
     '/blog/convert-pdf-to-word-free',
     '/blog/rotate-pdf-pages-online',
+    '/blog/split-pdf-by-pages',
+    '/blog/pdf-not-opening-fix',
   ]
   
   const allPaths = [...mainPages, ...blogArticles]
