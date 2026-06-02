@@ -52,6 +52,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/rotate-pdf-pages-online/',
     '/blog/split-pdf-by-pages/',
     '/blog/pdf-not-opening-fix/',
+    '/blog/make-pdf-smaller-for-email/',
+    '/blog/convert-jpg-to-pdf-iphone/',
   ]
   
   const allPaths = [...mainPages, ...blogArticles]
