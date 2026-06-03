@@ -54,6 +54,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/pdf-not-opening-fix/',
     '/blog/make-pdf-smaller-for-email/',
     '/blog/convert-jpg-to-pdf-iphone/',
+    '/blog/remove-password-from-pdf-without-software/',
+    '/blog/combine-multiple-pdfs-into-one/',
   ]
   
   const allPaths = [...mainPages, ...blogArticles]
