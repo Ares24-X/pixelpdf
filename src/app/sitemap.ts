@@ -56,6 +56,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/convert-jpg-to-pdf-iphone/',
     '/blog/remove-password-from-pdf-without-software/',
     '/blog/combine-multiple-pdfs-into-one/',
+    '/blog/compress-pdf-for-outlook/',
+    '/blog/convert-pdf-to-excel-free/',
   ]
   
   const allPaths = [...mainPages, ...blogArticles]
