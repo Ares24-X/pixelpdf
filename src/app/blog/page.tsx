@@ -1,36 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import posts from "@/content/blog/posts.json";
+
+
 
 export const metadata: Metadata = {
   title: "Blog - PixelPDF | PDF Tips, Tutorials & Guides",
   description: "Learn how to work with PDF files. Free guides on converting, merging, splitting, and optimizing PDF documents.",
 };
 
-const blogPosts = [
-  {
-    title: "PDF Encrypt: Complete Security Guide to Protect Your PDF Files Online (2026)",
-    description: "Learn how to encrypt and protect PDF files online for free with PixelPDF. Step-by-step guide, encryption types comparison, security tips, and FAQs about PDF encryption.",
-    slug: "pdf-encrypt-security-guide",
-    date: "2026-05-20",
-    category: "Security",
-  },
-  {
-    title: "Merge PDF: Complete Guide to Combine PDF Files Online (2026)",
-    description: "Learn how to merge PDF files online for free with PixelPDF. Step-by-step guide, tips, comparison table, and FAQs about combining PDF documents.",
-    slug: "merge-pdf-complete-guide",
-    date: "2026-05-20",
-    category: "Tutorial",
-  },
-  {
-    title: "How to Convert PDF to JPG Online for Free - Complete Guide 2025",
-    description: "Learn how to convert PDF to JPG online for free. Step-by-step guide using PixelPDF's free PDF to JPG converter.",
-    slug: "pdf-to-jpg-guide",
-    date: "2025-05-19",
-    category: "Tutorial",
-  },
-];
+interface Post {
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  category: string;
+}
 
 export default function BlogPage() {
+  const allPosts = posts as Post[];
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       <h1 className="text-4xl font-bold text-slate-900 mb-4">PixelPDF Blog</h1>
@@ -39,7 +28,7 @@ export default function BlogPage() {
       </p>
 
       <div className="grid gap-6">
-        {blogPosts.map((post) => (
+        {allPosts.map((post) => (
           <article
             key={post.slug}
             className="border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow"
