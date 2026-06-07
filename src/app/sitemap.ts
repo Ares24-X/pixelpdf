@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   
   // Blog articles (English, all with trailing slash)
   const blogArticles = [
+    '/blog/pdf-metadata-editor/',
     '/blog/ocr-pdf-scanned-documents/',
     '/blog/compress-pdf-before-email/',
     '/blog/does-compressing-pdf-reduce-quality/',
