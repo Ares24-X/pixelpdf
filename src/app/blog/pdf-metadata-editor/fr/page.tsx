@@ -2,12 +2,12 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Comment modifier les métadonnées d’un PDF en ligne gratuitement',
-  description: 'Découvrez comment afficher et modifier les métadonnées d’un PDF, comme le titre, l’auteur, le sujet et les mots-clés, gratuitement en ligne.',
-  keywords: ['modifier métadonnées PDF en ligne gratuit', 'changer titre PDF', 'changer auteur PDF', 'propriétés PDF en ligne', 'éditer informations PDF'],
+  title: 'Comment modifier les métadonnées d’un PDF en ligne gratuitement (titre, auteur, propriétés)',
+  description: 'Découvrez comment afficher et modifier les métadonnées d’un PDF comme le titre, l’auteur, le sujet et les mots-clés avec un outil gratuit en ligne.',
+  keywords: ["modifier métadonnées PDF en ligne gratuit", "changer titre PDF", "changer auteur PDF", "modifier propriétés PDF", "supprimer métadonnées PDF"],
   openGraph: {
-    title: 'Comment modifier les métadonnées d’un PDF en ligne gratuitement',
-    description: 'Guide pratique pour vérifier et corriger les métadonnées d’un PDF avant partage ou publication.',
+    title: 'Comment modifier les métadonnées d’un PDF en ligne gratuitement (titre, auteur, propriétés)',
+    description: 'Découvrez comment afficher et modifier les métadonnées d’un PDF comme le titre, l’auteur, le sujet et les mots-clés avec un outil gratuit en ligne.',
     type: 'article',
   },
 };
@@ -16,231 +16,155 @@ export default function PdfMetadataEditorFrPage() {
   return (
     <article className="max-w-4xl mx-auto px-4 py-12">
       <nav className="text-sm text-gray-500 mb-6">
-        <Link href="/fr">Home</Link> / <Link href="/blog">Blog</Link> / <span>Modifier les métadonnées PDF</span>
+        <Link href="/">Accueil</Link> / <Link href="/blog">Blog</Link> / <span>Modifier les métadonnées PDF</span>
       </nav>
 
       <h1 className="text-4xl font-bold text-gray-900 mb-4">
-        Comment modifier les métadonnées d’un PDF en ligne gratuitement
+        Comment modifier les métadonnées d’un PDF en ligne gratuitement (titre, auteur, propriétés)
       </h1>
 
       <div className="flex items-center text-sm text-gray-500 mb-8">
-        <span>7 juin 2026</span>
+        <span>9 juin 2026</span>
         <span className="mx-2">•</span>
         <span>8 min de lecture</span>
         <span className="mx-2">•</span>
-        <span>~1 510 mots</span>
+        <span>~1 520 mots</span>
       </div>
 
       <section className="mb-10">
-        <p className="text-lg text-gray-700 leading-relaxed mb-4">
-          Beaucoup de personnes pensent qu’un PDF ne contient que les pages visibles à l’écran. En réalité, un PDF peut aussi embarquer une couche d’informations cachées appelée métadonnées. On y trouve souvent le titre, l’auteur, le sujet, les mots-clés, le logiciel utilisé pour créer le fichier, ainsi que différentes dates internes. Si Vous partagez des contrats, des dossiers clients, des manuels, des CV ou des documents à télécharger, ces métadonnées méritent Votre attention.
-        </p>
         <p className="text-lg text-gray-700 leading-relaxed">
-          Modifier les métadonnées d’un PDF présente trois avantages concrets. D’abord, cela améliore l’organisation, car les fichiers sont plus faciles à classer et à retrouver. Ensuite, cela améliore la présentation, car un document proprement identifié paraît plus professionnel. Enfin, cela protège mieux la confidentialité, car d’anciens noms, des intitulés internes ou des traces techniques peuvent rester enregistrés sans que Vous le remarquiez. Dans ce guide, Vous allez voir comment modifier les métadonnées d’un PDF en ligne gratuitement, quels champs doivent être revus et dans quels cas il vaut mieux les supprimer plutôt que les corriger.
+          Un PDF peut sembler parfaitement propre à l’écran tout en contenant, en arrière-plan, des informations anciennes ou sensibles. Titre, auteur, sujet, mots-clés, date de création, nom du logiciel utilisé : tout cela reste souvent enregistré dans le fichier. Pour le classement interne, ce n’est pas forcément un problème. Mais lorsqu’un document part vers un client, un partenaire, un recruteur ou une administration, ces détails peuvent vite devenir gênants. Un ancien nom d’auteur, un mauvais titre ou des informations internes visibles dans les propriétés donnent une impression négligée et peuvent poser un vrai sujet de confidentialité. Savoir comment modifier les métadonnées d’un PDF en ligne gratuitement permet donc de nettoyer un document avant de le partager.
         </p>
       </section>
 
       <section className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg mb-10">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">Réponse rapide : comment modifier les métadonnées d’un PDF en ligne</h2>
-        <div className="space-y-4 text-gray-700">
+        <h2 className="text-xl font-bold text-gray-900 mb-4">Réponse rapide : modifiez les métadonnées PDF en 3 étapes</h2>
+        <div className="space-y-4">
           <div className="flex gap-3">
             <span className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">1</span>
-            <p><strong>Consultez d’abord les propriétés actuelles</strong> pour vérifier le titre, l’auteur, le sujet et les mots-clés.</p>
+            <p className="text-gray-700">Importez votre fichier dans l’outil <Link href="/pdf-metadata/" className="text-blue-600 hover:underline font-medium">d’édition des métadonnées PDF</Link> de PixelPDF.</p>
           </div>
           <div className="flex gap-3">
             <span className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">2</span>
-            <p><strong>Remplacez les informations inexactes ou anciennes</strong> par des données claires, utiles et publiables.</p>
+            <p className="text-gray-700">Vérifiez puis mettez à jour les champs comme le titre, l’auteur, le sujet, les mots-clés et les propriétés personnalisées.</p>
           </div>
           <div className="flex gap-3">
             <span className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">3</span>
-            <p><strong>Enregistrez le document puis vérifiez le résultat</strong> avant de le partager ou de le mettre en ligne.</p>
+            <p className="text-gray-700">Enregistrez le PDF modifié, puis contrôlez à nouveau ses propriétés avant de l’envoyer ou de l’archiver.</p>
           </div>
         </div>
       </section>
 
       <section className="mb-10">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Ce que contiennent réellement les métadonnées d’un PDF</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Pourquoi les métadonnées PDF comptent vraiment</h2>
         <p className="text-gray-700 leading-relaxed mb-4">
-          Les métadonnées sont des informations descriptives associées au document. Certaines apparaissent dans la fenêtre des propriétés, d’autres restent dans la structure interne du fichier pour être lues par des logiciels, des moteurs de recherche documentaires ou des systèmes d’archivage. Tous les PDF n’ont pas exactement les mêmes champs, mais un noyau d’informations revient très souvent.
+          Les métadonnées sont les informations invisibles qui décrivent le document. Beaucoup d’utilisateurs ne s’y intéressent jamais, jusqu’au moment où elles deviennent gênantes. Un client ouvre un PDF et voit un titre obsolète dans son lecteur. Un contrat affiche encore le nom d’un ancien collaborateur comme auteur. Un fichier publié en externe révèle un code projet interne ou un ancien flux d’export. Rien de tout cela ne change le texte visible, mais cela nuit à la clarté, à l’organisation et parfois à la confidentialité.
         </p>
-        <div className="bg-gray-50 p-6 rounded-lg mb-4">
-          <h3 className="text-lg font-semibold text-gray-900 mb-3">Les champs les plus courants</h3>
-          <ul className="list-disc list-inside space-y-2 text-gray-700">
-            <li><strong>Titre :</strong> le nom réel du document</li>
-            <li><strong>Auteur :</strong> la personne, l’équipe ou l’entreprise associée au fichier</li>
-            <li><strong>Sujet :</strong> une description brève du contenu</li>
-            <li><strong>Mots-clés :</strong> des termes utiles pour la recherche et le classement</li>
-            <li><strong>Creator / Producer :</strong> le logiciel ou le système ayant généré le PDF</li>
-            <li><strong>Dates de création et de modification :</strong> l’historique temporel du document</li>
-          </ul>
-        </div>
-        <p className="text-gray-700 leading-relaxed">
-          Le problème, c’est que ces champs restent souvent faux par simple oubli. Un devis peut encore afficher le nom d’un ancien collaborateur, un guide téléchargé peut conserver un titre générique comme “Untitled”, ou un document public peut ne contenir aucun mot-clé utile. Ce ne sont pas des erreurs visibles en surface, mais elles diminuent la qualité globale du fichier.
-        </p>
-      </section>
-
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Quand faut-il modifier les métadonnées d’un PDF ?</h2>
         <p className="text-gray-700 leading-relaxed mb-4">
-          Le bon moment se situe juste avant que le PDF quitte Votre espace de travail. Si le document doit être envoyé à un client, publié sur un site, transmis via un portail ou archivé, une vérification rapide est recommandée. C’est particulièrement vrai pour les PDF exportés depuis Word, Google Docs, des logiciels de mise en page ou des flux automatiques, car ils héritent souvent de paramètres techniques non relus.
+          Les métadonnées jouent aussi un rôle important pour la recherche. De nombreux systèmes de gestion documentaire indexent le titre, le sujet, l’auteur et les mots-clés. Si ces champs sont faux ou vides, retrouver le bon document plus tard devient plus lent. Pour les contrats, rapports, formulaires, manuels ou supports commerciaux, ce petit détail finit par coûter du temps à toute l’équipe.
         </p>
-        <div className="overflow-x-auto mb-4">
-          <table className="w-full border-collapse border border-gray-300 text-sm">
-            <thead>
-              <tr className="bg-gray-100">
-                <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Situation</th>
-                <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Pourquoi c’est important</th>
-                <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Action recommandée</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="border border-gray-300 px-4 py-3">Propositions commerciales</td>
-                <td className="border border-gray-300 px-4 py-3">Évite les noms internes et améliore l’image</td>
-                <td className="border border-gray-300 px-4 py-3">Renseigner correctement titre, auteur et sujet</td>
-              </tr>
-              <tr className="bg-gray-50">
-                <td className="border border-gray-300 px-4 py-3">PDF publiés sur le web</td>
-                <td className="border border-gray-300 px-4 py-3">Facilite l’identification par les lecteurs et les systèmes</td>
-                <td className="border border-gray-300 px-4 py-3">Ajouter un titre clair et des mots-clés utiles</td>
-              </tr>
-              <tr>
-                <td className="border border-gray-300 px-4 py-3">Documents RH ou juridiques</td>
-                <td className="border border-gray-300 px-4 py-3">Peut révéler des informations sensibles sur le créateur</td>
-                <td className="border border-gray-300 px-4 py-3">Supprimer ou uniformiser le champ auteur</td>
-              </tr>
-              <tr className="bg-gray-50">
-                <td className="border border-gray-300 px-4 py-3">Rapports techniques ou académiques</td>
-                <td className="border border-gray-300 px-4 py-3">Améliore le classement, la recherche et l’archivage</td>
-                <td className="border border-gray-300 px-4 py-3">Compléter titre, auteur, sujet et dates</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p className="text-gray-700 leading-relaxed">
-          Sur le plan SEO, les métadonnées ne remplacent pas le contenu, mais elles améliorent l’étiquetage du document. Un bon titre et un sujet cohérent rendent le PDF plus compréhensible lorsqu’il circule ou qu’il est indexé.
-        </p>
-      </section>
-
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Étapes pour modifier gratuitement les métadonnées d’un PDF en ligne</h2>
-        <div className="space-y-6">
-          <div className="flex gap-4">
-            <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">1</div>
-            <div>
-              <h3 className="font-semibold text-gray-900 mb-1">Examiner l’état actuel du fichier</h3>
-              <p className="text-gray-700 leading-relaxed">Avant toute modification, regardez ce qui est déjà stocké. Beaucoup de PDF possèdent déjà un titre et un auteur, mais ces valeurs peuvent venir d’un modèle ou du poste de travail utilisé. Si Vous voyez “Document1” ou un ancien nom, un nettoyage s’impose clairement.</p>
-            </div>
-          </div>
-
-          <div className="flex gap-4">
-            <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">2</div>
-            <div>
-              <h3 className="font-semibold text-gray-900 mb-1">Définir un vrai titre de document</h3>
-              <p className="text-gray-700 leading-relaxed">Le titre doit décrire le fichier comme le ferait un humain, et non comme un nom technique de version. “Guide d’intégration fournisseurs T2 2026” est bien plus utile que “final_ok_v3.pdf”. Le lecteur, l’archive et les résultats de partage y gagnent tous en clarté.</p>
-            </div>
-          </div>
-
-          <div className="flex gap-4">
-            <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">3</div>
-            <div>
-              <h3 className="font-semibold text-gray-900 mb-1">Corriger l’auteur, le sujet et les mots-clés avec méthode</h3>
-              <p className="text-gray-700 leading-relaxed">Le champ auteur doit correspondre à une personne, une équipe ou une entreprise qui peut être montrée publiquement. Le sujet résume le document en une phrase courte. Les mots-clés doivent faciliter le classement et la recherche, pas ressembler à une liste artificielle.</p>
-            </div>
-          </div>
-
-          <div className="flex gap-4">
-            <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">4</div>
-            <div>
-              <h3 className="font-semibold text-gray-900 mb-1">Décider si certains champs doivent être supprimés</h3>
-              <p className="text-gray-700 leading-relaxed">Il n’est pas toujours pertinent de tout conserver. Si le PDF contient des codes internes, d’anciens identifiants ou des traces techniques inutiles, la suppression peut être préférable à la correction. Si la confidentialité est Votre priorité, consultez aussi <Link href="/blog/remove-pdf-metadata" className="text-blue-600 hover:underline font-medium">notre guide pour supprimer les métadonnées PDF</Link>.</p>
-            </div>
-          </div>
-
-          <div className="flex gap-4">
-            <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">5</div>
-            <div>
-              <h3 className="font-semibold text-gray-900 mb-1">Enregistrer puis vérifier le résultat</h3>
-              <p className="text-gray-700 leading-relaxed">Après l’enregistrement, ouvrez à nouveau les propriétés. Certains flux de production réécrivent une partie des métadonnées lors de l’export. Une vérification rapide évite de diffuser un fichier encore mal renseigné.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Bonnes pratiques pour des métadonnées propres et utiles</h2>
         <p className="text-gray-700 leading-relaxed mb-4">
-          De bonnes métadonnées ne demandent pas un gros effort, mais de la cohérence. Si Votre activité publie beaucoup de PDF, il est utile de définir une règle simple : comment écrire les titres, quel nom utiliser pour l’auteur, à quel moment renseigner le sujet et quels mots-clés valent vraiment la peine d’être conservés.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-          <div className="bg-blue-50 p-5 rounded-lg">
-            <h3 className="font-semibold text-gray-900 mb-2">Utilisez des titres clairs</h3>
-            <p className="text-gray-700 text-sm">Rédigez le titre comme un vrai intitulé de document, pas comme un nom de fichier brouillon.</p>
-          </div>
-          <div className="bg-green-50 p-5 rounded-lg">
-            <h3 className="font-semibold text-gray-900 mb-2">Uniformisez le champ auteur</h3>
-            <p className="text-gray-700 text-sm">Choisissez une forme publique cohérente : personne, service ou entreprise.</p>
-          </div>
-          <div className="bg-purple-50 p-5 rounded-lg">
-            <h3 className="font-semibold text-gray-900 mb-2">Restez sélectif sur les mots-clés</h3>
-            <p className="text-gray-700 text-sm">Quelques termes bien choisis sont plus utiles qu’une longue liste vague ou répétitive.</p>
-          </div>
-          <div className="bg-orange-50 p-5 rounded-lg">
-            <h3 className="font-semibold text-gray-900 mb-2">Contrôlez avant diffusion</h3>
-            <p className="text-gray-700 text-sm">La vérification des métadonnées doit faire partie du même contrôle final que la relecture.</p>
-          </div>
-        </div>
-        <p className="text-gray-700 leading-relaxed">
-          Si Vous finalisez déjà un PDF, profitez-en pour effectuer d’autres opérations utiles. Réduisez la taille avec <Link href="/compress-pdf" className="text-blue-600 hover:underline font-medium">Compress PDF</Link>, fusionnez plusieurs fichiers avec <Link href="/merge-pdf" className="text-blue-600 hover:underline font-medium">Merge PDF</Link> ou protégez la version finale avec <Link href="/pdf-encrypt" className="text-blue-600 hover:underline font-medium">PDF Encrypt</Link>.
+          En résumé, si le PDF est le dossier, les métadonnées sont son étiquette. Une mauvaise étiquette ralentit tout le classement.
         </p>
       </section>
-
       <section className="mb-10">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Faut-il modifier les métadonnées ou les supprimer ?</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Quelles propriétés d’un PDF pouvez-vous modifier ?</h2>
         <p className="text-gray-700 leading-relaxed mb-4">
-          Tout dépend de Votre objectif. Si Vous voulez un document bien présenté, facile à classer et prêt à être publié, il faut généralement corriger les champs utiles. Si la priorité est la confidentialité et l’élimination des traces, il est souvent préférable de supprimer davantage d’informations. Dans de nombreux cas, la meilleure approche combine les deux.
+          Les champs disponibles varient selon l’origine du fichier, mais on retrouve très souvent les éléments suivants : titre, auteur, sujet, mots-clés, créateur, producteur, date de création et date de modification. Certains PDF comportent aussi des champs personnalisés ajoutés par un logiciel métier ou un système interne.
         </p>
-        <ul className="list-disc list-inside space-y-2 text-gray-700 mb-4">
-          <li><strong>Modifier</strong> si Vous cherchez une meilleure organisation, une image soignée et une lecture claire</li>
-          <li><strong>Supprimer</strong> si Vous voulez réduire l’exposition d’informations internes</li>
-          <li><strong>Combiner</strong> si Vous souhaitez garder un titre propre mais retirer les traces inutiles</li>
-        </ul>
-        <p className="text-gray-700 leading-relaxed">
-          En pratique, il n’est pas toujours judicieux de tout garder ni de tout effacer. Conservez ce qui aide le lecteur. Supprimez ce qui n’apporte rien ou crée un risque inutile.
+        <ul className="list-disc list-inside space-y-2 text-gray-700 mb-4"><li><strong>Titre</strong> : nom officiel du document affiché dans de nombreux lecteurs.</li><li><strong>Auteur</strong> : personne, équipe ou société liée au fichier.</li><li><strong>Sujet</strong> : description courte de l’objectif du document.</li><li><strong>Mots-clés</strong> : termes utiles pour la recherche ultérieure.</li><li><strong>Creator / Producer</strong> : logiciel ou chaîne de production ayant généré le PDF.</li><li><strong>Champs personnalisés</strong> : informations supplémentaires propres à un workflow particulier.</li></ul>
+        <p className="text-gray-700 leading-relaxed mb-4">
+          Si votre objectif est une meilleure organisation, il faut corriger ces champs. Si votre priorité est la confidentialité, il vaut parfois mieux supprimer ce qui n’apporte rien au destinataire.
+        </p>
+      </section>
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Comment modifier les métadonnées d’un PDF avec PixelPDF</h2>
+        <p className="text-gray-700 leading-relaxed mb-4">
+          La bonne méthode consiste à commencer par lire les métadonnées déjà présentes, puis à ne corriger que ce qui doit l’être. Cela évite de conserver par accident des informations obsolètes. Avec PixelPDF, vous pouvez faire cela directement dans votre navigateur, sans installer de logiciel lourd.
+        </p>
+        <div className="space-y-6 mb-6"><div className="flex gap-4"><div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">1</div><div><h3 className="font-semibold text-gray-900 mb-1">Ouvrez l’éditeur de métadonnées</h3><p className="text-gray-700">Accédez à l’outil dans votre navigateur. Si votre PDF est trop volumineux pour l’envoi final, vous pourrez ensuite utiliser <Link href="/compress-pdf/" className="text-blue-600 hover:underline font-medium">Compresser PDF</Link>.</p></div></div><div className="flex gap-4"><div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">2</div><div><h3 className="font-semibold text-gray-900 mb-1">Examinez les champs existants</h3><p className="text-gray-700">Vérifiez si le titre est absent, si l’auteur n’est plus correct ou si des champs personnalisés révèlent des informations internes. Ce contrôle initial évite les modifications au hasard.</p></div></div><div className="flex gap-4"><div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">3</div><div><h3 className="font-semibold text-gray-900 mb-1">Mettez à jour les champs utiles</h3><p className="text-gray-700">Corrigez le titre, l’auteur, le sujet et les mots-clés pour qu’ils correspondent réellement au document. Si vous cherchez surtout à protéger la confidentialité, retirez les anciens noms, codes internes et libellés inutiles.</p></div></div><div className="flex gap-4"><div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">4</div><div><h3 className="font-semibold text-gray-900 mb-1">Enregistrez puis vérifiez</h3><p className="text-gray-700">Téléchargez le PDF mis à jour et contrôlez une nouvelle fois ses propriétés. Si vous devez ensuite le joindre à un email, <Link href="/compress-pdf/" className="text-blue-600 hover:underline font-medium">Compresser PDF</Link> est souvent utile. Si vous devez l’intégrer à un dossier final, utilisez ensuite <Link href="/merge-pdf/" className="text-blue-600 hover:underline font-medium">Fusionner PDF</Link>.</p></div></div></div>
+      </section>
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Quand faut-il modifier les métadonnées et quand faut-il les supprimer ?</h2>
+        <p className="text-gray-700 leading-relaxed mb-4">
+          Beaucoup de personnes confondent deux objectifs différents. Modifier les métadonnées sert à mieux classer, retrouver et présenter un document. Supprimer les métadonnées sert à réduire les informations inutiles ou sensibles avant un partage externe.
+        </p>
+        <p className="text-gray-700 leading-relaxed mb-4">
+          Si vous publiez un guide, un livre blanc, une notice, un rapport ou un support commercial, il est souvent préférable de conserver des métadonnées propres et cohérentes. En revanche, pour un brouillon, une négociation, un document juridique ou un fichier interne transmis vers l’extérieur, il peut être plus prudent de retirer les détails sans intérêt pour le destinataire.
+        </p>
+        <p className="text-gray-700 leading-relaxed mb-4">
+          La règle la plus simple est celle-ci : gardez ce qui aide à comprendre et à classer le document, supprimez ce qui ne sert à rien et augmente le risque de divulgation.
+        </p>
+      </section>
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Bonnes pratiques pour des propriétés PDF propres et professionnelles</h2>
+        <p className="text-gray-700 leading-relaxed mb-4">
+          De bonnes métadonnées ne cherchent pas à attirer l’attention. Elles doivent être cohérentes, lisibles et faciles à exploiter dans le temps. Pour y arriver, un petit standard d’équipe suffit souvent.
+        </p>
+        <ul className="list-disc list-inside space-y-2 text-gray-700 mb-4"><li>Utilisez comme titre le vrai nom du document, pas un nom de fichier du type version_finale_v8.pdf.</li><li>Ne mettez un nom de personne comme auteur que si cela a un intérêt réel ; sinon, préférez une équipe ou une marque.</li><li>Rédigez un sujet court et clair.</li><li>Limitez les mots-clés à quelques termes réellement utiles.</li><li>Supprimez les codes projet anciens et les libellés temporaires.</li><li>Avant publication, vérifiez les propriétés avec le même sérieux que la première page du PDF.</li></ul>
+        <p className="text-gray-700 leading-relaxed mb-4">
+          Plus votre volume de documents augmente, plus ces règles simples font gagner du temps.
+        </p>
+      </section>
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Problèmes fréquents lors de l’édition des métadonnées PDF</h2>
+        <p className="text-gray-700 leading-relaxed mb-4">
+          Si vos modifications ne semblent pas enregistrées, le problème vient souvent d’un cache du lecteur PDF, de métadonnées doublées, de restrictions d’édition ou d’un fichier exporté depuis un ancien système. Commencez par fermer complètement le fichier puis rouvrez-le. Vérifiez ensuite à la fois les champs standard et les propriétés personnalisées.
+        </p>
+        <p className="text-gray-700 leading-relaxed mb-4">
+          Si le document est protégé et que vous avez l’autorisation de le modifier, vous devrez peut-être d’abord utiliser <Link href="/pdf-decrypt/" className="text-blue-600 hover:underline font-medium">Déverrouiller PDF</Link>. N’oubliez pas non plus qu’un simple changement de nom dans votre dossier n’actualise pas automatiquement le titre interne du PDF.
+        </p>
+        <p className="text-gray-700 leading-relaxed mb-4">
+          Si vous devez traiter un grand volume, testez votre méthode sur un seul fichier avant de l’appliquer à toute la série. C’est le moyen le plus simple d’éviter une erreur répétée.
+        </p>
+      </section>
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Qui a le plus intérêt à utiliser un éditeur de métadonnées PDF ?</h2>
+        <p className="text-gray-700 leading-relaxed mb-4">
+          Cet outil est utile à toutes les personnes qui manipulent souvent des PDF entre plusieurs services ou plusieurs systèmes. Recruteurs, agences, services juridiques, équipes support, établissements scolaires, cabinets de conseil, équipes marketing : tous rencontrent un jour ou l’autre un problème de métadonnées.
+        </p>
+        <p className="text-gray-700 leading-relaxed mb-4">
+          Le gain est particulièrement visible au moment où un document quitte un système pour entrer dans un autre. C’est là qu’un mauvais titre, un ancien auteur ou un vieux code interne créent de la confusion pour la personne suivante.
+        </p>
+        <p className="text-gray-700 leading-relaxed mb-4">
+          Si votre flux comporte beaucoup de scans, il est judicieux d’associer l’édition des métadonnées à l’OCR, à l’ordre des pages et à la compression. Vous obtenez ainsi un PDF à la fois lisible, recherché facilement et mieux structuré.
         </p>
       </section>
 
       <section className="mb-10">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Questions fréquentes</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Questions fréquentes (FAQ)</h2>
         <div className="space-y-4">
-          <details className="border border-gray-200 rounded-lg p-4" open>
-            <summary className="font-semibold text-gray-900 cursor-pointer">Puis-je modifier les métadonnées d’un PDF gratuitement en ligne ?</summary>
-            <p className="mt-3 text-gray-700">Oui. Les champs principaux comme le titre, l’auteur, le sujet et les mots-clés peuvent être vérifiés et corrigés en ligne sans installer de logiciel.</p>
-          </details>
-          <details className="border border-gray-200 rounded-lg p-4">
-            <summary className="font-semibold text-gray-900 cursor-pointer">Quel champ est le plus important ?</summary>
-            <p className="mt-3 text-gray-700">Le titre est souvent le plus important, car il identifie directement le document pour le lecteur, l’archive et parfois les résultats de recherche.</p>
-          </details>
-          <details className="border border-gray-200 rounded-lg p-4">
-            <summary className="font-semibold text-gray-900 cursor-pointer">Les métadonnées PDF influencent-elles le SEO ?</summary>
-            <p className="mt-3 text-gray-700">Pas comme facteur principal, mais elles aident à présenter le document de manière plus claire et plus crédible lors du partage ou de l’indexation.</p>
-          </details>
-          <details className="border border-gray-200 rounded-lg p-4">
-            <summary className="font-semibold text-gray-900 cursor-pointer">Faut-il supprimer Creator et Producer ?</summary>
-            <p className="mt-3 text-gray-700">Si ces champs révèlent des outils internes ou des détails techniques inutiles, cela peut être utile. Dans la plupart des cas, la correction du titre et de l’auteur reste prioritaire.</p>
-          </details>
+        <details className="border border-gray-200 rounded-lg p-4" open>
+          <summary className="font-semibold text-gray-900 cursor-pointer">Puis-je modifier le titre et l’auteur d’un PDF sans Adobe Acrobat ?</summary>
+          <p className="mt-3 text-gray-700">
+            Oui. Pour les champs de base comme le titre, l’auteur, le sujet et les mots-clés, un outil en ligne dans le navigateur suffit largement.
+          </p>
+        </details>
+        <details className="border border-gray-200 rounded-lg p-4">
+          <summary className="font-semibold text-gray-900 cursor-pointer">Modifier les métadonnées change-t-il le contenu visible du PDF ?</summary>
+          <p className="mt-3 text-gray-700">
+            Non. Cela modifie uniquement les propriétés internes du document. Le texte et les images visibles sur les pages restent inchangés.
+          </p>
+        </details>
+        <details className="border border-gray-200 rounded-lg p-4">
+          <summary className="font-semibold text-gray-900 cursor-pointer">Les métadonnées PDF ont-elles un impact sur la confidentialité ?</summary>
+          <p className="mt-3 text-gray-700">
+            Oui. Elles peuvent contenir des noms, des informations d’entreprise, des détails logiciels ou des traces de workflow interne. Il est donc prudent de les vérifier avant tout partage externe.
+          </p>
+        </details>
+        <details className="border border-gray-200 rounded-lg p-4">
+          <summary className="font-semibold text-gray-900 cursor-pointer">Quelle est la différence entre le nom du fichier et les métadonnées ?</summary>
+          <p className="mt-3 text-gray-700">
+            Le nom du fichier est ce que vous voyez dans votre dossier ou en pièce jointe. Les métadonnées sont les informations internes du PDF, comme le titre, l’auteur, le sujet et les mots-clés.
+          </p>
+        </details>
+        <details className="border border-gray-200 rounded-lg p-4">
+          <summary className="font-semibold text-gray-900 cursor-pointer">Faut-il supprimer les métadonnées de tous les PDF ?</summary>
+          <p className="mt-3 text-gray-700">
+            Pas forcément. Si elles améliorent le classement et la recherche, il vaut mieux les garder correctement remplies. Il faut surtout supprimer ce qui est obsolète, inutile ou sensible.
+          </p>
+        </details>
         </div>
-      </section>
-
-      <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-8 rounded-xl text-center">
-        <h2 className="text-2xl font-bold mb-4">Vous préparez un PDF avant diffusion ?</h2>
-        <p className="mb-6 text-blue-100">Après les métadonnées, Vous pouvez encore compresser, fusionner, diviser ou protéger le fichier avec PixelPDF.</p>
-        <Link
-          href="/compress-pdf"
-          className="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition"
-        >
-          Ouvrir les outils PixelPDF
-        </Link>
       </section>
     </article>
   );
