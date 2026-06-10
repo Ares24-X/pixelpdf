@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   
   // Blog articles (English, all with trailing slash)
   const blogArticles = [
+    '/blog/pdf-watermark-remover/',
     '/blog/compare-two-pdfs/',
     '/blog/pdf-to-pdfa-converter/',
     '/blog/pdf-metadata-editor/',
