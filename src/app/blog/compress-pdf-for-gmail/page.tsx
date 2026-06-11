@@ -7,12 +7,12 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'How to Compress PDF to 25MB for Gmail (Step-by-Step Guide)',
-  description: 'Learn how to compress PDF to 25MB for Gmail attachment. Step-by-step guide to reduce PDF file size and fix "attachment too large" errors.',
+  title: 'Compress PDF for Gmail 25MB Limit — Free Online',
+  description: 'Compress PDF for Gmail 25MB limit with PixelPDF. Reduce file size, avoid attachment errors, and send your PDF today.',
   keywords: ['compress PDF to 25MB for Gmail', 'PDF too large for Gmail', 'reduce PDF size for email', 'Gmail attachment limit', 'compress PDF online'],
   openGraph: {
-    title: 'How to Compress PDF to 25MB for Gmail (Step-by-Step Guide)',
-    description: 'Learn how to compress PDF to 25MB for Gmail attachment. Step-by-step guide to reduce PDF file size and fix "attachment too large" errors.',
+    title: 'Compress PDF for Gmail 25MB Limit — Free Online',
+    description: 'Compress PDF for Gmail 25MB limit with PixelPDF. Reduce file size, avoid attachment errors, and send your PDF today.',
     type: 'article',
   },
 };
@@ -27,7 +27,7 @@ export default function CompressPdfForGmail() {
 
       {/* H1 Title */}
       <h1 className="text-4xl font-bold text-gray-900 mb-4">
-        How to Compress PDF to 25MB for Gmail (Step-by-Step Guide)
+        Compress PDF for Gmail 25MB Limit — Free Online
       </h1>
 
       {/* Meta */}
@@ -310,6 +310,31 @@ export default function CompressPdfForGmail() {
           </Link>
         </div>
       </section>
-    </article>
+    
+        <section className="mt-12 pt-8 border-t border-slate-200">
+          <h2 className="text-2xl font-bold text-slate-900 mb-3">Related Articles</h2>
+          <p className="text-sm text-slate-500 mb-4">
+            Start with the cluster guide: <Link href="/blog/merge-pdf-complete-guide" className="text-blue-600 underline">Merge PDF: Complete Guide to Combine PDF Files Online (2026)</Link>.
+          </p>
+          <div className="grid md:grid-cols-2 gap-4">
+            <Link href="/blog/merge-pdf-complete-guide" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">Merge PDF: Complete Guide to Combine PDF Files Online (2026)</h4>
+              <p className="text-sm text-slate-600">Learn how to merge PDF files online for free with PixelPDF. Step-by-step guide, tips, comparison table, a…</p>
+            </Link>
+            <Link href="/blog/combine-multiple-pdfs-into-one" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">Merge PDF Files Free Online — Combine PDFs Fast</h4>
+              <p className="text-sm text-slate-600">Merge PDF files free online with PixelPDF. Combine multiple PDFs into one document in your browser—no sig…</p>
+            </Link>
+            <Link href="/blog/merge-scanned-documents" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">How to Merge Scanned Documents into One PDF (Free & Easy)</h4>
+              <p className="text-sm text-slate-600">Learn how to merge scanned documents into one PDF. Free step-by-step guide for combining receipts, contra…</p>
+            </Link>
+            <Link href="/blog/split-pdf-online-guide" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">Split PDF Free Online — Extract Pages Fast</h4>
+              <p className="text-sm text-slate-600">Split PDF free online with PixelPDF. Extract pages or divide large documents in your browser—no signup, n…</p>
+            </Link>
+          </div>
+        </section>
+</article>
   );
 }

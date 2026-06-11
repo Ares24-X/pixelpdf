@@ -6,12 +6,12 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'How to Split PDF Files Online for Free (2026 Complete Guide)',
-  description: 'Learn how to split PDF files by page range, extract specific pages, or separate a large PDF into multiple files using PixelPDF.',
+  title: 'Split PDF Free Online — Extract Pages Fast',
+  description: 'Split PDF free online with PixelPDF. Extract pages or divide large documents in your browser—no signup, no installation, start now.',
   keywords: ['split PDF', 'extract PDF pages', 'separate PDF', 'PDF splitter', 'divide PDF online'],
   openGraph: {
-    title: 'How to Split PDF Files Online for Free (2026 Complete Guide)',
-    description: 'Learn how to split PDF files by page range, extract specific pages, or separate a large PDF into multiple files using PixelPDF.',
+    title: 'Split PDF Free Online — Extract Pages Fast',
+    description: 'Split PDF free online with PixelPDF. Extract pages or divide large documents in your browser—no signup, no installation, start now.',
     type: 'article',
   },
 };
@@ -26,7 +26,7 @@ export default function SplitPdfGuide() {
 
       {/* H1 Title */}
       <h1 className="text-4xl font-bold text-gray-900 mb-4">
-        How to Split PDF Files Online for Free: Complete Guide (2026)
+        Split PDF Free Online — Extract Pages Fast: Complete Guide (2026)
       </h1>
 
       {/* Meta */}
@@ -333,6 +333,31 @@ export default function SplitPdfGuide() {
           </Link>
         </div>
       </section>
-    </article>
+    
+        <section className="mt-12 pt-8 border-t border-slate-200">
+          <h2 className="text-2xl font-bold text-slate-900 mb-3">Related Articles</h2>
+          <p className="text-sm text-slate-500 mb-4">
+            Start with the cluster guide: <Link href="/blog/merge-pdf-complete-guide" className="text-blue-600 underline">Merge PDF: Complete Guide to Combine PDF Files Online (2026)</Link>.
+          </p>
+          <div className="grid md:grid-cols-2 gap-4">
+            <Link href="/blog/merge-pdf-complete-guide" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">Merge PDF: Complete Guide to Combine PDF Files Online (2026)</h4>
+              <p className="text-sm text-slate-600">Learn how to merge PDF files online for free with PixelPDF. Step-by-step guide, tips, comparison table, a…</p>
+            </Link>
+            <Link href="/blog/combine-multiple-pdfs-into-one" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">Merge PDF Files Free Online — Combine PDFs Fast</h4>
+              <p className="text-sm text-slate-600">Merge PDF files free online with PixelPDF. Combine multiple PDFs into one document in your browser—no sig…</p>
+            </Link>
+            <Link href="/blog/merge-scanned-documents" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">How to Merge Scanned Documents into One PDF (Free & Easy)</h4>
+              <p className="text-sm text-slate-600">Learn how to merge scanned documents into one PDF. Free step-by-step guide for combining receipts, contra…</p>
+            </Link>
+            <Link href="/blog/split-pdf-by-pages" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">How to Split PDF by Specific Pages (Free Online Guide)</h4>
+              <p className="text-sm text-slate-600">Learn how to split PDF by specific pages online. Extract individual pages, page ranges, or split every pa…</p>
+            </Link>
+          </div>
+        </section>
+</article>
   );
 }

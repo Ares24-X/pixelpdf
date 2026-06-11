@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "How to Redact a PDF Online for Free Without Leaking Private Data",
-  description: "Learn how to redact PDF text, names, account numbers, and screenshots safely. Permanent PDF redaction guide for contracts, bank records, invoices, and school forms.",
+  title: "Redact PDF Free Online — Remove Sensitive Text Safely",
+  description: "Redact PDF free online and remove sensitive text, names, and account numbers safely. Learn permanent redaction before you share.",
   keywords: "redact PDF online, remove sensitive information from PDF, black out PDF text, PDF privacy, free PDF redaction",
 };
 
@@ -21,7 +21,7 @@ export default function RedactPDFOnlineFreeGuide() {
         </nav>
 
         <h1 className="text-4xl font-bold text-slate-900 mb-6">
-          How to Redact a PDF Online for Free Without Leaking Private Data
+          Redact PDF Free Online — Remove Sensitive Text Safely
         </h1>
 
         <p className="text-lg text-slate-600 mb-8">
@@ -127,7 +127,32 @@ export default function RedactPDFOnlineFreeGuide() {
             Open Free PDF Tools
           </Link>
         </div>
-      </article>
+      
+        <section className="mt-12 pt-8 border-t border-slate-200">
+          <h2 className="text-2xl font-bold text-slate-900 mb-3">Related Articles</h2>
+          <p className="text-sm text-slate-500 mb-4">
+            Start with the cluster guide: <Link href="/blog/merge-pdf-complete-guide" className="text-blue-600 underline">Merge PDF: Complete Guide to Combine PDF Files Online (2026)</Link>.
+          </p>
+          <div className="grid md:grid-cols-2 gap-4">
+            <Link href="/blog/merge-pdf-complete-guide" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">Merge PDF: Complete Guide to Combine PDF Files Online (2026)</h4>
+              <p className="text-sm text-slate-600">Learn how to merge PDF files online for free with PixelPDF. Step-by-step guide, tips, comparison table, a…</p>
+            </Link>
+            <Link href="/blog/combine-multiple-pdfs-into-one" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">Merge PDF Files Free Online — Combine PDFs Fast</h4>
+              <p className="text-sm text-slate-600">Merge PDF files free online with PixelPDF. Combine multiple PDFs into one document in your browser—no sig…</p>
+            </Link>
+            <Link href="/blog/merge-scanned-documents" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">How to Merge Scanned Documents into One PDF (Free & Easy)</h4>
+              <p className="text-sm text-slate-600">Learn how to merge scanned documents into one PDF. Free step-by-step guide for combining receipts, contra…</p>
+            </Link>
+            <Link href="/blog/split-pdf-online-guide" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">Split PDF Free Online — Extract Pages Fast</h4>
+              <p className="text-sm text-slate-600">Split PDF free online with PixelPDF. Extract pages or divide large documents in your browser—no signup, n…</p>
+            </Link>
+          </div>
+        </section>
+</article>
     </div>
   );
 }

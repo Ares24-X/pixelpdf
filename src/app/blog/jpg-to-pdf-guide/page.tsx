@@ -6,12 +6,12 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'JPG to PDF: Complete Guide to Converting Images to PDF (2026)',
-  description: 'Learn how to convert JPG and other images to PDF online for free. Step-by-step guide, format comparison, tips, and FAQs about image to PDF conversion.',
+  title: 'JPG to PDF Converter Free Online — Complete Guide',
+  description: 'Convert JPG to PDF free online with PixelPDF. Learn the fastest way to turn images into one PDF securely, with no signup required.',
   keywords: ['JPG to PDF', 'image to PDF', 'convert JPG to PDF', 'photo to PDF', 'picture to PDF', 'PNG to PDF'],
   openGraph: {
-    title: 'JPG to PDF: Complete Guide to Converting Images to PDF (2026)',
-    description: 'Complete guide on converting JPG and images to PDF. Free, fast, and secure with PixelPDF.',
+    title: 'JPG to PDF Converter Free Online — Complete Guide',
+    description: 'Convert JPG to PDF free online with PixelPDF. Learn the fastest way to turn images into one PDF securely, with no signup required.',
     type: 'article',
   },
 };
@@ -26,7 +26,7 @@ export default function JPGToPDFGuide() {
 
       {/* H1 Title */}
       <h1 className="text-4xl font-bold text-gray-900 mb-4">
-        JPG to PDF: Complete Guide to Converting Images to PDF in 2026
+        JPG to PDF Converter Free Online — Complete Guide
       </h1>
 
       {/* Meta */}
@@ -357,6 +357,31 @@ export default function JPGToPDFGuide() {
           </Link>
         </div>
       </section>
-    </article>
+    
+        <section className="mt-12 pt-8 border-t border-slate-200">
+          <h2 className="text-2xl font-bold text-slate-900 mb-3">Related Articles</h2>
+          <p className="text-sm text-slate-500 mb-4">
+            Start with the cluster guide: <Link href="/blog/pdf-to-jpg-guide" className="text-blue-600 underline">Convert PDF to JPG Free Online — No Signup Required</Link>.
+          </p>
+          <div className="grid md:grid-cols-2 gap-4">
+            <Link href="/blog/pdf-to-jpg-guide" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">Convert PDF to JPG Free Online — No Signup Required</h4>
+              <p className="text-sm text-slate-600">Convert PDF to JPG free online with PixelPDF. Follow quick steps, keep files private in your browser, and…</p>
+            </Link>
+            <Link href="/blog/convert-pdf-to-image" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">PDF to Image: How to Convert PDF to JPG/PNG in Seconds (2026)</h4>
+              <p className="text-sm text-slate-600">Learn how to convert PDF pages to JPG or PNG images in seconds. Quick 3-step guide, format comparison, an…</p>
+            </Link>
+            <Link href="/blog/convert-pdf-to-word-free" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">Convert PDF to Word Free Online Without Losing Format</h4>
+              <p className="text-sm text-slate-600">Convert PDF to Word free online without losing formatting. Compare safe methods, avoid signup, and start…</p>
+            </Link>
+            <Link href="/blog/convert-pdf-to-excel-free" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">Convert PDF to Excel Free Online Without Losing Data</h4>
+              <p className="text-sm text-slate-600">Convert PDF to Excel free online and preserve tables. Learn the best methods for clean spreadsheet export…</p>
+            </Link>
+          </div>
+        </section>
+</article>
   );
 }

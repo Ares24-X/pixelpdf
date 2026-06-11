@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "How to Convert PDF to JPG Online for Free - Complete Guide 2025",
-  description: "Learn how to convert PDF to JPG online for free. Step-by-step guide using PixelPDF's free PDF to JPG converter. No installation, no registration required.",
+  title: "Convert PDF to JPG Free Online — No Signup Required",
+  description: "Convert PDF to JPG free online with PixelPDF. Follow quick steps, keep files private in your browser, and convert pages to images now.",
   keywords: "pdf to jpg, convert pdf to image, free pdf converter, pdf to png, online pdf converter",
 };
 
@@ -11,7 +12,7 @@ export default function PDFToJPGGuide() {
     <div className="max-w-4xl mx-auto px-4 py-12">
       <article className="prose prose-slate max-w-none">
         <h1 className="text-4xl font-bold text-slate-900 mb-6">
-          How to Convert PDF to JPG Online for Free - Complete Guide 2025
+          Convert PDF to JPG Free Online — No Signup Required
         </h1>
         
         <p className="text-lg text-slate-600 mb-8">
@@ -163,7 +164,29 @@ export default function PDFToJPGGuide() {
             </a>
           </div>
         </div>
-      </article>
+      
+        <section className="mt-12 pt-8 border-t border-slate-200">
+          <h2 className="text-2xl font-bold text-slate-900 mb-3">Related Articles</h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            <Link href="/blog/convert-pdf-to-image" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">PDF to Image: How to Convert PDF to JPG/PNG in Seconds (2026)</h4>
+              <p className="text-sm text-slate-600">Learn how to convert PDF pages to JPG or PNG images in seconds. Quick 3-step guide, format comparison, an…</p>
+            </Link>
+            <Link href="/blog/convert-pdf-to-word-free" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">Convert PDF to Word Free Online Without Losing Format</h4>
+              <p className="text-sm text-slate-600">Convert PDF to Word free online without losing formatting. Compare safe methods, avoid signup, and start…</p>
+            </Link>
+            <Link href="/blog/convert-pdf-to-excel-free" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">Convert PDF to Excel Free Online Without Losing Data</h4>
+              <p className="text-sm text-slate-600">Convert PDF to Excel free online and preserve tables. Learn the best methods for clean spreadsheet export…</p>
+            </Link>
+            <Link href="/blog/jpg-to-pdf-guide" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">JPG to PDF Converter Free Online — Complete Guide</h4>
+              <p className="text-sm text-slate-600">Convert JPG to PDF free online with PixelPDF. Learn the fastest way to turn images into one PDF securely,…</p>
+            </Link>
+          </div>
+        </section>
+</article>
     </div>
   );
 }
