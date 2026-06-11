@@ -29,7 +29,7 @@ export default function PdfToJpgPage() {
       setImages([]);
     } else {
       setStatus("error");
-      setMessage("请选择有效的 PDF 文件");
+      setMessage("Please select a valid PDF file");
     }
   }, []);
 
@@ -57,7 +57,7 @@ export default function PdfToJpgPage() {
 
     setStatus("processing");
     setProgress(0);
-    setMessage("正在加载 PDF 库...");
+    setMessage("Loading PDF library...");
     setImages([]);
 
     try {
@@ -67,10 +67,10 @@ export default function PdfToJpgPage() {
       // Use worker from public directory
       pdfjs.GlobalWorkerOptions.workerSrc = "/pdfjs/pdf.worker.min.mjs";
 
-      setMessage("正在读取 PDF 文件...");
+      setMessage("Reading PDF file...");
       const arrayBuffer = await file.arrayBuffer();
       
-      setMessage("正在解析 PDF...");
+      setMessage("Parsing PDF...");
       const pdf = await pdfjs.getDocument({ 
         data: arrayBuffer,
         useSystemFonts: true,
@@ -79,13 +79,13 @@ export default function PdfToJpgPage() {
       const totalPages = pdf.numPages;
 
       const estimatedSeconds = Math.ceil(totalPages * 2);
-      setEstimatedTime(`预计需要 ${estimatedSeconds} 秒`);
+      setEstimatedTime(`Estimated time: ${estimatedSeconds} seconds`);
 
       const convertedImages: ConvertedImage[] = [];
       const baseName = file.name.replace(/\.pdf$/i, "");
 
       for (let i = 1; i <= totalPages; i++) {
-        setMessage(`正在转换第 ${i} 页，共 ${totalPages} 页...`);
+        setMessage(`Converting page ${i} of ${totalPages}...`);
         setProgress(Math.round(((i - 1) / totalPages) * 100));
 
         const page = await pdf.getPage(i);
@@ -114,17 +114,17 @@ export default function PdfToJpgPage() {
         });
 
         const remainingSeconds = Math.ceil((totalPages - i) * 2);
-        setEstimatedTime(`剩余约 ${remainingSeconds} 秒`);
+        setEstimatedTime(`About ${remainingSeconds} seconds remaining`);
       }
 
       setProgress(100);
-      setMessage(`转换完成！共 ${totalPages} 页`);
+      setMessage(`Done! ${totalPages} pages converted`);
       setStatus("complete");
       setImages(convertedImages);
     } catch (err) {
       console.error("PDF conversion error:", err);
       setStatus("error");
-      setMessage(`转换失败: ${err instanceof Error ? err.message : "未知错误"}`);
+      setMessage(`Conversion failed: ${err instanceof Error ? err.message : "Unknown error"}`);
     }
   }, [file]);
 
@@ -160,12 +160,12 @@ export default function PdfToJpgPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-12 px-4">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">PDF 转 JPG</h1>
-          <p className="text-gray-600">将 PDF 文件的每一页转换为高质量的 JPG 图片</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">PDF to JPG</h1>
+          <p className="text-gray-600">Convert each page of your PDF to high-quality JPG images</p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-lg p-8">
-          {/* 上传区域 */}
+          {/* Upload area */}
           <div
             onDrop={handleDrop}
             onDragOver={handleDragOver}
@@ -189,14 +189,14 @@ export default function PdfToJpgPage() {
             />
             <div className="text-4xl mb-3">📄</div>
             <p className="text-gray-700 font-medium">
-              {file ? file.name : "点击或拖拽 PDF 文件到此处"}
+              {file ? file.name : "Click or drag PDF file here"}
             </p>
             <p className="text-gray-400 text-sm mt-1">
-              {file ? `${formatFileSize(file.size)}` : "支持 .pdf 格式"}
+              {file ? `${formatFileSize(file.size)}` : "Supports .pdf format"}
             </p>
           </div>
 
-          {/* 文件信息 */}
+          {/* File information */}
           {file && (
             <div className="mt-4 p-4 bg-gray-50 rounded-lg">
               <div className="flex items-center justify-between">
@@ -214,13 +214,13 @@ export default function PdfToJpgPage() {
                   }}
                   className="text-red-500 hover:text-red-700 text-sm"
                 >
-                  移除
+                  Remove
                 </button>
               </div>
             </div>
           )}
 
-          {/* 进度条 */}
+          {/* Progress bar */}
           {status !== "idle" && (
             <div className="mt-6">
               <ProgressBar
@@ -232,7 +232,7 @@ export default function PdfToJpgPage() {
             </div>
           )}
 
-          {/* 转换按钮 */}
+          {/* Convert button */}
           <button
             onClick={handleConvert}
             disabled={!file || status === "processing"}
@@ -242,21 +242,21 @@ export default function PdfToJpgPage() {
                 : "bg-blue-600 hover:bg-blue-700 active:bg-blue-800"
             }`}
           >
-            {status === "processing" ? "正在转换..." : "开始转换"}
+            {status === "processing" ? "Converting..." : "Start converting"}
           </button>
 
-          {/* 结果列表 - 图片卡片展示 */}
+          {/* Results list - image cards */}
           {status === "complete" && images.length > 0 && (
             <div className="mt-6">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-semibold text-gray-900">
-                  转换结果 ({images.length} 张图片)
+                  Conversion results ({images.length} images)
                 </h3>
                 <button
                   onClick={handleDownloadAll}
                   className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"
                 >
-                  下载全部
+                  Download all
                 </button>
               </div>
               
@@ -273,7 +273,7 @@ export default function PdfToJpgPage() {
                         className="w-full h-full object-contain"
                       />
                       <div className="absolute top-2 left-2 bg-black/50 text-white text-xs px-2 py-1 rounded">
-                        第 {image.pageNumber} 页
+                        Page {image.pageNumber}
                       </div>
                     </div>
                     <div className="p-3">
@@ -284,7 +284,7 @@ export default function PdfToJpgPage() {
                         onClick={() => handleDownload(image)}
                         className="w-full px-3 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"
                       >
-                        下载
+                        Download
                       </button>
                     </div>
                   </div>

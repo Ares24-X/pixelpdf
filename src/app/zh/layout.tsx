@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function ZhRootLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return <html lang="zh"><body>{children}</body></html>;
 }

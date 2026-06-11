@@ -5,7 +5,7 @@ import { saveAs } from "file-saver";
 import ProgressBar from "@/components/ProgressBar";
 
 export default function PdfEncryptPage() {
-  // 状态管理
+  // State management
   const [file, setFile] = useState<File | null>(null);
   const [progress, setProgress] = useState(0);
   const [status, setStatus] = useState<"idle" | "processing" | "complete" | "error">("idle");
@@ -14,14 +14,14 @@ export default function PdfEncryptPage() {
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // 加密选项
+  // Encryption options
   const [userPassword, setUserPassword] = useState("");
   const [ownerPassword, setOwnerPassword] = useState("");
   const [allowPrinting, setAllowPrinting] = useState(true);
   const [allowCopying, setAllowCopying] = useState(false);
   const [allowModifying, setAllowModifying] = useState(false);
 
-  // 文件选择处理
+  // File selection handling
   const handleFileSelect = useCallback((selectedFile: File) => {
     if (selectedFile && selectedFile.type === "application/pdf") {
       setFile(selectedFile);
@@ -34,7 +34,7 @@ export default function PdfEncryptPage() {
     }
   }, []);
 
-  // 拖拽处理
+  // Drag-and-drop handling
   const handleDrop = useCallback(
     (e: React.DragEvent) => {
       e.preventDefault();
@@ -54,7 +54,7 @@ export default function PdfEncryptPage() {
     setIsDragging(false);
   }, []);
 
-  // 核心加密逻辑
+  // Core encryption logic
   const handleEncrypt = useCallback(async () => {
     if (!file) return;
 
@@ -70,20 +70,20 @@ export default function PdfEncryptPage() {
     setEstimatedTime("Calculating...");
 
     try {
-      // 动态导入 pdf-lib
+      // Dynamically import pdf-lib
       const { PDFDocument } = await import("@cantoo/pdf-lib");
 
       setProgress(10);
       setMessage("Loading PDF file...");
 
-      // 读取文件
+      // Read file
       const arrayBuffer = await file.arrayBuffer();
       const pdfDoc = await PDFDocument.load(arrayBuffer, { ignoreEncryption: true });
 
       setProgress(30);
       setMessage("Applying encryption...");
 
-      // 加密选项
+      // Encryption options
       const permissions = {
         printing: allowPrinting ? "lowResolution" : "none",
         copying: allowCopying,
@@ -99,7 +99,7 @@ export default function PdfEncryptPage() {
       setProgress(50);
       setMessage("Saving encrypted PDF...");
 
-      // 保存加密后的 PDF
+      // Save encrypted PDF
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const saveOptions: any = {
         userPassword: userPassword || undefined,
@@ -111,7 +111,7 @@ export default function PdfEncryptPage() {
       setProgress(80);
       setMessage("Preparing download...");
 
-      // 创建 Blob 并下载
+      // Create Blob and download
       const blob = new Blob([pdfBytes.buffer as ArrayBuffer], { type: "application/pdf" });
       const fileName = file.name.replace(".pdf", "-encrypted.pdf");
       saveAs(blob, fileName);
@@ -127,7 +127,7 @@ export default function PdfEncryptPage() {
     }
   }, [file, userPassword, ownerPassword, allowPrinting, allowCopying, allowModifying]);
 
-  // 重置状态
+  // Reset state
   const handleReset = useCallback(() => {
     setFile(null);
     setProgress(0);
@@ -141,7 +141,7 @@ export default function PdfEncryptPage() {
     setAllowModifying(false);
   }, []);
 
-  // 文件大小格式化
+  // File size formatting
   const formatFileSize = (bytes: number) => {
     if (bytes < 1024) return bytes + " B";
     if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
@@ -151,7 +151,7 @@ export default function PdfEncryptPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-red-50 py-12 px-4">
       <div className="max-w-2xl mx-auto">
-        {/* 标题区域 */}
+        {/* Title area */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-2xl mb-4">
             <span className="text-3xl">🔒</span>
@@ -163,7 +163,7 @@ export default function PdfEncryptPage() {
         </div>
 
         <div className="bg-white rounded-2xl shadow-lg p-8">
-          {/* 上传区域 */}
+          {/* Upload area */}
           {!file ? (
             <div
               onDrop={handleDrop}
@@ -194,7 +194,7 @@ export default function PdfEncryptPage() {
             </div>
           ) : (
             <div className="space-y-6">
-              {/* 文件信息 */}
+              {/* File information */}
               <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
@@ -213,13 +213,13 @@ export default function PdfEncryptPage() {
                 </button>
               </div>
 
-              {/* 加密选项 */}
+              {/* Encryption options */}
               <div className="space-y-4">
                 <h3 className="font-semibold text-gray-900 flex items-center gap-2">
                   <span>🔐</span> Encryption Settings
                 </h3>
 
-                {/* 用户密码 */}
+                {/* User password */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Open Password (User Password)
@@ -236,7 +236,7 @@ export default function PdfEncryptPage() {
                   </p>
                 </div>
 
-                {/* 所有者密码 */}
+                {/* Owner password */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Owner Password (Optional)
@@ -253,7 +253,7 @@ export default function PdfEncryptPage() {
                   </p>
                 </div>
 
-                {/* 权限设置 */}
+                {/* Permission settings */}
                 <div className="pt-2">
                   <label className="block text-sm font-medium text-gray-700 mb-3">
                     Permissions
@@ -290,7 +290,7 @@ export default function PdfEncryptPage() {
                 </div>
               </div>
 
-              {/* 进度条 */}
+              {/* Progress bar */}
               {status !== "idle" && (
                 <div className="mt-6">
                   <ProgressBar
@@ -302,7 +302,7 @@ export default function PdfEncryptPage() {
                 </div>
               )}
 
-              {/* 操作按钮 */}
+              {/* Action buttons */}
               <div className="flex gap-3">
                 <button
                   onClick={handleEncrypt}
@@ -326,7 +326,7 @@ export default function PdfEncryptPage() {
           )}
         </div>
 
-        {/* 使用说明 */}
+        {/* Instructions */}
         <div className="mt-8 bg-white rounded-2xl shadow-lg p-8">
           <h2 className="text-xl font-bold text-gray-900 mb-4">How to Encrypt PDF</h2>
           <ol className="space-y-3 text-gray-700">
@@ -402,7 +402,7 @@ export default function PdfEncryptPage() {
           </div>
         </div>
 
-        {/* 相关工具 */}
+        {/* Related tools */}
         <div className="mt-8">
           <h2 className="text-xl font-bold text-gray-900 mb-4">Related Tools</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

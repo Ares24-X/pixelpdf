@@ -33,11 +33,11 @@ export default function RotatePdfPage() {
         setTotalPages(pdf.getPageCount());
       } catch {
         setStatus("error");
-        setMessage("无法读取 PDF 文件");
+        setMessage("Unable to read PDF file");
       }
     } else {
       setStatus("error");
-      setMessage("请选择有效的 PDF 文件");
+      setMessage("Please select a valid PDF file");
     }
   }, []);
 
@@ -71,7 +71,7 @@ export default function RotatePdfPage() {
         const end = parseInt(endStr, 10);
 
         if (isNaN(start) || isNaN(end) || start < 1 || end > maxPage || start > end) {
-          throw new Error(`无效的页码范围: "${part}"。有效页码范围: 1-${maxPage}`);
+          throw new Error(`Invalid page range: "${part}". Valid page range: 1-${maxPage}`);
         }
 
         for (let i = start; i <= end; i++) {
@@ -80,7 +80,7 @@ export default function RotatePdfPage() {
       } else {
         const page = parseInt(part, 10);
         if (isNaN(page) || page < 1 || page > maxPage) {
-          throw new Error(`无效的页码: "${part}"。有效页码范围: 1-${maxPage}`);
+          throw new Error(`Invalid page number: "${part}". Valid page range: 1-${maxPage}`);
         }
         pages.add(page - 1);
       }
@@ -94,13 +94,13 @@ export default function RotatePdfPage() {
 
     if (pageMode === "specific" && !specificPages.trim()) {
       setStatus("error");
-      setMessage("请输入要旋转的页码");
+      setMessage("Please enter the pages to rotate");
       return;
     }
 
     setStatus("processing");
     setProgress(0);
-    setMessage("正在加载 PDF...");
+    setMessage("Loading PDF...");
 
     try {
       const { PDFDocument, degrees } = await import("@cantoo/pdf-lib");
@@ -118,13 +118,13 @@ export default function RotatePdfPage() {
       }
 
       const estimatedSeconds = Math.ceil(targetPages.size * 0.1);
-      setEstimatedTime(`预计需要 ${estimatedSeconds} 秒`);
+      setEstimatedTime(`Estimated time: ${estimatedSeconds} seconds`);
 
       let processedCount = 0;
       for (const pageIndex of targetPages) {
         processedCount++;
         setMessage(
-          `正在旋转第 ${pageIndex + 1} 页（${processedCount}/${targetPages.size}）...`
+          `Rotating page ${pageIndex + 1} (${processedCount}/${targetPages.size})...`
         );
         setProgress(Math.round((processedCount / targetPages.size) * 90));
 
@@ -135,10 +135,10 @@ export default function RotatePdfPage() {
         const remainingSeconds = Math.ceil(
           ((targetPages.size - processedCount) / targetPages.size) * estimatedSeconds
         );
-        setEstimatedTime(`剩余约 ${remainingSeconds} 秒`);
+        setEstimatedTime(`About ${remainingSeconds} seconds remaining`);
       }
 
-      setMessage("正在生成旋转后的 PDF...");
+      setMessage("Generating rotated PDF...");
       setProgress(95);
 
       const rotatedBytes = await pdfDoc.save();
@@ -150,12 +150,12 @@ export default function RotatePdfPage() {
       saveAs(blob, `${baseName}_rotated_${angle}deg.pdf`);
 
       setMessage(
-        `旋转完成！已旋转 ${targetPages.size} 页（${angle}°）`
+        `Rotation complete! Rotated ${targetPages.size} pages (${angle}°)`
       );
     } catch (err) {
       console.error(err);
       setStatus("error");
-      setMessage(`旋转失败: ${err instanceof Error ? err.message : "未知错误"}`);
+      setMessage(`Rotation failed: ${err instanceof Error ? err.message : "Unknown error"}`);
     }
   }, [file, angle, pageMode, specificPages]);
 
@@ -171,12 +171,12 @@ export default function RotatePdfPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-indigo-50 py-12 px-4">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">旋转 PDF</h1>
-          <p className="text-gray-600">旋转 PDF 页面，支持全部页面或指定页面</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Rotate PDF</h1>
+          <p className="text-gray-600">Rotate PDF pages, including all pages or selected pages</p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-lg p-8">
-          {/* 上传区域 */}
+          {/* Upload area */}
           <div
             onDrop={handleDrop}
             onDragOver={handleDragOver}
@@ -200,23 +200,23 @@ export default function RotatePdfPage() {
             />
             <div className="text-4xl mb-3">🔄</div>
             <p className="text-gray-700 font-medium">
-              {file ? file.name : "点击或拖拽 PDF 文件到此处"}
+              {file ? file.name : "Click or drag PDF file here"}
             </p>
             <p className="text-gray-400 text-sm mt-1">
               {file
-                ? `${formatFileSize(file.size)} · ${totalPages} 页`
-                : "支持 .pdf 格式"}
+                ? `${formatFileSize(file.size)} · ${totalPages} pages`
+                : "Supports .pdf format"}
             </p>
           </div>
 
-          {/* 文件信息 */}
+          {/* File information */}
           {file && (
             <div className="mt-4 p-4 bg-gray-50 rounded-lg">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-gray-700">{file.name}</p>
                   <p className="text-xs text-gray-500">
-                    {formatFileSize(file.size)} · {totalPages} 页
+                    {formatFileSize(file.size)} · {totalPages} pages
                   </p>
                 </div>
                 <button
@@ -229,17 +229,17 @@ export default function RotatePdfPage() {
                   }}
                   className="text-red-500 hover:text-red-700 text-sm"
                 >
-                  移除
+                  Remove
                 </button>
               </div>
             </div>
           )}
 
-          {/* 旋转角度选择 */}
+          {/* Rotation angle selection */}
           {file && (
             <div className="mt-4">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                旋转角度
+                Rotation angle
               </label>
               <div className="flex gap-3">
                 {angles.map((a) => (
@@ -259,11 +259,11 @@ export default function RotatePdfPage() {
             </div>
           )}
 
-          {/* 页面范围选择 */}
+          {/* Page range selection */}
           {file && (
             <div className="mt-4">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                旋转范围
+                Rotation range
               </label>
               <div className="flex gap-3 mb-3">
                 <button
@@ -274,7 +274,7 @@ export default function RotatePdfPage() {
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                   }`}
                 >
-                  全部页面
+                  All pages
                 </button>
                 <button
                   onClick={() => setPageMode("specific")}
@@ -284,7 +284,7 @@ export default function RotatePdfPage() {
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                   }`}
                 >
-                  指定页面
+                  Selected pages
                 </button>
               </div>
               {pageMode === "specific" && (
@@ -293,18 +293,18 @@ export default function RotatePdfPage() {
                     type="text"
                     value={specificPages}
                     onChange={(e) => setSpecificPages(e.target.value)}
-                    placeholder="例如: 1, 3, 5-7"
+                    placeholder="Example: 1, 3, 5-7"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none"
                   />
                   <p className="text-xs text-gray-500 mt-1">
-                    有效页码范围: 1-{totalPages}
+                    Valid page range: 1-{totalPages}
                   </p>
                 </div>
               )}
             </div>
           )}
 
-          {/* 进度条 */}
+          {/* Progress bar */}
           {status !== "idle" && (
             <div className="mt-6">
               <ProgressBar
@@ -316,7 +316,7 @@ export default function RotatePdfPage() {
             </div>
           )}
 
-          {/* 旋转按钮 */}
+          {/* Rotate button */}
           <button
             onClick={handleRotate}
             disabled={!file || status === "processing"}
@@ -326,10 +326,10 @@ export default function RotatePdfPage() {
                 : "bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800"
             }`}
           >
-            {status === "processing" ? "正在旋转..." : "开始旋转"}
+            {status === "processing" ? "Rotating..." : "Start rotating"}
           </button>
 
-          {/* 结果信息 */}
+          {/* Result information */}
           {status === "complete" && (
             <div className="mt-4 p-4 bg-green-50 rounded-lg border border-green-200">
               <p className="text-green-700 text-sm">{message}</p>

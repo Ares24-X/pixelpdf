@@ -27,7 +27,7 @@ export default function CompressPdfPage() {
       setCompressionRatio(0);
     } else {
       setStatus("error");
-      setMessage("请选择有效的 PDF 文件");
+      setMessage("Please select a valid PDF file");
     }
   }, []);
 
@@ -55,7 +55,7 @@ export default function CompressPdfPage() {
 
     setStatus("processing");
     setProgress(0);
-    setMessage("正在加载 PDF...");
+    setMessage("Loading PDF...");
     setOriginalSize(file.size);
 
     try {
@@ -67,10 +67,10 @@ export default function CompressPdfPage() {
 
       const totalPages = pdfDoc.getPageCount();
       const estimatedSeconds = Math.ceil(totalPages * 0.3);
-      setEstimatedTime(`预计需要 ${estimatedSeconds} 秒`);
+      setEstimatedTime(`Estimated time: ${estimatedSeconds} seconds`);
 
       // Step 1: Remove metadata
-      setMessage("正在移除元数据...");
+      setMessage("Removing metadata...");
       setProgress(10);
       pdfDoc.setTitle("");
       pdfDoc.setAuthor("");
@@ -80,7 +80,7 @@ export default function CompressPdfPage() {
       pdfDoc.setCreator("");
 
       // Step 2: Flatten forms
-      setMessage("正在扁平化表单...");
+      setMessage("Flattening forms...");
       setProgress(20);
       const form = pdfDoc.getForm();
       if (form) {
@@ -92,23 +92,23 @@ export default function CompressPdfPage() {
       }
 
       // Step 3: Process each page - remove unused objects
-      setMessage("正在优化页面...");
+      setMessage("Optimizing pages...");
       for (let i = 0; i < totalPages; i++) {
         const pageProgress = 20 + Math.round((i / totalPages) * 60);
         setProgress(pageProgress);
-        setMessage(`正在优化第 ${i + 1} 页，共 ${totalPages} 页...`);
+        setMessage(`Optimizing page ${i + 1} of ${totalPages}...`);
 
         const remainingSeconds = Math.ceil(
           ((totalPages - i) / totalPages) * estimatedSeconds
         );
-        setEstimatedTime(`剩余约 ${remainingSeconds} 秒`);
+        setEstimatedTime(`About ${remainingSeconds} seconds remaining`);
 
         // Small delay to allow UI updates
         await new Promise((resolve) => setTimeout(resolve, 10));
       }
 
       // Step 4: Save with optimization
-      setMessage("正在生成压缩后的 PDF...");
+      setMessage("Generating compressed PDF...");
       setProgress(85);
 
       const compressedBytes = await pdfDoc.save({
@@ -131,17 +131,17 @@ export default function CompressPdfPage() {
 
       if (ratio > 0) {
         setMessage(
-          `压缩完成！文件大小减少了 ${ratio.toFixed(1)}%`
+          `Compression complete! File size reduced by ${ratio.toFixed(1)}%`
         );
       } else {
         setMessage(
-          `处理完成！文件大小增加了 ${Math.abs(ratio).toFixed(1)}%（该 PDF 已高度优化）`
+          `Processing complete! File size increased by ${Math.abs(ratio).toFixed(1)}% (this PDF is already highly optimized)`
         );
       }
     } catch (err) {
       console.error(err);
       setStatus("error");
-      setMessage(`压缩失败: ${err instanceof Error ? err.message : "未知错误"}`);
+      setMessage(`Compression failed: ${err instanceof Error ? err.message : "Unknown error"}`);
     }
   }, [file]);
 
@@ -155,12 +155,12 @@ export default function CompressPdfPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-teal-50 py-12 px-4">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">压缩 PDF</h1>
-          <p className="text-gray-600">减小 PDF 文件大小，移除元数据并优化结构</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Compress PDF</h1>
+          <p className="text-gray-600">Reduce PDF file size by removing metadata and optimizing structure</p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-lg p-8">
-          {/* 上传区域 */}
+          {/* Upload area */}
           <div
             onDrop={handleDrop}
             onDragOver={handleDragOver}
@@ -184,14 +184,14 @@ export default function CompressPdfPage() {
             />
             <div className="text-4xl mb-3">📦</div>
             <p className="text-gray-700 font-medium">
-              {file ? file.name : "点击或拖拽 PDF 文件到此处"}
+              {file ? file.name : "Click or drag PDF file here"}
             </p>
             <p className="text-gray-400 text-sm mt-1">
-              {file ? formatFileSize(file.size) : "支持 .pdf 格式"}
+              {file ? formatFileSize(file.size) : "Supports .pdf format"}
             </p>
           </div>
 
-          {/* 文件信息 */}
+          {/* File information */}
           {file && (
             <div className="mt-4 p-4 bg-gray-50 rounded-lg">
               <div className="flex items-center justify-between">
@@ -211,13 +211,13 @@ export default function CompressPdfPage() {
                   }}
                   className="text-red-500 hover:text-red-700 text-sm"
                 >
-                  移除
+                  Remove
                 </button>
               </div>
             </div>
           )}
 
-          {/* 进度条 */}
+          {/* Progress bar */}
           {status !== "idle" && (
             <div className="mt-6">
               <ProgressBar
@@ -229,7 +229,7 @@ export default function CompressPdfPage() {
             </div>
           )}
 
-          {/* 压缩按钮 */}
+          {/* Compress button */}
           <button
             onClick={handleCompress}
             disabled={!file || status === "processing"}
@@ -239,22 +239,22 @@ export default function CompressPdfPage() {
                 : "bg-teal-600 hover:bg-teal-700 active:bg-teal-800"
             }`}
           >
-            {status === "processing" ? "正在压缩..." : "开始压缩"}
+            {status === "processing" ? "Compressing..." : "Start compressing"}
           </button>
 
-          {/* 压缩结果对比 */}
+          {/* Compression results comparison */}
           {status === "complete" && originalSize > 0 && compressedSize > 0 && (
             <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-              <h3 className="text-sm font-medium text-gray-700 mb-3">压缩结果</h3>
+              <h3 className="text-sm font-medium text-gray-700 mb-3">Compression result</h3>
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center p-3 bg-red-50 rounded-lg">
-                  <p className="text-xs text-gray-500 mb-1">原始大小</p>
+                  <p className="text-xs text-gray-500 mb-1">Original size</p>
                   <p className="text-lg font-bold text-red-600">
                     {formatFileSize(originalSize)}
                   </p>
                 </div>
                 <div className="text-center p-3 bg-green-50 rounded-lg">
-                  <p className="text-xs text-gray-500 mb-1">压缩后大小</p>
+                  <p className="text-xs text-gray-500 mb-1">Compressed size</p>
                   <p className="text-lg font-bold text-green-600">
                     {formatFileSize(compressedSize)}
                   </p>
@@ -269,8 +269,8 @@ export default function CompressPdfPage() {
                   }`}
                 >
                   {compressionRatio > 0
-                    ? `减少了 ${compressionRatio.toFixed(1)}%`
-                    : `增加了 ${Math.abs(compressionRatio).toFixed(1)}%`}
+                    ? `Reduced by ${compressionRatio.toFixed(1)}%`
+                    : `Increased by ${Math.abs(compressionRatio).toFixed(1)}%`}
                 </span>
               </div>
             </div>

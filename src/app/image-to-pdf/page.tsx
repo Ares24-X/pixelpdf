@@ -32,10 +32,10 @@ export default function ImageToPdfPage() {
             preview: e.target?.result as string,
           });
         };
-        img.onerror = () => reject(new Error(`无法加载图片: ${file.name}`));
+        img.onerror = () => reject(new Error(`Unable to load image: ${file.name}`));
         img.src = e.target?.result as string;
       };
-      reader.onerror = () => reject(new Error(`无法读取文件: ${file.name}`));
+      reader.onerror = () => reject(new Error(`Unable to read file: ${file.name}`));
       reader.readAsDataURL(file);
     });
   };
@@ -46,7 +46,7 @@ export default function ImageToPdfPage() {
 
     if (validFiles.length === 0) {
       setStatus("error");
-      setMessage("请选择 JPG、PNG 或 WebP 格式的图片");
+      setMessage("Please select JPG, PNG, or WebP images");
       return;
     }
 
@@ -62,7 +62,7 @@ export default function ImageToPdfPage() {
       setMessage("");
     } catch (err) {
       setStatus("error");
-      setMessage(err instanceof Error ? err.message : "加载图片失败");
+      setMessage(err instanceof Error ? err.message : "Failed to load image");
     }
   }, []);
 
@@ -95,7 +95,7 @@ export default function ImageToPdfPage() {
 
     setStatus("processing");
     setProgress(0);
-    setMessage("正在初始化...");
+    setMessage("Initializing...");
 
     try {
       const jsPDF = (await import("jspdf")).default;
@@ -112,14 +112,14 @@ export default function ImageToPdfPage() {
       const usableHeight = pageHeight - margin * 2;
 
       const estimatedSeconds = Math.ceil(images.length * 0.3);
-      setEstimatedTime(`预计需要 ${estimatedSeconds} 秒`);
+      setEstimatedTime(`Estimated time: ${estimatedSeconds} seconds`);
 
       for (let i = 0; i < images.length; i++) {
         if (i > 0) {
           pdf.addPage();
         }
 
-        setMessage(`正在处理第 ${i + 1} 张图片，共 ${images.length} 张...`);
+        setMessage(`Processing image ${i + 1} of ${images.length}...`);
         setProgress(Math.round((i / images.length) * 100));
 
         const img = images[i];
@@ -147,21 +147,21 @@ export default function ImageToPdfPage() {
         pdf.addImage(img.preview, format, x, y, drawWidth, drawHeight);
 
         const remainingSeconds = Math.ceil((images.length - i - 1) * 0.3);
-        setEstimatedTime(`剩余约 ${remainingSeconds} 秒`);
+        setEstimatedTime(`About ${remainingSeconds} seconds remaining`);
       }
 
       setProgress(100);
-      setMessage("正在生成 PDF 文件...");
+      setMessage("Generating PDF file...");
       setStatus("complete");
 
       const pdfBlob = pdf.output("blob");
       saveAs(pdfBlob, "images.pdf");
 
-      setMessage(`PDF 生成完成！包含 ${images.length} 张图片`);
+      setMessage(`PDF generated! ${images.length} images included`);
     } catch (err) {
       console.error(err);
       setStatus("error");
-      setMessage(`转换失败: ${err instanceof Error ? err.message : "未知错误"}`);
+      setMessage(`Conversion failed: ${err instanceof Error ? err.message : "Unknown error"}`);
     }
   }, [images]);
 
@@ -175,12 +175,12 @@ export default function ImageToPdfPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-green-50 py-12 px-4">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">图片转 PDF</h1>
-          <p className="text-gray-600">将多张图片合并为一个 PDF 文件，支持 JPG、PNG、WebP 格式</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Image to PDF</h1>
+          <p className="text-gray-600">Combine multiple images into one PDF file. Supports JPG, PNG, and WebP.</p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-lg p-8">
-          {/* 上传区域 */}
+          {/* Upload area */}
           <div
             onDrop={handleDrop}
             onDragOver={handleDragOver}
@@ -204,14 +204,14 @@ export default function ImageToPdfPage() {
             />
             <div className="text-4xl mb-3">🖼️</div>
             <p className="text-gray-700 font-medium">
-              点击或拖拽图片到此处
+              Click or drag images here
             </p>
             <p className="text-gray-400 text-sm mt-1">
-              支持 JPG、PNG、WebP 格式，可多选
+              Supports JPG, PNG, and WebP. Multiple files allowed.
             </p>
           </div>
 
-          {/* 图片列表 */}
+          {/* Image list */}
           {images.length > 0 && (
             <div className="mt-4 space-y-2 max-h-60 overflow-y-auto">
               {images.map((img, index) => (
@@ -236,14 +236,14 @@ export default function ImageToPdfPage() {
                     onClick={() => removeImage(index)}
                     className="text-red-500 hover:text-red-700 text-sm shrink-0"
                   >
-                    移除
+                    Remove
                   </button>
                 </div>
               ))}
             </div>
           )}
 
-          {/* 进度条 */}
+          {/* Progress bar */}
           {status !== "idle" && (
             <div className="mt-6">
               <ProgressBar
@@ -255,7 +255,7 @@ export default function ImageToPdfPage() {
             </div>
           )}
 
-          {/* 转换按钮 */}
+          {/* Convert button */}
           <button
             onClick={handleConvert}
             disabled={images.length === 0 || status === "processing"}
@@ -266,11 +266,11 @@ export default function ImageToPdfPage() {
             }`}
           >
             {status === "processing"
-              ? "正在转换..."
-              : `生成 PDF（${images.length} 张图片）`}
+              ? "Converting..."
+              : `Generate PDF (${images.length} images)`}
           </button>
 
-          {/* 结果信息 */}
+          {/* Result information */}
           {status === "complete" && (
             <div className="mt-4 p-4 bg-green-50 rounded-lg border border-green-200">
               <p className="text-green-700 text-sm">{message}</p>

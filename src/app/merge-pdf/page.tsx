@@ -20,7 +20,7 @@ export default function MergePdfPage() {
 
     if (pdfFiles.length === 0) {
       setStatus("error");
-      setMessage("请选择有效的 PDF 文件");
+      setMessage("Please select a valid PDF file");
       return;
     }
 
@@ -68,17 +68,17 @@ export default function MergePdfPage() {
 
     setStatus("processing");
     setProgress(0);
-    setMessage("正在初始化合并...");
+    setMessage("Initializing merge...");
 
     try {
       const { PDFDocument } = await import("@cantoo/pdf-lib");
       const mergedPdf = await PDFDocument.create();
 
       const estimatedSeconds = Math.ceil(files.length * 0.5);
-      setEstimatedTime(`预计需要 ${estimatedSeconds} 秒`);
+      setEstimatedTime(`Estimated time: ${estimatedSeconds} seconds`);
 
       for (let i = 0; i < files.length; i++) {
-        setMessage(`正在合并第 ${i + 1} 个文件，共 ${files.length} 个...`);
+        setMessage(`Merging file ${i + 1} of ${files.length}...`);
         setProgress(Math.round((i / files.length) * 100));
 
         const arrayBuffer = await files[i].arrayBuffer();
@@ -93,22 +93,22 @@ export default function MergePdfPage() {
         }
 
         const remainingSeconds = Math.ceil((files.length - i - 1) * 0.5);
-        setEstimatedTime(`剩余约 ${remainingSeconds} 秒`);
+        setEstimatedTime(`About ${remainingSeconds} seconds remaining`);
       }
 
       setProgress(100);
-      setMessage("正在生成合并后的 PDF...");
+      setMessage("Generating merged PDF...");
       setStatus("complete");
 
       const mergedPdfBytes = await mergedPdf.save();
       const blob = new Blob([mergedPdfBytes.buffer as ArrayBuffer], { type: "application/pdf" });
       saveAs(blob, "merged.pdf");
 
-      setMessage(`合并完成！共合并 ${files.length} 个文件`);
+      setMessage(`Merge complete! ${files.length} files merged`);
     } catch (err) {
       console.error(err);
       setStatus("error");
-      setMessage(`合并失败: ${err instanceof Error ? err.message : "未知错误"}`);
+      setMessage(`Merge failed: ${err instanceof Error ? err.message : "Unknown error"}`);
     }
   }, [files]);
 
@@ -122,12 +122,12 @@ export default function MergePdfPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-purple-50 py-12 px-4">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">合并 PDF</h1>
-          <p className="text-gray-600">将多个 PDF 文件合并为一个文件，支持拖拽排序</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Merge PDF</h1>
+          <p className="text-gray-600">Combine multiple PDF files into one. Drag to reorder.</p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-lg p-8">
-          {/* 上传区域 */}
+          {/* Upload area */}
           <div
             onDrop={handleDrop}
             onDragOver={handleDragOver}
@@ -151,14 +151,14 @@ export default function MergePdfPage() {
             />
             <div className="text-4xl mb-3">📎</div>
             <p className="text-gray-700 font-medium">
-              点击或拖拽 PDF 文件到此处
+              Click or drag PDF file here
             </p>
             <p className="text-gray-400 text-sm mt-1">
-              支持多选，可多次添加
+              Supports multiple selections and repeated uploads
             </p>
           </div>
 
-          {/* 文件列表 */}
+          {/* File list */}
           {files.length > 0 && (
             <div className="mt-4 space-y-2 max-h-60 overflow-y-auto">
               {files.map((file, index) => (
@@ -194,14 +194,14 @@ export default function MergePdfPage() {
                     onClick={() => removeFile(index)}
                     className="text-red-500 hover:text-red-700 text-sm shrink-0"
                   >
-                    移除
+                    Remove
                   </button>
                 </div>
               ))}
             </div>
           )}
 
-          {/* 进度条 */}
+          {/* Progress bar */}
           {status !== "idle" && (
             <div className="mt-6">
               <ProgressBar
@@ -213,7 +213,7 @@ export default function MergePdfPage() {
             </div>
           )}
 
-          {/* 合并按钮 */}
+          {/* Merge button */}
           <button
             onClick={handleMerge}
             disabled={files.length < 2 || status === "processing"}
@@ -224,18 +224,18 @@ export default function MergePdfPage() {
             }`}
           >
             {status === "processing"
-              ? "正在合并..."
-              : `合并 ${files.length} 个文件`}
+              ? "Merging..."
+              : `Merge ${files.length} files`}
           </button>
 
-          {/* 提示 */}
+          {/* Tip */}
           {files.length === 1 && (
             <p className="text-center text-sm text-amber-600 mt-2">
-              请至少添加 2 个 PDF 文件
+              Please add at least 2 PDF files
             </p>
           )}
 
-          {/* 结果信息 */}
+          {/* Result information */}
           {status === "complete" && (
             <div className="mt-4 p-4 bg-green-50 rounded-lg border border-green-200">
               <p className="text-green-700 text-sm">{message}</p>
