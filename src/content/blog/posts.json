@@ -271,5 +271,19 @@
     "description": "Redact PDF free online and remove sensitive text, names, and account numbers safely. Learn permanent redaction before you share.",
     "date": "2026-06-11",
     "category": "Guide"
+  },
+  {
+    "slug": "sign-pdf-electronically-free",
+    "title": "How to Sign a PDF Electronically for Free (2026 No-Software Guide)",
+    "description": "Sign PDFs online for free without installing software. Step-by-step guide to add handwritten, typed, or image signatures to any PDF in seconds.",
+    "date": "2026-06-12",
+    "category": "Tutorial"
+  },
+  {
+    "slug": "split-pdf-large-file-workflow",
+    "title": "Split Large PDF Files Online Without Losing Pages",
+    "description": "Learn a clean workflow to split large PDFs into smaller files for email, upload portals, and review, while keeping page order and privacy intact.",
+    "date": "2026-06-13",
+    "category": "Guide"
   }
 ]
