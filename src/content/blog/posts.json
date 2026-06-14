@@ -50,8 +50,8 @@
   },
   {
     "slug": "combine-multiple-pdfs-into-one",
-    "title": "Merge PDF Files Free Online \u2014 Combine PDFs Fast",
-    "description": "Merge PDF files free online with PixelPDF. Combine multiple PDFs into one document in your browser\u2014no signup or software required.",
+    "title": "Merge PDF Files Free Online — Combine PDFs Fast",
+    "description": "Merge PDF files free online with PixelPDF. Combine multiple PDFs into one document in your browser—no signup or software required.",
     "date": "2026-06-03",
     "category": "Tutorial"
   },
@@ -113,7 +113,7 @@
   },
   {
     "slug": "compress-pdf-for-gmail",
-    "title": "Compress PDF for Gmail 25MB Limit \u2014 Free Online",
+    "title": "Compress PDF for Gmail 25MB Limit — Free Online",
     "description": "Compress PDF for Gmail 25MB limit with PixelPDF. Reduce file size, avoid attachment errors, and send your PDF today.",
     "date": "2026-05-29",
     "category": "Guide"
@@ -176,7 +176,7 @@
   },
   {
     "slug": "jpg-to-pdf-guide",
-    "title": "JPG to PDF Converter Free Online \u2014 Complete Guide",
+    "title": "JPG to PDF Converter Free Online — Complete Guide",
     "description": "Convert JPG to PDF free online with PixelPDF. Learn the fastest way to turn images into one PDF securely, with no signup required.",
     "date": "2026-05-25",
     "category": "Guide"
@@ -204,8 +204,8 @@
   },
   {
     "slug": "split-pdf-online-guide",
-    "title": "Split PDF Free Online \u2014 Extract Pages Fast",
-    "description": "Split PDF free online with PixelPDF. Extract pages or divide large documents in your browser\u2014no signup, no installation, start now.",
+    "title": "Split PDF Free Online — Extract Pages Fast",
+    "description": "Split PDF free online with PixelPDF. Extract pages or divide large documents in your browser—no signup, no installation, start now.",
     "date": "2026-05-22",
     "category": "Guide"
   },
@@ -218,7 +218,7 @@
   },
   {
     "slug": "image-to-pdf-quick-guide",
-    "title": "Convert Image to PDF Free Online \u2014 JPG, PNG, WebP",
+    "title": "Convert Image to PDF Free Online — JPG, PNG, WebP",
     "description": "Convert image to PDF free online from JPG, PNG, or WebP. Use PixelPDF for private browser-based conversion with no signup.",
     "date": "2026-05-21",
     "category": "Tutorial"
@@ -253,21 +253,21 @@
   },
   {
     "slug": "rotate-pdf-pages-online",
-    "title": "Rotate PDF Pages Free Online \u2014 Fix Upside Down PDFs",
+    "title": "Rotate PDF Pages Free Online — Fix Upside Down PDFs",
     "description": "Rotate PDF pages free online to fix upside down scans. Use PixelPDF to rotate selected pages and save your file permanently.",
     "date": "2026-05-31",
     "category": "Tutorial"
   },
   {
     "slug": "pdf-to-jpg-guide",
-    "title": "Convert PDF to JPG Free Online \u2014 No Signup Required",
+    "title": "Convert PDF to JPG Free Online — No Signup Required",
     "description": "Convert PDF to JPG free online with PixelPDF. Follow quick steps, keep files private in your browser, and convert pages to images now.",
     "date": "2026-05-19",
     "category": "Tutorial"
   },
   {
     "slug": "redact-pdf-online-free",
-    "title": "Redact PDF Free Online \u2014 Remove Sensitive Text Safely",
+    "title": "Redact PDF Free Online — Remove Sensitive Text Safely",
     "description": "Redact PDF free online and remove sensitive text, names, and account numbers safely. Learn permanent redaction before you share.",
     "date": "2026-06-11",
     "category": "Guide"
@@ -285,5 +285,12 @@
     "description": "Learn a clean workflow to split large PDFs into smaller files for email, upload portals, and review, while keeping page order and privacy intact.",
     "date": "2026-06-13",
     "category": "Guide"
+  },
+  {
+    "slug": "add-page-numbers-to-pdf-online",
+    "title": "How to Add Page Numbers to a PDF Online Without Reformatting",
+    "description": "Add page numbers to PDF files online without breaking page order, margins, or signed document packets. Learn placement, numbering styles, and review tips.",
+    "date": "2026-06-14",
+    "category": "Tutorial"
   }
 ]
