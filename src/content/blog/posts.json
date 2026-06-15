@@ -292,5 +292,12 @@
     "description": "Add page numbers to PDF files online without breaking page order, margins, or signed document packets. Learn placement, numbering styles, and review tips.",
     "date": "2026-06-14",
     "category": "Tutorial"
+  },
+  {
+    "slug": "flatten-pdf-online-guide",
+    "title": "How to Flatten a PDF Online Before Sharing or Printing",
+    "description": "Flatten PDF files online to lock visible layers, reduce form issues, and make files safer to share. Learn when flattening helps and what to check first.",
+    "date": "2026-06-15",
+    "category": "Guide"
   }
 ]
