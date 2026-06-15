@@ -16,8 +16,37 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PixelPDF - Free Online PDF Tools",
+  metadataBase: new URL('https://pixelpdf.win'),
+  title: {
+    default: "PixelPDF - Free Online PDF Tools",
+    template: "%s | PixelPDF",
+  },
   description: "Free online PDF tools. Convert PDF to JPG/PNG, merge, split, compress PDF files. 100% free, no upload to server, secure and fast.",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    siteName: 'PixelPDF',
+    title: 'PixelPDF - Free Online PDF Tools',
+    description: 'Free online PDF tools. Convert, merge, split, compress PDF files. 100% free, no upload to server.',
+    url: 'https://pixelpdf.win/',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'PixelPDF - Free Online PDF Tools',
+    description: 'Free online PDF tools. Convert, merge, split, compress PDF files.',
+  },
+
 };
 
 export const viewport: Viewport = {
