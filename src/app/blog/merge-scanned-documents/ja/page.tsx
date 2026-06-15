@@ -56,7 +56,7 @@ export default function MergeScannedDocuments() {
           </div>
           <div className="flex gap-3">
             <span className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">2</span>
-            <p className="text-gray-700"><strong>PixelPDFの</strong><Link href="/ja/merge-pdf" className="text-blue-600 hover:underline font-medium">PDF結合ツール</Link>にアップロード—すべてのスキャンファイルを一度に選択</p>
+            <p className="text-gray-700"><strong>PixelPDFの</strong><Link href="/merge-pdf" className="text-blue-600 hover:underline font-medium">PDF結合ツール</Link>にアップロード—すべてのスキャンファイルを一度に選択</p>
           </div>
           <div className="flex gap-3">
             <span className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">3</span>
@@ -125,7 +125,7 @@ export default function MergeScannedDocuments() {
             <div className="flex-1">
               <h3 className="font-semibold text-gray-900 text-lg mb-2">PDF結合ツールにアップロード</h3>
               <p className="text-gray-700 mb-3">
-                PixelPDFの<Link href="/ja/merge-pdf" className="text-blue-600 hover:underline font-medium">PDF結合</Link>ツールに移動します。アップロードには2つのオプションがあります：
+                PixelPDFの<Link href="/merge-pdf" className="text-blue-600 hover:underline font-medium">PDF結合</Link>ツールに移動します。アップロードには2つのオプションがあります：
               </p>
               <ul className="list-disc list-inside space-y-2 text-gray-700 text-sm">
                 <li><strong>ドラッグ＆ドロップ：</strong>ファイルエクスプローラーですべてのスキャンPDFを選択し、アップロードエリアにドラッグ</li>
@@ -201,7 +201,7 @@ export default function MergeScannedDocuments() {
             <li className="flex gap-3">
               <span className="text-xl">💡</span>
               <div>
-                <strong>結合後に圧縮：</strong>スキャンしたドキュメントは大きくなることがあります。結合後、PixelPDFの<Link href="/ja/compress-pdf" className="text-blue-600 hover:underline">PDF圧縮</Link>ツールを使用して、メールでの共有を容易にするためにファイルサイズを縮小します。
+                <strong>結合後に圧縮：</strong>スキャンしたドキュメントは大きくなることがあります。結合後、PixelPDFの<Link href="/compress-pdf" className="text-blue-600 hover:underline">PDF圧縮</Link>ツールを使用して、メールでの共有を容易にするためにファイルサイズを縮小します。
               </div>
             </li>
           </ul>
@@ -215,7 +215,7 @@ export default function MergeScannedDocuments() {
           スキャナーがPDFではなくJPGまたはPNG画像としてファイルを保存する場合、2つのオプションがあります：
         </p>
         <ol className="list-decimal list-inside space-y-2 text-gray-700 mb-4">
-          <li><strong>最初に画像をPDFに変換：</strong>PixelPDFの<Link href="/ja/image-to-pdf" className="text-blue-600 hover:underline font-medium">画像からPDF</Link>ツールを使用して、各スキャン画像をPDFに変換し、上記の方法を使用して結合します。</li>
+          <li><strong>最初に画像をPDFに変換：</strong>PixelPDFの<Link href="/image-to-pdf" className="text-blue-600 hover:underline font-medium">画像からPDF</Link>ツールを使用して、各スキャン画像をPDFに変換し、上記の方法を使用して結合します。</li>
           <li><strong>画像を直接結合：</strong>一部の画像からPDFツールでは、複数の画像を選択して1ステップで単一の複数ページPDFに変換できます—JPGまたはPNGとして保存されるスキャン書類に最適です。</li>
         </ol>
         <p className="text-gray-700 leading-relaxed">
@@ -259,7 +259,7 @@ export default function MergeScannedDocuments() {
         <h2 className="text-2xl font-bold mb-4">スキャンした書類を結合する準備はできましたか？</h2>
         <p className="mb-6 text-blue-100">複数のスキャンを1つの整理されたPDFに結合—数秒で、完全に無料</p>
         <Link
-          href="/ja/merge-pdf"
+          href="/merge-pdf"
           className="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition"
         >
           今すぐスキャン書類を結合
@@ -270,19 +270,19 @@ export default function MergeScannedDocuments() {
       <section className="mt-12 pt-8 border-t border-gray-200">
         <h3 className="text-xl font-bold text-gray-900 mb-4">関連ツール</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Link href="/ja/image-to-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
+          <Link href="/image-to-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
             <div className="text-2xl mb-2">🖼️</div>
             <div className="font-medium">画像をPDFに変換</div>
           </Link>
-          <Link href="/ja/compress-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
+          <Link href="/compress-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
             <div className="text-2xl mb-2">🗜️</div>
             <div className="font-medium">PDF圧縮</div>
           </Link>
-          <Link href="/ja/split-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
+          <Link href="/split-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
             <div className="text-2xl mb-2">✂️</div>
             <div className="font-medium">PDF分割</div>
           </Link>
-          <Link href="/ja/pdf-to-jpg" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
+          <Link href="/pdf-to-jpg" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
             <div className="text-2xl mb-2">📷</div>
             <div className="font-medium">PDFをJPGに変換</div>
           </Link>

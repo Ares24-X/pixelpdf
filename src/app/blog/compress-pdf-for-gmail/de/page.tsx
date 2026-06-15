@@ -52,7 +52,7 @@ export default function CompressPdfForGmail() {
         <div className="space-y-4">
           <div className="flex gap-3">
             <span className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">1</span>
-            <p className="text-gray-700"><strong>Laden Sie Ihr PDF hoch</strong> zu PixelPDFs <Link href="/de/compress-pdf" className="text-blue-600 hover:underline font-medium">PDF-Komprimierungs-Tool</Link>—per Drag & Drop oder zum Durchsuchen klicken</p>
+            <p className="text-gray-700"><strong>Laden Sie Ihr PDF hoch</strong> zu PixelPDFs <Link href="/compress-pdf" className="text-blue-600 hover:underline font-medium">PDF-Komprimierungs-Tool</Link>—per Drag & Drop oder zum Durchsuchen klicken</p>
           </div>
           <div className="flex gap-3">
             <span className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">2</span>
@@ -95,7 +95,7 @@ export default function CompressPdfForGmail() {
       <section className="mb-10">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Methode 1: PDF online komprimieren (Empfohlen)</h2>
         <p className="text-gray-700 leading-relaxed mb-4">
-          Der schnellste und zuverlässigste Weg, Ihr PDF unter Gmails 25MB-Limit zu bringen, ist die Verwendung eines Online-PDF-Komprimierungstools. PixelPDFs <Link href="/de/compress-pdf" className="text-blue-600 hover:underline font-medium">PDF-Komprimierung</Link>-Tool wurde speziell für diesen Zweck entwickelt und bietet clientseitige Verarbeitung, die Ihre Dokumente privat und sicher hält.
+          Der schnellste und zuverlässigste Weg, Ihr PDF unter Gmails 25MB-Limit zu bringen, ist die Verwendung eines Online-PDF-Komprimierungstools. PixelPDFs <Link href="/compress-pdf" className="text-blue-600 hover:underline font-medium">PDF-Komprimierung</Link>-Tool wurde speziell für diesen Zweck entwickelt und bietet clientseitige Verarbeitung, die Ihre Dokumente privat und sicher hält.
         </p>
 
         <h3 className="text-lg font-semibold text-gray-900 mb-3">Schritt-für-Schritt Komprimierungsprozess</h3>
@@ -190,7 +190,7 @@ export default function CompressPdfForGmail() {
         <div className="space-y-4 mb-4">
           <div className="flex gap-3">
             <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xs">1</span>
-            <p className="text-gray-700">Verwenden Sie PixelPDFs <Link href="/de/split-pdf" className="text-blue-600 hover:underline font-medium">PDF-Split</Link>-Tool, um Ihr Dokument in logische Abschnitte zu unterteilen (z.B. Teil 1, Teil 2)</p>
+            <p className="text-gray-700">Verwenden Sie PixelPDFs <Link href="/split-pdf" className="text-blue-600 hover:underline font-medium">PDF-Split</Link>-Tool, um Ihr Dokument in logische Abschnitte zu unterteilen (z.B. Teil 1, Teil 2)</p>
           </div>
           <div className="flex gap-3">
             <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xs">2</span>
@@ -246,7 +246,7 @@ export default function CompressPdfForGmail() {
           <details className="border border-gray-200 rounded-lg p-4" open>
             <summary className="font-semibold text-gray-900 cursor-pointer">Warum ist mein PDF nach der Komprimierung immer noch zu groß?</summary>
             <p className="mt-3 text-gray-700">
-              Wenn Ihr PDF nach der Komprimierung immer noch über 25MB liegt, enthält es wahrscheinlich eine große Anzahl von hochauflösenden Bildern oder gescannten Seiten, die nicht weiter komprimiert werden können, ohne erheblichen Qualitätsverlust. Versuchen Sie diese Lösungen: (1) Verwenden Sie die "Hohe" Komprimierungseinstellung für maximale Größenreduzierung, (2) Teilen Sie das PDF mit unserem <Link href="/de/split-pdf" className="text-blue-600 hover:underline">PDF-Split-Tool</Link> in mehrere kleinere Dateien auf, oder (3) Verwenden Sie Google Drive, um die Datei direkt zu teilen, anstatt sie anzuhängen.
+              Wenn Ihr PDF nach der Komprimierung immer noch über 25MB liegt, enthält es wahrscheinlich eine große Anzahl von hochauflösenden Bildern oder gescannten Seiten, die nicht weiter komprimiert werden können, ohne erheblichen Qualitätsverlust. Versuchen Sie diese Lösungen: (1) Verwenden Sie die "Hohe" Komprimierungseinstellung für maximale Größenreduzierung, (2) Teilen Sie das PDF mit unserem <Link href="/split-pdf" className="text-blue-600 hover:underline">PDF-Split-Tool</Link> in mehrere kleinere Dateien auf, oder (3) Verwenden Sie Google Drive, um die Datei direkt zu teilen, anstatt sie anzuhängen.
             </p>
           </details>
           <details className="border border-gray-200 rounded-lg p-4">
@@ -270,7 +270,7 @@ export default function CompressPdfForGmail() {
           <details className="border border-gray-200 rounded-lg p-4">
             <summary className="font-semibold text-gray-900 cursor-pointer">Was ist, wenn ich mehrere PDFs senden muss?</summary>
             <p className="mt-3 text-gray-700">
-              Gmails 25MB-Limit gilt für die Gesamtgröße aller Anhänge kombiniert. Wenn Sie mehrere PDFs haben, komprimieren Sie jedes einzeln zuerst und überprüfen Sie dann die Gesamtgröße. Wenn die kombinierte Größe immer noch über 25MB liegt, erwägen Sie, unser <Link href="/de/merge-pdf" className="text-blue-600 hover:underline">PDF-Merge-Tool</Link> zu verwenden, um sie vor der Komprimierung zu einer Datei zu kombinieren, oder senden Sie sie über mehrere E-Mails.
+              Gmails 25MB-Limit gilt für die Gesamtgröße aller Anhänge kombiniert. Wenn Sie mehrere PDFs haben, komprimieren Sie jedes einzeln zuerst und überprüfen Sie dann die Gesamtgröße. Wenn die kombinierte Größe immer noch über 25MB liegt, erwägen Sie, unser <Link href="/merge-pdf" className="text-blue-600 hover:underline">PDF-Merge-Tool</Link> zu verwenden, um sie vor der Komprimierung zu einer Datei zu kombinieren, oder senden Sie sie über mehrere E-Mails.
             </p>
           </details>
         </div>
@@ -281,7 +281,7 @@ export default function CompressPdfForGmail() {
         <h2 className="text-2xl font-bold mb-4">Bereit, Ihr PDF für Gmail zu komprimieren?</h2>
         <p className="mb-6 text-blue-100">Reduzieren Sie Ihr PDF in Sekunden auf unter 25MB—kostenlos, sicher und ohne Registrierung</p>
         <Link
-          href="/de/compress-pdf"
+          href="/compress-pdf"
           className="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition"
         >
           PDF kostenlos komprimieren
@@ -292,19 +292,19 @@ export default function CompressPdfForGmail() {
       <section className="mt-12 pt-8 border-t border-gray-200">
         <h3 className="text-xl font-bold text-gray-900 mb-4">Verwandte Tools</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Link href="/de/split-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
+          <Link href="/split-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
             <div className="text-2xl mb-2">✂️</div>
             <div className="font-medium">PDF teilen</div>
           </Link>
-          <Link href="/de/merge-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
+          <Link href="/merge-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
             <div className="text-2xl mb-2">📄</div>
             <div className="font-medium">PDF zusammenführen</div>
           </Link>
-          <Link href="/de/pdf-to-jpg" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
+          <Link href="/pdf-to-jpg" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
             <div className="text-2xl mb-2">🖼️</div>
             <div className="font-medium">PDF zu JPG</div>
           </Link>
-          <Link href="/de/image-to-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
+          <Link href="/image-to-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
             <div className="text-2xl mb-2">📷</div>
             <div className="font-medium">Bild zu PDF</div>
           </Link>

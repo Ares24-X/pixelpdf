@@ -56,7 +56,7 @@ export default function MergeScannedDocuments() {
           </div>
           <div className="flex gap-3">
             <span className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">2</span>
-            <p className="text-gray-700"><strong>Zu PixelPDFs</strong> <Link href="/de/merge-pdf" className="text-blue-600 hover:underline font-medium">PDF-Merge-Tool</Link> hochladen—alle gescannten Dateien auf einmal auswählen</p>
+            <p className="text-gray-700"><strong>Zu PixelPDFs</strong> <Link href="/merge-pdf" className="text-blue-600 hover:underline font-medium">PDF-Merge-Tool</Link> hochladen—alle gescannten Dateien auf einmal auswählen</p>
           </div>
           <div className="flex gap-3">
             <span className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">3</span>
@@ -125,7 +125,7 @@ export default function MergeScannedDocuments() {
             <div className="flex-1">
               <h3 className="font-semibold text-gray-900 text-lg mb-2">Zum PDF-Merge-Tool hochladen</h3>
               <p className="text-gray-700 mb-3">
-                Navigieren Sie zu PixelPDFs <Link href="/de/merge-pdf" className="text-blue-600 hover:underline font-medium">PDF zusammenführen</Link>-Tool. Sie haben zwei Optionen zum Hochladen:
+                Navigieren Sie zu PixelPDFs <Link href="/merge-pdf" className="text-blue-600 hover:underline font-medium">PDF zusammenführen</Link>-Tool. Sie haben zwei Optionen zum Hochladen:
               </p>
               <ul className="list-disc list-inside space-y-2 text-gray-700 text-sm">
                 <li><strong>Drag & Drop:</strong> Wählen Sie alle Ihre gescannten PDFs im Datei-Explorer aus und ziehen Sie sie auf den Upload-Bereich</li>
@@ -201,7 +201,7 @@ export default function MergeScannedDocuments() {
             <li className="flex gap-3">
               <span className="text-xl">💡</span>
               <div>
-                <strong>Nach dem Zusammenführen komprimieren:</strong> Gescannte Dokumente können groß sein. Verwenden Sie nach dem Zusammenführen PixelPDFs <Link href="/de/compress-pdf" className="text-blue-600 hover:underline">PDF-Komprimierung</Link>-Tool, um die Dateigröße für einfacheres Teilen per E-Mail zu reduzieren.
+                <strong>Nach dem Zusammenführen komprimieren:</strong> Gescannte Dokumente können groß sein. Verwenden Sie nach dem Zusammenführen PixelPDFs <Link href="/compress-pdf" className="text-blue-600 hover:underline">PDF-Komprimierung</Link>-Tool, um die Dateigröße für einfacheres Teilen per E-Mail zu reduzieren.
               </div>
             </li>
           </ul>
@@ -215,7 +215,7 @@ export default function MergeScannedDocuments() {
           Wenn Ihr Scanner Dateien als JPG- oder PNG-Bilder anstelle von PDFs speichert, haben Sie zwei Optionen:
         </p>
         <ol className="list-decimal list-inside space-y-2 text-gray-700 mb-4">
-          <li><strong>Zuerst Bilder in PDF konvertieren:</strong> Verwenden Sie PixelPDFs <Link href="/de/image-to-pdf" className="text-blue-600 hover:underline font-medium">Bild zu PDF</Link>-Tool, um jedes gescannte Bild in ein PDF zu konvertieren, und führen Sie sie dann mit der oben beschriebenen Methode zusammen.</li>
+          <li><strong>Zuerst Bilder in PDF konvertieren:</strong> Verwenden Sie PixelPDFs <Link href="/image-to-pdf" className="text-blue-600 hover:underline font-medium">Bild zu PDF</Link>-Tool, um jedes gescannte Bild in ein PDF zu konvertieren, und führen Sie sie dann mit der oben beschriebenen Methode zusammen.</li>
           <li><strong>Bilder direkt kombinieren:</strong> Einige Bild-zu-PDF-Tools ermöglichen es Ihnen, mehrere Bilder auszuwählen und sie in einem Schritt in ein einziges mehrseitiges PDF zu konvertieren—perfekt für gescannte Dokumente, die als Bilddateien gespeichert werden.</li>
         </ol>
         <p className="text-gray-700 leading-relaxed">
@@ -259,7 +259,7 @@ export default function MergeScannedDocuments() {
         <h2 className="text-2xl font-bold mb-4">Bereit, Ihre gescannten Dokumente zusammenzuführen?</h2>
         <p className="mb-6 text-blue-100">Kombinieren Sie mehrere Scans zu einem organisierten PDF—in Sekunden, völlig kostenlos</p>
         <Link
-          href="/de/merge-pdf"
+          href="/merge-pdf"
           className="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition"
         >
           Gescannte Dokumente jetzt zusammenführen
@@ -270,19 +270,19 @@ export default function MergeScannedDocuments() {
       <section className="mt-12 pt-8 border-t border-gray-200">
         <h3 className="text-xl font-bold text-gray-900 mb-4">Verwandte Tools</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Link href="/de/image-to-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
+          <Link href="/image-to-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
             <div className="text-2xl mb-2">🖼️</div>
             <div className="font-medium">Bild zu PDF</div>
           </Link>
-          <Link href="/de/compress-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
+          <Link href="/compress-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
             <div className="text-2xl mb-2">🗜️</div>
             <div className="font-medium">PDF komprimieren</div>
           </Link>
-          <Link href="/de/split-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
+          <Link href="/split-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
             <div className="text-2xl mb-2">✂️</div>
             <div className="font-medium">PDF teilen</div>
           </Link>
-          <Link href="/de/pdf-to-jpg" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
+          <Link href="/pdf-to-jpg" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
             <div className="text-2xl mb-2">📷</div>
             <div className="font-medium">PDF zu JPG</div>
           </Link>

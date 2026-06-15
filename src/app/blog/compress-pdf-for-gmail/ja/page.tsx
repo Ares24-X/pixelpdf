@@ -52,7 +52,7 @@ export default function CompressPdfForGmail() {
         <div className="space-y-4">
           <div className="flex gap-3">
             <span className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">1</span>
-            <p className="text-gray-700"><strong>PDFをアップロード</strong> — PixelPDFの<Link href="/ja/compress-pdf" className="text-blue-600 hover:underline font-medium">PDF圧縮ツール</Link>にドラッグ＆ドロップするか、クリックして参照</p>
+            <p className="text-gray-700"><strong>PDFをアップロード</strong> — PixelPDFの<Link href="/compress-pdf" className="text-blue-600 hover:underline font-medium">PDF圧縮ツール</Link>にドラッグ＆ドロップするか、クリックして参照</p>
           </div>
           <div className="flex gap-3">
             <span className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">2</span>
@@ -95,7 +95,7 @@ export default function CompressPdfForGmail() {
       <section className="mb-10">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">方法1：PDFをオンラインで圧縮（推奨）</h2>
         <p className="text-gray-700 leading-relaxed mb-4">
-          PDFをGmailの25MB制限内に収めるための最も高速で信頼性の高い方法は、オンラインPDF圧縮ツールを使用することです。PixelPDFの<Link href="/ja/compress-pdf" className="text-blue-600 hover:underline font-medium">PDF圧縮</Link>ツールは、この目的のために特別に設計されており、クライアントサイド処理によりドキュメントのプライバシーとセキュリティを保ちます。
+          PDFをGmailの25MB制限内に収めるための最も高速で信頼性の高い方法は、オンラインPDF圧縮ツールを使用することです。PixelPDFの<Link href="/compress-pdf" className="text-blue-600 hover:underline font-medium">PDF圧縮</Link>ツールは、この目的のために特別に設計されており、クライアントサイド処理によりドキュメントのプライバシーとセキュリティを保ちます。
         </p>
 
         <h3 className="text-lg font-semibold text-gray-900 mb-3">ステップバイステップ圧縮プロセス</h3>
@@ -190,7 +190,7 @@ export default function CompressPdfForGmail() {
         <div className="space-y-4 mb-4">
           <div className="flex gap-3">
             <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xs">1</span>
-            <p className="text-gray-700">PixelPDFの<Link href="/ja/split-pdf" className="text-blue-600 hover:underline font-medium">PDF分割</Link>ツールを使用して、ドキュメントを論理的なセクション（例：パート1、パート2）に分割</p>
+            <p className="text-gray-700">PixelPDFの<Link href="/split-pdf" className="text-blue-600 hover:underline font-medium">PDF分割</Link>ツールを使用して、ドキュメントを論理的なセクション（例：パート1、パート2）に分割</p>
           </div>
           <div className="flex gap-3">
             <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xs">2</span>
@@ -246,7 +246,7 @@ export default function CompressPdfForGmail() {
           <details className="border border-gray-200 rounded-lg p-4" open>
             <summary className="font-semibold text-gray-900 cursor-pointer">圧縮後もPDFが大きすぎるのはなぜですか？</summary>
             <p className="mt-3 text-gray-700">
-              PDFが圧縮後も25MBを超える場合、おそらくこれ以上圧縮できない多数の高解像度画像やスキャンページが含まれています。以下の解決策をお試しください：(1) 最大サイズ削減のために「高」圧縮設定を使用、(2) 当社の<Link href="/ja/split-pdf" className="text-blue-600 hover:underline">PDF分割ツール</Link>を使用してPDFを複数の小さなファイルに分割、または(3) Googleドライブを使用してファイルを直接共有する代わりに。
+              PDFが圧縮後も25MBを超える場合、おそらくこれ以上圧縮できない多数の高解像度画像やスキャンページが含まれています。以下の解決策をお試しください：(1) 最大サイズ削減のために「高」圧縮設定を使用、(2) 当社の<Link href="/split-pdf" className="text-blue-600 hover:underline">PDF分割ツール</Link>を使用してPDFを複数の小さなファイルに分割、または(3) Googleドライブを使用してファイルを直接共有する代わりに。
             </p>
           </details>
           <details className="border border-gray-200 rounded-lg p-4">
@@ -270,7 +270,7 @@ export default function CompressPdfForGmail() {
           <details className="border border-gray-200 rounded-lg p-4">
             <summary className="font-semibold text-gray-900 cursor-pointer">複数のPDFを送信する場合はどうすればよいですか？</summary>
             <p className="mt-3 text-gray-700">
-              Gmailの25MB制限は、1通のメール内のすべての添付ファイルの合計サイズに適用されます。複数のPDFがある場合は、最初にそれぞれを個別に圧縮し、合計サイズを確認してください。合計サイズが25MBを超える場合は、圧縮する前に1つのファイルに結合するために当社の<Link href="/ja/merge-pdf" className="text-blue-600 hover:underline">PDF結合ツール</Link>を使用するか、複数のメールに分けて送信することを検討してください。
+              Gmailの25MB制限は、1通のメール内のすべての添付ファイルの合計サイズに適用されます。複数のPDFがある場合は、最初にそれぞれを個別に圧縮し、合計サイズを確認してください。合計サイズが25MBを超える場合は、圧縮する前に1つのファイルに結合するために当社の<Link href="/merge-pdf" className="text-blue-600 hover:underline">PDF結合ツール</Link>を使用するか、複数のメールに分けて送信することを検討してください。
             </p>
           </details>
         </div>
@@ -281,7 +281,7 @@ export default function CompressPdfForGmail() {
         <h2 className="text-2xl font-bold mb-4">Gmail用にPDFを圧縮する準備はできましたか？</h2>
         <p className="mb-6 text-blue-100">数秒でPDFを25MB以下に縮小—無料、安全、登録不要</p>
         <Link
-          href="/ja/compress-pdf"
+          href="/compress-pdf"
           className="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition"
         >
           無料でPDFを圧縮
@@ -292,19 +292,19 @@ export default function CompressPdfForGmail() {
       <section className="mt-12 pt-8 border-t border-gray-200">
         <h3 className="text-xl font-bold text-gray-900 mb-4">関連ツール</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Link href="/ja/split-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
+          <Link href="/split-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
             <div className="text-2xl mb-2">✂️</div>
             <div className="font-medium">PDF分割</div>
           </Link>
-          <Link href="/ja/merge-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
+          <Link href="/merge-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
             <div className="text-2xl mb-2">📄</div>
             <div className="font-medium">PDF結合</div>
           </Link>
-          <Link href="/ja/pdf-to-jpg" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
+          <Link href="/pdf-to-jpg" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
             <div className="text-2xl mb-2">🖼️</div>
             <div className="font-medium">PDFをJPGに変換</div>
           </Link>
-          <Link href="/ja/image-to-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
+          <Link href="/image-to-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
             <div className="text-2xl mb-2">📷</div>
             <div className="font-medium">画像をPDFに変換</div>
           </Link>
