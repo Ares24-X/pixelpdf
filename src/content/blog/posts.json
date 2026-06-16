@@ -299,5 +299,19 @@
     "description": "Flatten PDF files online to lock visible layers, reduce form issues, and make files safer to share. Learn when flattening helps and what to check first.",
     "date": "2026-06-15",
     "category": "Guide"
+  },
+  {
+    "slug": "pdf-final-review-workflow-guide",
+    "title": "How to Finalize a PDF Before Sharing: Flatten, Sign, Compress, and Check",
+    "description": "Learn the clean final-review workflow for PDFs before you send them. Flatten visible layers, sign safely, compress the copy, and catch mistakes before clients do.",
+    "date": "2026-06-16",
+    "category": "Guide"
+  },
+  {
+    "slug": "repair-corrupted-pdf-online",
+    "title": "How to Repair a Corrupted PDF Online Before You Recreate It",
+    "description": "Learn how to repair a corrupted PDF online, recover readable pages, and decide when to extract, compress, or rebuild the file from the source document.",
+    "date": "2026-06-16",
+    "category": "Tutorial"
   }
 ]
