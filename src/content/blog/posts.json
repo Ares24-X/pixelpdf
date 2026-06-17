@@ -313,5 +313,12 @@
     "description": "Learn how to repair a corrupted PDF online, recover readable pages, and decide when to extract, compress, or rebuild the file from the source document.",
     "date": "2026-06-16",
     "category": "Tutorial"
+  },
+  {
+    "slug": "compress-scanned-pdf-online",
+    "title": "How to Compress Scanned PDF Files Online Without Blurry Pages",
+    "description": "Learn how to compress scanned PDF files online without making signatures, stamps, QR codes, or small text unreadable.",
+    "date": "2026-06-17",
+    "category": "Guide"
   }
 ]
