@@ -1,5 +1,12 @@
 [
   {
+    "slug": "outlook-20mb-attachment-limit",
+    "title": "Outlook 20 MB Limit: Send Large Attachments",
+    "description": "Use an 18 MB safety budget, test data, and a pre-send checklist to prepare large PDF reports for Microsoft mail without broken pages.",
+    "date": "2026-06-19",
+    "category": "Guide"
+  },
+  {
     "slug": "pdf-watermark-remover",
     "title": "How to Remove Watermark from PDF (Free Online Guide)",
     "description": "Learn how to remove watermarks from PDF files online for free. Step-by-step methods for removing text and image watermarks from PDF documents.",
