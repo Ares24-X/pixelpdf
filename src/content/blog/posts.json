@@ -1,5 +1,12 @@
 [
   {
+    "slug": "check-pdf-accessibility",
+    "title": "How to Make PDF Files Accessible (WCAG Compliance Guide 2026)",
+    "description": "Learn how to create accessible PDFs that comply with WCAG standards. Step-by-step guide for PDF accessibility tags, alt text, and screen reader support.",
+    "date": "2026-06-28",
+    "category": "Guide"
+  },
+  {
     "slug": "pdf-to-html-converter",
     "title": "How to Convert PDF to HTML (Free Online Guide 2026)",
     "description": "Learn how to convert PDF files to HTML format for web publishing. Free online converter preserves layout, images, and hyperlinks.",
