@@ -4,6 +4,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Rotate PDF Files Online for Free (2026 Complete Guide)',
@@ -346,6 +347,7 @@ export default function RotatePdfGuide() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="how-to-rotate-pdf" />
+    </article>
   );
 }

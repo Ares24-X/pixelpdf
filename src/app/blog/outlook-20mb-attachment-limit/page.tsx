@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'Outlook 20 MB Limit: Send Large Attachments',
@@ -146,6 +147,7 @@ export default function Mail20MbPayloadLimitPage() {
         <p className="mb-4 text-blue-50">Start with the balanced setting, keep the final copy under 18 MB, and verify the pages before you hit send.</p>
         <Link href="/compress-portable-item" className="inline-block bg-white text-blue-700 px-5 py-3 rounded-lg font-semibold hover:bg-blue-50">Optimize Your Report</Link>
       </section>
+          <PdfInternalLinks slug="outlook-20mb-attachment-limit" />
     </article>
   );
 }

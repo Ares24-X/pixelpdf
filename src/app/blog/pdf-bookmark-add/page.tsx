@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Add Bookmarks to PDF (Table of Contents) Free Online',
@@ -221,6 +222,7 @@ export default function PdfBookmarkAddPage() {
           If your document still needs cleanup, start with <Link href="/organize-pdf/" className="text-blue-600 hover:underline font-medium">Organize PDF</Link>, <Link href="/merge-pdf/" className="text-blue-600 hover:underline font-medium">Merge PDF</Link>, or <Link href="/compress-pdf/" className="text-blue-600 hover:underline font-medium">Compress PDF</Link>. If you want more practical file-sharing workflows, read <Link href="/blog/compress-pdf-before-email/" className="text-blue-600 hover:underline font-medium">how to compress a PDF before email</Link> next.
         </p>
       </section>
+          <PdfInternalLinks slug="pdf-bookmark-add" />
     </article>
   );
 }

@@ -5,6 +5,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'Best Free PDF Tools Online: Complete Comparison Guide (2026)',
@@ -439,6 +440,7 @@ export default function BestFreePDFTools() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="best-free-pdf-tools" />
+    </article>
   );
 }

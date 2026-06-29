@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Fill Out PDF Forms Online (Free & Easy 2026)',
@@ -231,6 +232,7 @@ export default function FillPdfFormOnlinePage() {
           Prepare Your PDF for Submission
         </Link>
       </section>
+          <PdfInternalLinks slug="fill-pdf-form-online" />
     </article>
   );
 }

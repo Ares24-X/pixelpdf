@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: "How to Repair a Corrupted PDF Online Before You Recreate It",
@@ -58,6 +59,7 @@ export default function RepairCorruptedPdfOnlinePage() {
       <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-8 rounded-xl text-center mb-10"><h2 className="text-2xl font-bold mb-4">Recover what you can, then rebuild cleanly</h2><p className="mb-6 text-blue-100">Use PixelPDF tools to split, merge, compress, flatten, and review PDFs before you send the final copy.</p><Link href="/split-pdf" className="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition">Try Split PDF</Link></section>
 
       <section className="mb-10"><h2 className="text-2xl font-bold text-gray-900 mb-4">FAQ</h2><div className="space-y-4"><details className="border border-gray-200 rounded-lg p-4" open><summary className="font-semibold text-gray-900 cursor-pointer">Can every corrupted PDF be repaired?</summary><p className="mt-3 text-gray-700">No. If the file is incomplete or the page data is missing, repair can only recover what still exists inside the file.</p></details><details className="border border-gray-200 rounded-lg p-4"><summary className="font-semibold text-gray-900 cursor-pointer">Is a repaired PDF safe to send?</summary><p className="mt-3 text-gray-700">Only after you open it, check the page count, confirm the content, and remove anything sensitive that should not be shared.</p></details><details className="border border-gray-200 rounded-lg p-4"><summary className="font-semibold text-gray-900 cursor-pointer">Should I repair or ask for a new copy?</summary><p className="mt-3 text-gray-700">If the sender can resend it quickly, ask for a fresh copy. If the file has your own notes, signatures, or unique scans, try recovery first.</p></details></div></section>
+          <PdfInternalLinks slug="repair-corrupted-pdf-online" />
     </article>
   );
 }

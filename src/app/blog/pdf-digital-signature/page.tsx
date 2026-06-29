@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Add Digital Signature to PDF (Free Online Guide 2026)',
@@ -395,6 +396,7 @@ export default function PdfDigitalSignaturePage() {
           </Link>
         </div>
       </section>
+          <PdfInternalLinks slug="pdf-digital-signature" />
     </article>
   );
 }

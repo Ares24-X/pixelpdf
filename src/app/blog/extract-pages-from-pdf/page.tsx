@@ -4,6 +4,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Extract Pages from PDF: Complete Guide (2026)',
@@ -405,6 +406,7 @@ export default function ExtractPagesFromPdfGuide() {
           </p>
         </section>
 
-</article>
+      <PdfInternalLinks slug="extract-pages-from-pdf" />
+    </article>
   );
 }

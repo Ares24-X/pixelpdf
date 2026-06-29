@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: "How to Fit Scanned Paperwork Under a 10 MB Submission Cap",
@@ -129,6 +130,7 @@ export default function ScanUnder10MbSendLimitPage() {
           <details className="border border-gray-200 rounded-lg p-4"><summary className="font-semibold text-gray-900 cursor-pointer">When should I split instead of optimizing harder?</summary><p className="mt-3 text-gray-700">Split when text edges start looking blocky, signatures fade, or the packet has more than fifteen useful pages.</p></details>
         </div>
       </section>
+          <PdfInternalLinks slug="scan-under-10mb-upload-limit" />
     </article>
   );
 }

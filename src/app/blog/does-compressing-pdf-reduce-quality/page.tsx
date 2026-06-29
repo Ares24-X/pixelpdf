@@ -3,6 +3,7 @@
 // Date: 2026-05-21
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'Does Compressing PDF Reduce Quality? Complete Guide 2026',
@@ -258,6 +259,7 @@ export default function CompressPDFQualityGuide() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="does-compressing-pdf-reduce-quality" />
+    </article>
   );
 }

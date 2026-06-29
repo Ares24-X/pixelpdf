@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Compress PDF for Telegram (1.5GB Limit Optimization Guide)',
@@ -388,6 +389,7 @@ export default function CompressPdfForTelegramPage() {
       <footer className="border-t border-gray-200 pt-6 mt-10 text-sm text-gray-500">
         <p>Last updated: June 29, 2026. Telegram limits verified against Telegram iOS 10.x and Android 10.x apps.</p>
       </footer>
+          <PdfInternalLinks slug="compress-pdf-for-telegram" />
     </article>
   );
 }

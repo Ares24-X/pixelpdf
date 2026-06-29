@@ -4,6 +4,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'JPG to PDF Converter Free Online — Complete Guide',
@@ -382,6 +383,7 @@ export default function JPGToPDFGuide() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="jpg-to-pdf-guide" />
+    </article>
   );
 }

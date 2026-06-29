@@ -5,6 +5,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'Online vs Desktop PDF Tools: Which Should You Choose? (2026)',
@@ -310,6 +311,7 @@ export default function OnlineVsDesktopPDFTools() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="online-vs-desktop-pdf-tools" />
+    </article>
   );
 }

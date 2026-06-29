@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Compress Scanned PDF Files Online Without Blurry Pages',
@@ -266,6 +267,7 @@ export default function CompressScannedPdfOnlinePage() {
           <Link href="/merge-pdf" className="text-blue-600 hover:underline font-medium">Merge PDF</Link> when you need to rebuild a cleaner final version.
         </p>
       </section>
+          <PdfInternalLinks slug="compress-scanned-pdf-online" />
     </article>
   );
 }

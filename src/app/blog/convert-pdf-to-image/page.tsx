@@ -4,6 +4,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'PDF to Image: How to Convert PDF to JPG/PNG in Seconds (2026)',
@@ -255,6 +256,7 @@ export default function ConvertPdfToImage() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="convert-pdf-to-image" />
+    </article>
   );
 }

@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Reorder Pages in a PDF File (Free Online 2026)',
@@ -235,6 +236,7 @@ export default function PdfPageReorderPage() {
           Start Organizing Your PDF
         </Link>
       </section>
+          <PdfInternalLinks slug="pdf-page-reorder" />
     </article>
   );
 }

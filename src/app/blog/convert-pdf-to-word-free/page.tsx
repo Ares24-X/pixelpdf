@@ -5,6 +5,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'Convert PDF to Word Free Online Without Losing Format',
@@ -331,6 +332,7 @@ export default function ConvertPdfToWordFree() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="convert-pdf-to-word-free" />
+    </article>
   );
 }

@@ -4,6 +4,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'Convert Image to PDF Free Online — JPG, PNG, WebP',
@@ -172,6 +173,7 @@ export default function ImageToPdfGuide() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="image-to-pdf-quick-guide" />
+    </article>
   );
 }

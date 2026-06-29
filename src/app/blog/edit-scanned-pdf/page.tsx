@@ -4,6 +4,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Edit a Scanned PDF Document (2026)',
@@ -256,6 +257,7 @@ export default function EditScannedPDFGuide() {
           </p>
         </section>
 
-</article>
+      <PdfInternalLinks slug="edit-scanned-pdf" />
+    </article>
   );
 }

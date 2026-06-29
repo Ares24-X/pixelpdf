@@ -5,6 +5,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'Merge PDF Files Free Online — Combine PDFs Fast',
@@ -280,6 +281,7 @@ export default function CombineMultiplePdfsIntoOne() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="combine-multiple-pdfs-into-one" />
+    </article>
   );
 }

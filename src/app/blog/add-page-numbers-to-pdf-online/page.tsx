@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: "How to Add Page Numbers to a PDF Online Without Reformatting",
@@ -49,6 +50,7 @@ export default function AddPageNumbersToPdfOnlinePage() {
       <section className="mb-10"><h2 className="text-2xl font-bold text-gray-900 mb-4">Common mistakes</h2><ul className="list-disc pl-6 space-y-3 text-gray-700"><li><strong>Numbering the cover page by accident.</strong> Some documents need a cover, then page 1 begins on the next page.</li><li><strong>Ignoring landscape pages.</strong> A footer that looks perfect on portrait pages may land in an odd corner on wide spreadsheets.</li><li><strong>Covering signatures or stamps.</strong> Signed PDFs often have critical marks near the bottom edge. Preview them one by one.</li><li><strong>Compressing too early.</strong> If you need to <Link href="/compress-pdf" className="text-blue-600 hover:underline">compress the PDF</Link>, add page numbers first, then compress the final copy.</li></ul></section>
 
       <section className="mb-10"><h2 className="text-2xl font-bold text-gray-900 mb-4">FAQ</h2><div className="space-y-4"><details className="border border-gray-200 rounded-lg p-4" open><summary className="font-semibold text-gray-900 cursor-pointer">Can I add page numbers after merging PDFs?</summary><p className="mt-3 text-gray-700">Yes. In fact, that is usually the best order. Merge the files first, confirm the page order, then add one clean numbering sequence to the finished packet.</p></details><details className="border border-gray-200 rounded-lg p-4"><summary className="font-semibold text-gray-900 cursor-pointer">Will page numbers change my PDF text?</summary><p className="mt-3 text-gray-700">No. Page numbers are added as visible marks on the page. They do not rewrite your existing paragraphs or tables.</p></details><details className="border border-gray-200 rounded-lg p-4"><summary className="font-semibold text-gray-900 cursor-pointer">What if my PDF is scanned?</summary><p className="mt-3 text-gray-700">Scanned PDFs can be numbered too. Just check the margins carefully because scanned pages may be slightly tilted or cropped.</p></details></div></section>
+          <PdfInternalLinks slug="add-page-numbers-to-pdf-online" />
     </article>
   );
 }

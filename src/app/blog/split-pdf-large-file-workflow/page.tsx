@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: "Split Large PDF Files Online Without Losing Pages",
@@ -160,7 +161,8 @@ export default function SplitPDFLargeFileWorkflow() {
           </p>
         </section>
 
-</article>
+      <PdfInternalLinks slug="split-pdf-large-file-workflow" />
+    </article>
     </div>
   );
 }

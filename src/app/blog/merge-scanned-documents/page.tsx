@@ -5,6 +5,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Merge Scanned Documents into One PDF (Free & Easy)',
@@ -343,6 +344,7 @@ export default function MergeScannedDocuments() {
           </p>
         </section>
 
-</article>
+      <PdfInternalLinks slug="merge-scanned-documents" />
+    </article>
   );
 }

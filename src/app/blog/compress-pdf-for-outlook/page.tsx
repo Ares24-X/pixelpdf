@@ -5,6 +5,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Compress PDF for Outlook 20MB Limit (Step-by-Step)',
@@ -422,6 +423,7 @@ export default function CompressPdfForOutlook() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="compress-pdf-for-outlook" />
+    </article>
   );
 }

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata = {
   title: 'PDF Encryption Fixed - Real Password Protection Now Available | PixelPDF',

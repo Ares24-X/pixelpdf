@@ -5,6 +5,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'PDF File Not Opening? Here\'s How to Fix It (2026)',
@@ -337,6 +338,7 @@ export default function PdfNotOpeningFix() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="pdf-not-opening-fix" />
+    </article>
   );
 }

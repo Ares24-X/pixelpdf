@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'Lossy vs Lossless PDF Compression: Which Should You Use?',
@@ -374,6 +375,7 @@ export default function LossyVsLosslessPdfCompressionPage() {
           </Link>
         </div>
       </section>
+          <PdfInternalLinks slug="lossy-vs-lossless-pdf-compression" />
     </article>
   );
 }

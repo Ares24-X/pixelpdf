@@ -5,6 +5,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'Rotate PDF Pages Free Online — Fix Upside Down PDFs',
@@ -309,6 +310,7 @@ export default function RotatePdfPagesOnline() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="rotate-pdf-pages-online" />
+    </article>
   );
 }

@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Compress PDF for WhatsApp (16MB/100MB Limits Explained)',
@@ -391,6 +392,7 @@ export default function CompressPdfForWhatsappPage() {
           </Link>
         </div>
       </section>
+          <PdfInternalLinks slug="compress-pdf-for-whatsapp" />
     </article>
   );
 }

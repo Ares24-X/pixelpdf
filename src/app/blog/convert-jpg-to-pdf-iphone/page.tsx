@@ -5,6 +5,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Convert JPG to PDF on iPhone (Free & No App Required)',
@@ -344,6 +345,7 @@ export default function ConvertJpgToPdfIphone() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="convert-jpg-to-pdf-iphone" />
+    </article>
   );
 }

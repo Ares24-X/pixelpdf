@@ -4,6 +4,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Remove Password from PDF Files (2026)',
@@ -239,6 +240,7 @@ export default function RemovePDFPasswordGuide() {
           </p>
         </section>
 
-</article>
+      <PdfInternalLinks slug="remove-pdf-password" />
+    </article>
   );
 }

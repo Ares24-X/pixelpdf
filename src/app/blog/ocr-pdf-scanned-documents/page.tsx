@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to OCR Scanned PDF Documents (Free Online 2026)',
@@ -262,6 +263,7 @@ export default function OcrPdfScannedDocumentsPage() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="ocr-pdf-scanned-documents" />
+    </article>
   );
 }

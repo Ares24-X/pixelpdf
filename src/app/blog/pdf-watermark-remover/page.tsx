@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Remove Watermark from PDF (Free Online Guide 2026)',
@@ -254,6 +255,7 @@ export default function PdfWatermarkRemoverPage() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="pdf-watermark-remover" />
+    </article>
   );
 }

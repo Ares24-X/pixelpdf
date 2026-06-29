@@ -4,6 +4,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Reduce PDF File Size: 10 Proven Methods (2026)',
@@ -389,6 +390,7 @@ export default function ReducePdfFileSize() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="reduce-pdf-file-size" />
+    </article>
   );
 }

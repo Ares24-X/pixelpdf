@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'Shrink a Scanned Contract for Email Without Losing Signatures',
@@ -155,6 +156,7 @@ export default function ReduceScannedContractEmailSizePage() {
         <p className="mb-4 text-blue-50">Protect signatures first, target 15 MB, then send a test message to yourself before the client receives it.</p>
         <Link href="/compress-portable-item" className="inline-block bg-white text-blue-700 px-5 py-3 rounded-lg font-semibold hover:bg-blue-50">Optimize the Attachment</Link>
       </section>
+          <PdfInternalLinks slug="reduce-scanned-contract-email-size" />
     </article>
   );
 }

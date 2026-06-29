@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: "How to Sign a PDF Electronically for Free (2026 No-Software Guide)",
@@ -301,7 +302,8 @@ export default function SignPDFElectronicallyFree() {
           </p>
         </section>
 
-      </article>
+            <PdfInternalLinks slug="sign-pdf-electronically-free" />
+    </article>
     </div>
   );
 }

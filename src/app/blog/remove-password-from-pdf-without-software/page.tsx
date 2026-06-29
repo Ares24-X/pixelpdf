@@ -5,6 +5,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Remove Password from PDF Without Software (Free Online)',
@@ -321,6 +322,7 @@ export default function RemovePasswordFromPdfWithoutSoftware() {
           </p>
         </section>
 
-</article>
+      <PdfInternalLinks slug="remove-password-from-pdf-without-software" />
+    </article>
   );
 }

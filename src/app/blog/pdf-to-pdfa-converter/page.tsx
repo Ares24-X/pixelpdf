@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Convert PDF to PDF/A for Archiving (Free Online Guide)',
@@ -303,6 +304,7 @@ export default function PdfToPdfAConverterPage() {
           </p>
         </section>
 
-</article>
+      <PdfInternalLinks slug="pdf-to-pdfa-converter" />
+    </article>
   );
 }

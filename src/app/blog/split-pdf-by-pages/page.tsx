@@ -5,6 +5,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Split PDF by Specific Pages (Free Online Guide)',
@@ -373,6 +374,7 @@ export default function SplitPdfByPages() {
           </p>
         </section>
 
-</article>
+      <PdfInternalLinks slug="split-pdf-by-pages" />
+    </article>
   );
 }

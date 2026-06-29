@@ -4,6 +4,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'PDF Security Best Practices: Protect Your Documents in 2026',
@@ -375,6 +376,7 @@ export default function PDFSecurityTipsGuide() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="pdf-security-tips" />
+    </article>
   );
 }

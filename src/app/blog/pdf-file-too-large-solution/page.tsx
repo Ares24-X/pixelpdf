@@ -4,6 +4,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'PDF File Too Large? Here\'s How to Fix It (2026)',
@@ -241,6 +242,7 @@ export default function PdfFileTooLargeSolution() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="pdf-file-too-large-solution" />
+    </article>
   );
 }

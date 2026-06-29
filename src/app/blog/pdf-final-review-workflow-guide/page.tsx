@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: "How to Finalize a PDF Before Sharing: Flatten, Sign, Compress, and Check",
@@ -56,6 +57,7 @@ export default function PdfFinalReviewWorkflowGuidePage() {
       <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-8 rounded-xl text-center mb-10"><h2 className="text-2xl font-bold mb-4">Clean up the final copy</h2><p className="mb-6 text-blue-100">Use PixelPDF tools to flatten, compress, redact, sign, and prepare the delivery version.</p><div className="flex flex-wrap justify-center gap-3"><Link href="/blog/flatten-pdf-online-guide" className="inline-block bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition">Flatten PDF</Link><Link href="/compress-pdf" className="inline-block bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition">Compress PDF</Link></div></section>
 
       <section className="mb-10"><h2 className="text-2xl font-bold text-gray-900 mb-4">FAQ</h2><div className="space-y-4"><details className="border border-gray-200 rounded-lg p-4" open><summary className="font-semibold text-gray-900 cursor-pointer">Should I flatten before signing?</summary><p className="mt-3 text-gray-700">No. Sign first, then flatten the signed copy if you want a stable delivery file.</p></details><details className="border border-gray-200 rounded-lg p-4"><summary className="font-semibold text-gray-900 cursor-pointer">Can I still edit a flattened PDF?</summary><p className="mt-3 text-gray-700">Not cleanly. That is the point. Keep the working copy if more edits may come later.</p></details><details className="border border-gray-200 rounded-lg p-4"><summary className="font-semibold text-gray-900 cursor-pointer">What if the PDF is still too large after compression?</summary><p className="mt-3 text-gray-700">Split the document, remove unnecessary images, or send the file through a drive link instead of email.</p></details></div></section>
+          <PdfInternalLinks slug="pdf-final-review-workflow-guide" />
     </article>
   );
 }

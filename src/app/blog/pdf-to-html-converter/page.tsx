@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Convert PDF to HTML (Free Online Guide 2026)',
@@ -362,6 +363,7 @@ export default function PdfToHtmlConverterPage() {
           </Link>
         </div>
       </section>
+          <PdfInternalLinks slug="pdf-to-html-converter" />
     </article>
   );
 }

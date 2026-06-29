@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Extract Images from PDF Files (Free Online 2026)',
@@ -234,6 +235,7 @@ export default function ExtractImagesFromPdfPage() {
           Start with PDF to JPG
         </Link>
       </section>
+          <PdfInternalLinks slug="extract-images-from-pdf" />
     </article>
   );
 }

@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'Shrink a Scanned Attachment for Outlook Without Breaking Signatures',
@@ -106,6 +107,7 @@ export default function OutlookScannedAttachmentPage() {
         <p className="mb-4 text-blue-50">Start with the balanced pass, keep the final version under 15 MB, and verify signatures before you send it.</p>
         <Link href="/compress-portable-item" className="inline-block bg-white text-blue-700 px-5 py-3 rounded-lg font-semibold hover:bg-blue-50">Optimize the Scan</Link>
       </section>
+          <PdfInternalLinks slug="compress-scanned-pdf-for-outlook" />
     </article>
   );
 }

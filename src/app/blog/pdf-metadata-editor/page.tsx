@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Edit PDF Metadata (Title, Author, Properties) Online Free',
@@ -194,6 +195,7 @@ export default function PdfMetadataEditorPage() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="pdf-metadata-editor" />
+    </article>
   );
 }

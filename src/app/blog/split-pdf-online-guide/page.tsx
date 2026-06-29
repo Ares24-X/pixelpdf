@@ -4,6 +4,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'Split PDF Free Online — Extract Pages Fast',
@@ -358,6 +359,7 @@ export default function SplitPdfGuide() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="split-pdf-online-guide" />
+    </article>
   );
 }

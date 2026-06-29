@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Make PDF Files Accessible (WCAG Compliance Guide 2026)',
@@ -556,6 +557,7 @@ export default function CheckPdfAccessibilityPage() {
           </Link>
         </div>
       </section>
+          <PdfInternalLinks slug="check-pdf-accessibility" />
     </article>
   );
 }

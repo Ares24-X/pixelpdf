@@ -5,6 +5,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'Convert PDF to Excel Free Online Without Losing Data',
@@ -294,6 +295,7 @@ export default function ConvertPdfToExcelFree() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="convert-pdf-to-excel-free" />
+    </article>
   );
 }

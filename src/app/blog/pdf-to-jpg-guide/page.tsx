@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: "Convert PDF to JPG Free Online — No Signup Required",
@@ -186,7 +187,8 @@ export default function PDFToJPGGuide() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="pdf-to-jpg-guide" />
+    </article>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: "How to Flatten a PDF Online Before Sharing or Printing",
@@ -59,6 +60,7 @@ export default function FlattenPdfOnlineGuidePage() {
       <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-8 rounded-xl text-center mb-10"><h2 className="text-2xl font-bold mb-4">Prepare a cleaner PDF workflow</h2><p className="mb-6 text-blue-100">Use PixelPDF tools to split, merge, compress, number, and secure PDFs before you send them.</p><Link href="/compress-pdf" className="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition">Try Compress PDF</Link></section>
 
       <section className="mb-10"><h2 className="text-2xl font-bold text-gray-900 mb-4">FAQ</h2><div className="space-y-4"><details className="border border-gray-200 rounded-lg p-4" open><summary className="font-semibold text-gray-900 cursor-pointer">Does flattening make a PDF non-editable?</summary><p className="mt-3 text-gray-700">It makes visible elements harder to edit as separate objects, but it is not strong security. Use password protection and proper redaction for sensitive documents.</p></details><details className="border border-gray-200 rounded-lg p-4"><summary className="font-semibold text-gray-900 cursor-pointer">Can I flatten a scanned PDF?</summary><p className="mt-3 text-gray-700">Yes, but scanned PDFs are already image-like. Flattening helps most when the file has added annotations, stamps, or form fields on top of the scan.</p></details><details className="border border-gray-200 rounded-lg p-4"><summary className="font-semibold text-gray-900 cursor-pointer">Should I flatten before printing?</summary><p className="mt-3 text-gray-700">For forms, layered artwork, or annotated files, yes. Flattening can reduce missing-field and transparency problems at print time.</p></details></div></section>
+          <PdfInternalLinks slug="flatten-pdf-online-guide" />
     </article>
   );
 }

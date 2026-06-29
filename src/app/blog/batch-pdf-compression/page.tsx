@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Compress Multiple PDFs at Once (Batch Processing 2026)',
@@ -375,6 +376,7 @@ export default function BatchPdfCompressionPage() {
           </details>
         </div>
       </section>
+          <PdfInternalLinks slug="batch-pdf-compression" />
     </article>
   );
 }

@@ -4,6 +4,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'How to Combine Multiple Images into One PDF (2026)',
@@ -212,6 +213,7 @@ export default function CombineImagesIntoPDF() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="combine-images-into-pdf" />
+    </article>
   );
 }

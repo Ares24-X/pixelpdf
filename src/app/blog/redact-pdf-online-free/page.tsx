@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: "Redact PDF Free Online — Remove Sensitive Text Safely",
@@ -152,7 +153,8 @@ export default function RedactPDFOnlineFreeGuide() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="redact-pdf-online-free" />
+    </article>
     </div>
   );
 }

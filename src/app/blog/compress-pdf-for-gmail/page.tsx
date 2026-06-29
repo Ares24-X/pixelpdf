@@ -5,6 +5,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PdfInternalLinks from "@/components/PdfInternalLinks";
 
 export const metadata: Metadata = {
   title: 'Compress PDF for Gmail 25MB Limit — Free Online',
@@ -335,6 +336,7 @@ export default function CompressPdfForGmail() {
             </Link>
           </div>
         </section>
-</article>
+      <PdfInternalLinks slug="compress-pdf-for-gmail" />
+    </article>
   );
 }
