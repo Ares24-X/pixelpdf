@@ -1,5 +1,12 @@
 [
   {
+    "slug": "compress-pdf-for-telegram",
+    "title": "How to Compress PDF for Telegram (1.5GB Limit Optimization Guide)",
+    "description": "Learn how to optimize and compress PDF files for Telegram. Quick methods to reduce size while keeping documents readable on mobile devices.",
+    "date": "2026-06-29",
+    "category": "Tutorial"
+  },
+  {
     "slug": "check-pdf-accessibility",
     "title": "How to Make PDF Files Accessible (WCAG Compliance Guide 2026)",
     "description": "Learn how to create accessible PDFs that comply with WCAG standards. Step-by-step guide for PDF accessibility tags, alt text, and screen reader support.",
