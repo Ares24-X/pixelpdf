@@ -140,6 +140,53 @@ export default function PDFSecurityTipsGuide() {
             <p className="text-gray-700">Your PDF password should be at least 12 characters long, combining uppercase and lowercase letters, numbers, and special symbols. Never use dictionary words, personal information, or sequential patterns. Each sensitive document deserves its own unique password.</p>
           </div>
           
+          {/* Password Strength vs. Cracking Time — real-world estimates */}
+          <div className="overflow-x-auto my-6 border border-gray-200 rounded-lg">
+            <table className="w-full text-sm border-collapse">
+              <caption className="text-left font-semibold text-gray-900 px-4 pt-4 pb-2">Password Strength vs. Estimated AES-256 Cracking Time (2026 GPU clusters)</caption>
+              <thead>
+                <tr className="bg-gray-100">
+                  <th className="border-b border-gray-300 px-4 py-2 text-left">Password Example</th>
+                  <th className="border-b border-gray-300 px-4 py-2 text-left">Length</th>
+                  <th className="border-b border-gray-300 px-4 py-2 text-left">Character Set</th>
+                  <th className="border-b border-gray-300 px-4 py-2 text-left">Estimated Crack Time</th>
+                  <th className="border-b border-gray-300 px-4 py-2 text-left">Verdict</th>
+                </tr>
+              </thead>
+              <tbody className="text-gray-700">
+                <tr className="border-b border-gray-200">
+                  <td className="px-4 py-2 font-mono">report2026</td>
+                  <td className="px-4 py-2">10</td>
+                  <td className="px-4 py-2">Lowercase + digits</td>
+                  <td className="px-4 py-2">~3 hours</td>
+                  <td className="px-4 py-2 text-red-600 font-medium">Unsafe</td>
+                </tr>
+                <tr className="border-b border-gray-200 bg-gray-50">
+                  <td className="px-4 py-2 font-mono">Report_2026!</td>
+                  <td className="px-4 py-2">12</td>
+                  <td className="px-4 py-2">Mixed case + symbols + digits</td>
+                  <td className="px-4 py-2">~34 years</td>
+                  <td className="px-4 py-2 text-yellow-600 font-medium">Acceptable</td>
+                </tr>
+                <tr className="border-b border-gray-200">
+                  <td className="px-4 py-2 font-mono">cR7$mPq!xL2&amp;nW</td>
+                  <td className="px-4 py-2">14</td>
+                  <td className="px-4 py-2">Full ASCII printable</td>
+                  <td className="px-4 py-2">~7.5 million years</td>
+                  <td className="px-4 py-2 text-green-600 font-medium">Strong</td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="px-4 py-2 font-mono">correct-horse-battery-staple</td>
+                  <td className="px-4 py-2">28</td>
+                  <td className="px-4 py-2">Lowercase + hyphen (passphrase)</td>
+                  <td className="px-4 py-2">&gt;heat death of universe</td>
+                  <td className="px-4 py-2 text-green-600 font-medium">Excellent</td>
+                </tr>
+              </tbody>
+            </table>
+            <p className="text-xs text-gray-500 px-4 py-2">Estimates assume offline brute-force with 8× NVIDIA H100 cluster against AES-256. Online tools with rate-limiting add further protection. Real-world attacks typically try dictionary words first, making random characters or long passphrases significantly harder to crack.</p>
+          </div>
+
           <div className="bg-green-50 p-4 rounded-lg">
             <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
               <span className="text-xl">3.</span> Implement Permission Restrictions
@@ -290,6 +337,59 @@ export default function PDFSecurityTipsGuide() {
         </p>
       </section>
 
+      {/* Which Security Method For Your Scenario */}
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Which Security Method Fits Your Scenario?</h2>
+        <p className="text-gray-700 leading-relaxed mb-4">
+          Different documents call for different protection levels. Over-securing a casual file wastes time; under-securing a contract risks exposure. Use this decision table to match your situation to the right PixelPDF tool:
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse border border-gray-300">
+            <thead>
+              <tr className="bg-gray-100">
+                <th className="border border-gray-300 px-4 py-3 text-left">Document Type</th>
+                <th className="border border-gray-300 px-4 py-3 text-left">Risk Level</th>
+                <th className="border border-gray-300 px-4 py-3 text-left">Recommended Action</th>
+                <th className="border border-gray-300 px-4 py-3 text-left">Tool</th>
+              </tr>
+            </thead>
+            <tbody className="text-gray-700">
+              <tr className="border-b border-gray-200">
+                <td className="border border-gray-300 px-4 py-3">Internal draft shared via Slack</td>
+                <td className="border border-gray-300 px-4 py-3">Low</td>
+                <td className="border border-gray-300 px-4 py-3">Permission-only (disable print/copy)</td>
+                <td className="border border-gray-300 px-4 py-3"><Link href="/pdf-encrypt" className="text-blue-600 hover:underline">Encrypt PDF</Link></td>
+              </tr>
+              <tr className="border-b border-gray-200 bg-gray-50">
+                <td className="border border-gray-300 px-4 py-3">Client contract sent by email</td>
+                <td className="border border-gray-300 px-4 py-3">Medium</td>
+                <td className="border border-gray-300 px-4 py-3">AES-256 encryption + separate password delivery</td>
+                <td className="border border-gray-300 px-4 py-3"><Link href="/pdf-encrypt" className="text-blue-600 hover:underline">Encrypt PDF</Link></td>
+              </tr>
+              <tr className="border-b border-gray-200">
+                <td className="border border-gray-300 px-4 py-3">Tax return shared with accountant</td>
+                <td className="border border-gray-300 px-4 py-3">High</td>
+                <td className="border border-gray-300 px-4 py-3">AES-256 + owner password + expiring cloud link</td>
+                <td className="border border-gray-300 px-4 py-3"><Link href="/pdf-encrypt" className="text-blue-600 hover:underline">Encrypt PDF</Link></td>
+              </tr>
+              <tr className="border-b border-gray-200 bg-gray-50">
+                <td className="border border-gray-300 px-4 py-3">Signed proposal that must stay tamper-proof</td>
+                <td className="border border-gray-300 px-4 py-3">High</td>
+                <td className="border border-gray-300 px-4 py-3">Digital signature + encryption</td>
+                <td className="border border-gray-300 px-4 py-3"><Link href="/blog/pdf-digital-signature" className="text-blue-600 hover:underline">Signature Guide</Link></td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-3">Old locked PDF you need to reuse</td>
+                <td className="border border-gray-300 px-4 py-3">N/A</td>
+                <td className="border border-gray-300 px-4 py-3">Remove password (you must know the current password)</td>
+                <td className="border border-gray-300 px-4 py-3"><Link href="/pdf-decrypt" className="text-blue-600 hover:underline">Decrypt PDF</Link></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p className="text-sm text-gray-500 mt-3">Tip: for contracts and proposals, combine encryption with a <Link href="/blog/pdf-digital-signature" className="text-blue-600 hover:underline">digital signature</Link> to prove both authorship and integrity.</p>
+      </section>
+
       {/* FAQ */}
       <section id="faq" className="mb-10">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
@@ -335,19 +435,19 @@ export default function PDFSecurityTipsGuide() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <Link href="/pdf-decrypt" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
             <div className="text-2xl mb-2">🔓</div>
-            <div className="font-medium">PDF Decrypt</div>
+            <div className="font-medium">Decrypt PDF</div>
+          </Link>
+          <Link href="/pdf-encrypt" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
+            <div className="text-2xl mb-2">🔒</div>
+            <div className="font-medium">Encrypt PDF</div>
           </Link>
           <Link href="/merge-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
-            <div className="text-2xl mb-2">🔗</div>
+            <div className="text-2xl mb-2">📎</div>
             <div className="font-medium">Merge PDF</div>
           </Link>
           <Link href="/compress-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
             <div className="text-2xl mb-2">🗜️</div>
             <div className="font-medium">Compress PDF</div>
-          </Link>
-          <Link href="/split-pdf" className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition text-center">
-            <div className="text-2xl mb-2">✂️</div>
-            <div className="font-medium">Split PDF</div>
           </Link>
         </div>
       </section>
@@ -355,24 +455,24 @@ export default function PDFSecurityTipsGuide() {
         <section className="mt-12 pt-8 border-t border-slate-200">
           <h2 className="text-2xl font-bold text-slate-900 mb-3">Related Articles</h2>
           <p className="text-sm text-slate-500 mb-4">
-            Start with the cluster guide: <Link href="/blog/best-free-pdf-tools" className="text-blue-600 underline">Best Free PDF Tools Online: Complete Comparison Guide (2026)</Link>.
+            More from the PDF security cluster:
           </p>
           <div className="grid md:grid-cols-2 gap-4">
-            <Link href="/blog/best-free-pdf-tools" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
-              <h4 className="font-semibold text-blue-600 mb-1">Best Free PDF Tools Online: Complete Comparison Guide (2026)</h4>
-              <p className="text-sm text-slate-600">Compare the best free online PDF tools for 2026. PixelPDF vs iLovePDF, Smallpdf, Adobe, and more. Feature…</p>
+            <Link href="/blog/password-protect-pdf-guide" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">How to Password Protect PDF Files: Complete Security Guide (2026)</h4>
+              <p className="text-sm text-slate-600">Step-by-step guide to add AES-256 password protection to any PDF file, free and in-browser.</p>
             </Link>
-            <Link href="/blog/online-vs-desktop-pdf-tools" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
-              <h4 className="font-semibold text-blue-600 mb-1">Online vs Desktop PDF Tools: Which Should You Choose? (2026)</h4>
-              <p className="text-sm text-slate-600">Compare online and desktop PDF tools. Learn when to use browser-based tools vs installed software for edi…</p>
+            <Link href="/blog/pdf-encrypt-security-guide" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">PDF Encryption &amp; Security Guide</h4>
+              <p className="text-sm text-slate-600">Deep dive into AES-256 vs RC4, owner vs user passwords, and encryption best practices for sensitive PDFs.</p>
             </Link>
-            <Link href="/blog/does-compressing-pdf-reduce-quality" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
-              <h4 className="font-semibold text-blue-600 mb-1">Does Compressing PDF Reduce Quality? Complete Guide 2026</h4>
-              <p className="text-sm text-slate-600">Learn whether PDF compression affects quality, how compression works, and tips to reduce PDF file size wi…</p>
+            <Link href="/blog/remove-password-from-pdf-without-software" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">Remove Password from PDF Without Software (Free Online)</h4>
+              <p className="text-sm text-slate-600">Unlock PDF files online for free when you know the current password—no download or installation needed.</p>
             </Link>
-            <Link href="/blog/pdf-not-opening-fix" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
-              <h4 className="font-semibold text-blue-600 mb-1">PDF File Not Opening? Here's How to Fix It (5 Proven Methods)</h4>
-              <p className="text-sm text-slate-600">PDF file not opening? Learn 5 proven fixes for corrupted, password-protected, or incompatible PDF files.…</p>
+            <Link href="/blog/pdf-digital-signature" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">PDF Digital Signatures: How They Work and When You Need One</h4>
+              <p className="text-sm text-slate-600">Understand digital signatures vs electronic signatures, certificate types, and how to verify PDF authenticity.</p>
             </Link>
           </div>
         </section>
