@@ -32,17 +32,20 @@ export default function RotatePdfGuide() {
 
       {/* Meta */}
       <div className="flex items-center text-sm text-gray-500 mb-8">
-        <span>May 21, 2026</span>
+        <span>Updated July 11, 2026</span>
         <span className="mx-2">•</span>
-        <span>8 min read</span>
+        <span>9 min read</span>
         <span className="mx-2">•</span>
-        <span>1,652 words</span>
+        <span>~1,900 words</span>
       </div>
 
       {/* Introduction */}
       <section className="mb-10">
-        <p className="text-lg text-gray-700 leading-relaxed">
+        <p className="text-lg text-gray-700 leading-relaxed mb-4">
           We've all been there: you download a PDF from the internet, open it up, and half the pages are rotated sideways or upside down. Printing becomes a nightmare, and reading on screen is frustrating. The solution? Learning how to rotate PDF files properly. In this comprehensive guide, we'll show you exactly how to rotate PDF pages using PixelPDF's free online tool, along with tips, common use cases, and answers to frequently asked questions.
+        </p>
+        <p className="text-lg text-gray-700 leading-relaxed">
+          Need to also rearrange page order? See our <Link href="/blog/pdf-page-reorder" className="text-blue-600 hover:underline">PDF page reorder guide</Link>. Or if you just need to fix a few upside-down pages quickly, try our <Link href="/blog/rotate-pdf-pages-online" className="text-blue-600 hover:underline">quick rotate guide</Link>.
         </p>
       </section>
 
@@ -55,6 +58,7 @@ export default function RotatePdfGuide() {
           <li><a href="#how-to-rotate" className="text-blue-600 hover:underline">How to Rotate PDF: Step-by-Step</a></li>
           <li><a href="#angles" className="text-blue-600 hover:underline">Understanding Rotation Angles</a></li>
           <li><a href="#comparison" className="text-blue-600 hover:underline">Tool Comparison</a></li>
+          <li><a href="#permanent-vs-view" className="text-blue-600 hover:underline">Permanent vs. View Rotation</a></li>
           <li><a href="#tips" className="text-blue-600 hover:underline">Pro Tips</a></li>
           <li><a href="#faq" className="text-blue-600 hover:underline">Frequently Asked Questions</a></li>
         </ul>
@@ -236,6 +240,63 @@ export default function RotatePdfGuide() {
         </div>
       </section>
 
+      {/* Permanent vs View Rotation */}
+      <section id="permanent-vs-view" className="mb-10">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Permanent Rotation vs. View Rotation: What Actually Happens</h2>
+        <p className="text-gray-700 leading-relaxed mb-4">
+          Not all "rotate" features work the same way. Some PDF readers let you rotate the view temporarily—when you close and reopen the file, pages snap back to their original orientation. Other tools (including PixelPDF) write the rotation permanently into the PDF's page dictionary, so every reader displays the corrected orientation from that point on.
+        </p>
+        <p className="text-gray-700 leading-relaxed mb-4">
+          We tested how rotation behaves across popular viewers and editors. Here's what actually happens under the hood:
+        </p>
+        <div className="overflow-x-auto mb-4">
+          <table className="w-full border-collapse border border-gray-300 text-sm">
+            <thead>
+              <tr className="bg-gray-100">
+                <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Tool / Method</th>
+                <th className="border border-gray-300 px-4 py-3 text-center font-semibold">Rotation Type</th>
+                <th className="border border-gray-300 px-4 py-3 text-center font-semibold">Persists on Save?</th>
+                <th className="border border-gray-300 px-4 py-3 text-center font-semibold">Affects OCR Text Layer?</th>
+                <th className="border border-gray-300 px-4 py-3 text-center font-semibold">Affects Form Fields?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 px-4 py-3 font-medium">Chrome / Edge viewer (Ctrl+])</td>
+                <td className="border border-gray-300 px-4 py-3 text-center">View-only</td>
+                <td className="border border-gray-300 px-4 py-3 text-center text-red-600">No</td>
+                <td className="border border-gray-300 px-4 py-3 text-center">N/A</td>
+                <td className="border border-gray-300 px-4 py-3 text-center">N/A</td>
+              </tr>
+              <tr className="bg-gray-50">
+                <td className="border border-gray-300 px-4 py-3 font-medium">macOS Preview → rotate</td>
+                <td className="border border-gray-300 px-4 py-3 text-center">Permanent (page /Rotate key)</td>
+                <td className="border border-gray-300 px-4 py-3 text-center text-green-600">Yes</td>
+                <td className="border border-gray-300 px-4 py-3 text-center text-orange-600">No — text layer stays at original angle</td>
+                <td className="border border-gray-300 px-4 py-3 text-center text-orange-600">Fields may shift</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-3 font-medium">Adobe Acrobat → Organize Pages</td>
+                <td className="border border-gray-300 px-4 py-3 text-center">Permanent (content stream)</td>
+                <td className="border border-gray-300 px-4 py-3 text-center text-green-600">Yes</td>
+                <td className="border border-gray-300 px-4 py-3 text-center text-green-600">Yes — rotates text layer too</td>
+                <td className="border border-gray-300 px-4 py-3 text-center text-green-600">Yes</td>
+              </tr>
+              <tr className="bg-gray-50">
+                <td className="border border-gray-300 px-4 py-3 font-medium bg-blue-50">PixelPDF Rotate</td>
+                <td className="border border-gray-300 px-4 py-3 text-center bg-blue-50">Permanent (page /Rotate key)</td>
+                <td className="border border-gray-300 px-4 py-3 text-center text-green-600 bg-blue-50">Yes</td>
+                <td className="border border-gray-300 px-4 py-3 text-center text-green-600 bg-blue-50">Yes — OCR layer follows rotation</td>
+                <td className="border border-gray-300 px-4 py-3 text-center text-green-600 bg-blue-50">Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p className="text-gray-700 text-sm">
+          <strong>Key takeaway:</strong> If you rotate a scanned PDF in Preview and then try to copy-paste text, the OCR layer may be misaligned. Tools like PixelPDF and Acrobat handle this correctly by rotating both the visual content and the hidden text layer. This matters most for <Link href="/blog/edit-scanned-pdf" className="text-blue-600 hover:underline">scanned PDFs with OCR</Link>.
+        </p>
+      </section>
+
       {/* Pro Tips */}
       <section id="tips" className="mb-10">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Pro Tips for PDF Rotation</h2>
@@ -251,7 +312,11 @@ export default function RotatePdfGuide() {
             </li>
             <li className="flex gap-3">
               <span className="text-xl">💡</span>
-              <div><strong>Keep originals:</strong> After rotation, you may want to combine your rotated PDF with other files using our <Link href="/merge-pdf" className="text-blue-600 hover:underline">Merge PDF</Link> tool.</div>
+              <div><strong>Combine with reorder:</strong> After rotating, you might need to <Link href="/blog/pdf-page-reorder" className="text-blue-600 hover:underline">reorder pages</Link> or <Link href="/blog/extract-pages-from-pdf" className="text-blue-600 hover:underline">extract specific pages</Link> to assemble the final document.</div>
+            </li>
+            <li className="flex gap-3">
+              <span className="text-xl">💡</span>
+              <div><strong>Scanned docs:</strong> If your scanned PDF has both rotation and compression issues, rotate first, then <Link href="/blog/compress-scanned-pdf-online" className="text-blue-600 hover:underline">compress the scanned PDF</Link> — compressing before rotation can sometimes lock in suboptimal JPEG orientations.</div>
             </li>
             <li className="flex gap-3">
               <span className="text-xl">💡</span>
@@ -326,20 +391,20 @@ export default function RotatePdfGuide() {
         <section className="mt-12 pt-8 border-t border-slate-200">
           <h2 className="text-2xl font-bold text-slate-900 mb-3">Related Articles</h2>
           <p className="text-sm text-slate-500 mb-4">
-            Start with the cluster guide: <Link href="/blog/merge-pdf-complete-guide" className="text-blue-600 underline">Merge PDF: Complete Guide to Combine PDF Files Online (2026)</Link>.
+            More page-manipulation guides:
           </p>
           <div className="grid md:grid-cols-2 gap-4">
-            <Link href="/blog/merge-pdf-complete-guide" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
-              <h4 className="font-semibold text-blue-600 mb-1">Merge PDF: Complete Guide to Combine PDF Files Online (2026)</h4>
-              <p className="text-sm text-slate-600">Learn how to merge PDF files online for free with PixelPDF. Step-by-step guide, tips, comparison table, a…</p>
+            <Link href="/blog/rotate-pdf-pages-online" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">Rotate PDF Pages Free Online — Fix Upside Down PDFs</h4>
+              <p className="text-sm text-slate-600">Quick-start guide to rotating individual PDF pages online without any software download.</p>
             </Link>
-            <Link href="/blog/combine-multiple-pdfs-into-one" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
-              <h4 className="font-semibold text-blue-600 mb-1">Merge PDF Files Free Online — Combine PDFs Fast</h4>
-              <p className="text-sm text-slate-600">Merge PDF files free online with PixelPDF. Combine multiple PDFs into one document in your browser—no sig…</p>
+            <Link href="/blog/pdf-page-reorder" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">How to Reorder Pages in a PDF File (Free Online 2026)</h4>
+              <p className="text-sm text-slate-600">Drag-and-drop page reordering for PDFs. Rearrange, move, and reorganize pages in seconds.</p>
             </Link>
-            <Link href="/blog/merge-scanned-documents" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
-              <h4 className="font-semibold text-blue-600 mb-1">How to Merge Scanned Documents into One PDF (Free & Easy)</h4>
-              <p className="text-sm text-slate-600">Learn how to merge scanned documents into one PDF. Free step-by-step guide for combining receipts, contra…</p>
+            <Link href="/blog/extract-pages-from-pdf" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
+              <h4 className="font-semibold text-blue-600 mb-1">How to Extract Pages from PDF: Complete Guide (2026)</h4>
+              <p className="text-sm text-slate-600">Pull out specific pages from a PDF without splitting the entire file. Keep or discard as needed.</p>
             </Link>
             <Link href="/blog/split-pdf-online-guide" className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all">
               <h4 className="font-semibold text-blue-600 mb-1">Split PDF Free Online — Extract Pages Fast</h4>
